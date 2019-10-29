@@ -145,9 +145,9 @@ func UpdateActiveDevices(reference string) {
 		LogError(reference, "Problem opening "+DatabaseName+" database: "+err.Error())
 		return
 	}
+	defer db.Close()
 	var deviceType DeviceType
 	db.Where("name=?", "Zapsi").Find(&deviceType)
 	db.Where("device_type_id=?", deviceType.ID).Where("is_activated = true").Find(&activeDevices)
 	LogDebug("MAIN", "Zapsi device type id is "+strconv.Itoa(int(deviceType.ID)))
-	defer db.Close()
 }

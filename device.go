@@ -260,16 +260,16 @@ func AddVirtualEnergyDataToDatabase(record IntermediateData, virtualEnergyPorts 
 			return
 		}
 		dateTimeToInsert := record.DateTime
-		intervalToInsert := dateTimeToInsert.Sub(virtualEnergyPort.LastDateTime).Seconds()
+		intervalToInsert := dateTimeToInsert.Sub(virtualEnergyPort.ActualDataDateTime).Seconds()
 		if intervalToInsert < 0 {
-			LogWarning(device.Name, "Data for "+virtualEnergyPort.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+virtualEnergyPort.LastDateTime.String()+"]")
+			LogWarning(device.Name, "Data for "+virtualEnergyPort.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+virtualEnergyPort.ActualDataDateTime.String()+"]")
 			return
 		}
 		recordToInsert := DeviceAnalogRecord{DateTime: dateTimeToInsert, Data: float32(value.(float64)), DevicePortId: virtualEnergyPort.ID, Interval: float32(intervalToInsert)}
 		db.NewRecord(recordToInsert)
 		db.Create(&recordToInsert)
-		virtualEnergyPort.LastData = strconv.FormatFloat(value.(float64), 'g', 15, 64)
-		virtualEnergyPort.LastDateTime = dateTimeToInsert
+		virtualEnergyPort.ActualData = strconv.FormatFloat(value.(float64), 'g', 15, 64)
+		virtualEnergyPort.ActualDataDateTime = dateTimeToInsert
 		db.Save(&virtualEnergyPort)
 	}
 }
@@ -283,16 +283,16 @@ func AddVirtualSerialDataToDatabase(record IntermediateData, virtualSerialPorts 
 			return
 		}
 		dateTimeToInsert := record.DateTime
-		intervalToInsert := dateTimeToInsert.Sub(virtualSerialPort.LastDateTime).Seconds()
+		intervalToInsert := dateTimeToInsert.Sub(virtualSerialPort.ActualDataDateTime).Seconds()
 		if intervalToInsert < 0 {
-			LogWarning(device.Name, "Data for "+virtualSerialPort.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+virtualSerialPort.LastDateTime.String()+"]")
+			LogWarning(device.Name, "Data for "+virtualSerialPort.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+virtualSerialPort.ActualDataDateTime.String()+"]")
 			return
 		}
 		recordToInsert := DeviceSerialRecord{DateTime: dateTimeToInsert, Data: float32(value.(float64)), DevicePortId: virtualSerialPort.ID, Interval: float32(intervalToInsert)}
 		db.NewRecord(recordToInsert)
 		db.Create(&recordToInsert)
-		virtualSerialPort.LastData = strconv.FormatFloat(value.(float64), 'g', 15, 64)
-		virtualSerialPort.LastDateTime = dateTimeToInsert
+		virtualSerialPort.ActualData = strconv.FormatFloat(value.(float64), 'g', 15, 64)
+		virtualSerialPort.ActualDataDateTime = dateTimeToInsert
 		db.Save(&virtualSerialPort)
 	}
 }
@@ -323,30 +323,30 @@ func ProcessThermoCouplePortData(record IntermediateData, thermoCoupleMainPortId
 	var thermoCoupleColdJunctionPort DevicePort
 	db.Where("device_id = ?", device.ID).Where("port_number = ?", thermoCoupleMainPortId).Find(&thermoCoupleMainPort)
 	db.Where("device_id = ?", device.ID).Where("port_number = ?", thermoCoupleColdJunctionPortId).Find(&thermoCoupleColdJunctionPort)
-	thermoCoupleMainPortData, err := strconv.ParseFloat(thermoCoupleMainPort.LastData, 64)
+	thermoCoupleMainPortData, err := strconv.ParseFloat(thermoCoupleMainPort.ActualData, 64)
 	if err != nil {
 		LogError(device.Name, "Problem parsing data for thermocouple: "+err.Error())
 		return
 	}
 	dataAsMv := math.Abs(thermoCoupleMainPortData) / 8.0 * 0.015625
 	value := ConvertMvToTemp(dataAsMv, thermoCoupleTypeId)
-	coldJunctionTemperature, err := strconv.ParseFloat(thermoCoupleColdJunctionPort.LastData, 64)
+	coldJunctionTemperature, err := strconv.ParseFloat(thermoCoupleColdJunctionPort.ActualData, 64)
 	if err != nil {
 		LogError(device.Name, "Problem parsing last data for coldjunction port, using 0: "+err.Error())
 		coldJunctionTemperature = 0
 	}
 	value = value + coldJunctionTemperature
 	dateTimeToInsert := record.DateTime
-	intervalToInsert := dateTimeToInsert.Sub(virtualPort.LastDateTime).Seconds()
+	intervalToInsert := dateTimeToInsert.Sub(virtualPort.ActualDataDateTime).Seconds()
 	if intervalToInsert < 0 {
-		LogWarning(device.Name, "Data for "+virtualPort.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+virtualPort.LastDateTime.String()+"]")
+		LogWarning(device.Name, "Data for "+virtualPort.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+virtualPort.ActualDataDateTime.String()+"]")
 		return
 	}
 	recordToInsert := DeviceAnalogRecord{DateTime: dateTimeToInsert, Data: float32(value), DevicePortId: virtualPort.ID, Interval: float32(intervalToInsert)}
 	db.NewRecord(recordToInsert)
 	db.Create(&recordToInsert)
-	virtualPort.LastData = strconv.FormatFloat(value, 'g', 15, 64)
-	virtualPort.LastDateTime = dateTimeToInsert
+	virtualPort.ActualData = strconv.FormatFloat(value, 'g', 15, 64)
+	virtualPort.ActualDataDateTime = dateTimeToInsert
 	db.Save(&virtualPort)
 }
 
@@ -357,16 +357,16 @@ func ProcessSpeedPort(record IntermediateData, virtualPort DevicePort, db *gorm.
 		return
 	}
 	dateTimeToInsert := record.DateTime
-	intervalToInsert := dateTimeToInsert.Sub(virtualPort.LastDateTime).Seconds()
+	intervalToInsert := dateTimeToInsert.Sub(virtualPort.ActualDataDateTime).Seconds()
 	if intervalToInsert < 0 {
-		LogWarning(device.Name, "Data for "+virtualPort.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+virtualPort.LastDateTime.String()+"]")
+		LogWarning(device.Name, "Data for "+virtualPort.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+virtualPort.ActualDataDateTime.String()+"]")
 		return
 	}
 	recordToInsert := DeviceAnalogRecord{DateTime: dateTimeToInsert, Data: float32(speed), DevicePortId: virtualPort.ID, Interval: float32(intervalToInsert)}
 	db.NewRecord(recordToInsert)
 	db.Create(&recordToInsert)
-	virtualPort.LastData = strconv.FormatFloat(speed, 'g', 15, 64)
-	virtualPort.LastDateTime = dateTimeToInsert
+	virtualPort.ActualData = strconv.FormatFloat(speed, 'g', 15, 64)
+	virtualPort.ActualDataDateTime = dateTimeToInsert
 	db.Save(&virtualPort)
 }
 
@@ -401,16 +401,16 @@ func ProcessDataAsStandardVirtualAnalogPort(record IntermediateData, virtualPort
 		return
 	}
 	dateTimeToInsert := record.DateTime
-	intervalToInsert := dateTimeToInsert.Sub(virtualPort.LastDateTime).Seconds()
+	intervalToInsert := dateTimeToInsert.Sub(virtualPort.ActualDataDateTime).Seconds()
 	if intervalToInsert < 0 {
-		LogWarning(device.Name, "Data for "+virtualPort.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+virtualPort.LastDateTime.String()+"]")
+		LogWarning(device.Name, "Data for "+virtualPort.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+virtualPort.ActualDataDateTime.String()+"]")
 		return
 	}
 	recordToInsert := DeviceAnalogRecord{DateTime: dateTimeToInsert, Data: float32(value.(float64)), DevicePortId: virtualPort.ID, Interval: float32(intervalToInsert)}
 	db.NewRecord(recordToInsert)
 	db.Create(&recordToInsert)
-	virtualPort.LastData = strconv.FormatFloat(value.(float64), 'g', 15, 64)
-	virtualPort.LastDateTime = dateTimeToInsert
+	virtualPort.ActualData = strconv.FormatFloat(value.(float64), 'g', 15, 64)
+	virtualPort.ActualDataDateTime = dateTimeToInsert
 	db.Save(&virtualPort)
 
 }
@@ -449,28 +449,28 @@ func ProcessDataAsAddZeroPort(data IntermediateData, virtualPort DevicePort, db 
 				if dataToInsert == 1 {
 					firstDateTimeToInsert := data.DateTime
 					secondDateTimeToInsert := data.DateTime.Add(1 * time.Second)
-					firstIntervalToInsert := firstDateTimeToInsert.Sub(virtualPort.LastDateTime).Seconds()
+					firstIntervalToInsert := firstDateTimeToInsert.Sub(virtualPort.ActualDataDateTime).Seconds()
 					secondIntervalToInsert := 1
 					if firstIntervalToInsert < 0 {
-						LogWarning(device.Name, "Data for "+port.Name+" not inserting, data are older ["+firstDateTimeToInsert.String()+"] than data in database ["+port.LastDateTime.String()+"]")
+						LogWarning(device.Name, "Data for "+port.Name+" not inserting, data are older ["+firstDateTimeToInsert.String()+"] than data in database ["+port.ActualDataDateTime.String()+"]")
 						continue
 					}
-					lastData, err := strconv.Atoi(virtualPort.LastData)
+					ActualData, err := strconv.Atoi(virtualPort.ActualData)
 					if err != nil {
-						lastData = 0
+						ActualData = 0
 					}
-					if lastData != dataToInsert {
+					if ActualData != dataToInsert {
 						firstRecord := DeviceDigitalRecord{DateTime: firstDateTimeToInsert, Data: dataToInsert, DevicePortId: virtualPort.ID, Interval: float32(firstIntervalToInsert)}
 						secondRecord := DeviceDigitalRecord{DateTime: secondDateTimeToInsert, Data: 0, DevicePortId: virtualPort.ID, Interval: float32(secondIntervalToInsert)}
 						db.NewRecord(firstRecord)
 						db.NewRecord(secondRecord)
 						db.Create(&firstRecord)
 						db.Create(&secondRecord)
-						virtualPort.LastData = "0"
-						virtualPort.LastDateTime = secondDateTimeToInsert
+						virtualPort.ActualData = "0"
+						virtualPort.ActualDataDateTime = secondDateTimeToInsert
 						db.Save(&virtualPort)
 					} else {
-						LogWarning(device.Name, "Data mismatch for "+port.Name+": last data is equal with new data: ["+strconv.Itoa(lastData)+";"+strconv.Itoa(dataToInsert)+"]")
+						LogWarning(device.Name, "Data mismatch for "+port.Name+": last data is equal with new data: ["+strconv.Itoa(ActualData)+";"+strconv.Itoa(dataToInsert)+"]")
 					}
 				}
 			}
@@ -490,25 +490,25 @@ func ProcessDataAsStandardVirtualDigitalPort(record IntermediateData, virtualPor
 		dataToInsert = 1
 	}
 	dateTimeToInsert := record.DateTime
-	intervalToInsert := dateTimeToInsert.Sub(virtualPort.LastDateTime).Seconds()
+	intervalToInsert := dateTimeToInsert.Sub(virtualPort.ActualDataDateTime).Seconds()
 	if intervalToInsert < 0 {
-		LogWarning(device.Name, "Data for "+virtualPort.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+virtualPort.LastDateTime.String()+"]")
+		LogWarning(device.Name, "Data for "+virtualPort.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+virtualPort.ActualDataDateTime.String()+"]")
 		return
 	}
 
-	lastData, err := strconv.Atoi(virtualPort.LastData)
+	ActualData, err := strconv.Atoi(virtualPort.ActualData)
 	if err != nil {
-		lastData = 0
+		ActualData = 0
 	}
-	if lastData != dataToInsert {
+	if ActualData != dataToInsert {
 		recordToInsert := DeviceDigitalRecord{DateTime: dateTimeToInsert, Data: dataToInsert, DevicePortId: virtualPort.ID, Interval: float32(intervalToInsert)}
 		db.NewRecord(recordToInsert)
 		db.Create(&recordToInsert)
-		virtualPort.LastData = strconv.Itoa(dataToInsert)
-		virtualPort.LastDateTime = dateTimeToInsert
+		virtualPort.ActualData = strconv.Itoa(dataToInsert)
+		virtualPort.ActualDataDateTime = dateTimeToInsert
 		db.Save(&virtualPort)
 	} else {
-		LogWarning(device.Name, "Data mismatch for "+virtualPort.Name+": last data is equal with new data: ["+strconv.Itoa(lastData)+";"+strconv.Itoa(dataToInsert)+"]")
+		LogWarning(device.Name, "Data mismatch for "+virtualPort.Name+": last data is equal with new data: ["+strconv.Itoa(ActualData)+";"+strconv.Itoa(dataToInsert)+"]")
 	}
 }
 
@@ -542,7 +542,7 @@ func ReplacePortNameWithItsValue(device Device, db *gorm.DB, settings string) st
 
 func ReplacePortWithItsValue(portType string, settings string, port DevicePort) string {
 	if strings.Contains(settings, portType+strconv.Itoa(port.PortNumber)) {
-		return strings.Replace(settings, portType+strconv.Itoa(port.PortNumber), port.LastData, -1)
+		return strings.Replace(settings, portType+strconv.Itoa(port.PortNumber), port.ActualData, -1)
 	}
 	return settings
 }
@@ -580,17 +580,17 @@ func AddEnergyDataToDatabase(data *IntermediateData, db *gorm.DB, device Device)
 			LogError(device.Name, "Problem parsing data: "+err.Error())
 		}
 		dateTimeToInsert := data.DateTime
-		intervalToInsert := dateTimeToInsert.Sub(port.LastDateTime).Seconds()
+		intervalToInsert := dateTimeToInsert.Sub(port.ActualDataDateTime).Seconds()
 		if intervalToInsert < 0 {
-			LogWarning(device.Name, "Data for "+port.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+port.LastDateTime.String()+"]")
+			LogWarning(device.Name, "Data for "+port.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+port.ActualDataDateTime.String()+"]")
 			continue
 		}
 		recordToInsert := DeviceAnalogRecord{DateTime: dateTimeToInsert, Data: float32(dataToInsert), DevicePortId: port.ID, Interval: float32(intervalToInsert)}
 		db.NewRecord(recordToInsert)
 		db.Create(&recordToInsert)
 
-		port.LastData = parsedData[positionInFile]
-		port.LastDateTime = dateTimeToInsert
+		port.ActualData = parsedData[positionInFile]
+		port.ActualDataDateTime = dateTimeToInsert
 		db.Save(&port)
 	}
 }
@@ -607,16 +607,16 @@ func AddSerialDataToDatabase(data *IntermediateData, db *gorm.DB, device Device)
 			LogError(device.Name, "Problem parsing data: "+err.Error())
 		}
 		dateTimeToInsert := data.DateTime
-		intervalToInsert := dateTimeToInsert.Sub(port.LastDateTime).Seconds()
+		intervalToInsert := dateTimeToInsert.Sub(port.ActualDataDateTime).Seconds()
 		if intervalToInsert < 0 {
-			LogWarning(device.Name, "Data for "+port.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+port.LastDateTime.String()+"]")
+			LogWarning(device.Name, "Data for "+port.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+port.ActualDataDateTime.String()+"]")
 			continue
 		}
 		recordToInsert := DeviceSerialRecord{DateTime: dateTimeToInsert, Data: float32(dataToInsert), DevicePortId: port.ID, Interval: float32(intervalToInsert)}
 		db.NewRecord(recordToInsert)
 		db.Create(&recordToInsert)
-		port.LastData = parsedData[positionInFile]
-		port.LastDateTime = dateTimeToInsert
+		port.ActualData = parsedData[positionInFile]
+		port.ActualDataDateTime = dateTimeToInsert
 		db.Save(&port)
 	}
 }
@@ -633,24 +633,24 @@ func AddDigitalDataToDatabase(data *IntermediateData, db *gorm.DB, device Device
 			LogError(device.Name, "Problem parsing data: "+err.Error())
 		}
 		dateTimeToInsert := data.DateTime
-		intervalToInsert := dateTimeToInsert.Sub(port.LastDateTime).Seconds()
+		intervalToInsert := dateTimeToInsert.Sub(port.ActualDataDateTime).Seconds()
 		if intervalToInsert < 0 {
-			LogWarning(device.Name, "Data for "+port.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+port.LastDateTime.String()+"]")
+			LogWarning(device.Name, "Data for "+port.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+port.ActualDataDateTime.String()+"]")
 			continue
 		}
-		lastData, err := strconv.Atoi(port.LastData)
+		ActualData, err := strconv.Atoi(port.ActualData)
 		if err != nil {
-			lastData = 0
+			ActualData = 0
 		}
-		if lastData != dataToInsert {
+		if ActualData != dataToInsert {
 			recordToInsert := DeviceDigitalRecord{DateTime: dateTimeToInsert, Data: dataToInsert, DevicePortId: port.ID, Interval: float32(intervalToInsert)}
 			db.NewRecord(recordToInsert)
 			db.Create(&recordToInsert)
-			port.LastData = parsedData[positionInFile]
-			port.LastDateTime = dateTimeToInsert
+			port.ActualData = parsedData[positionInFile]
+			port.ActualDataDateTime = dateTimeToInsert
 			db.Save(&port)
 		} else {
-			LogWarning(device.Name, "Data mismatch for "+port.Name+": last data is equal with new data: ["+strconv.Itoa(lastData)+";"+strconv.Itoa(dataToInsert)+"]")
+			LogWarning(device.Name, "Data mismatch for "+port.Name+": last data is equal with new data: ["+strconv.Itoa(ActualData)+";"+strconv.Itoa(dataToInsert)+"]")
 		}
 	}
 }
@@ -667,17 +667,17 @@ func AddAnalogDataToDatabase(data *IntermediateData, db *gorm.DB, device Device)
 			LogError(device.Name, "Problem parsing data: "+err.Error())
 		}
 		dateTimeToInsert := data.DateTime
-		intervalToInsert := dateTimeToInsert.Sub(port.LastDateTime).Seconds()
+		intervalToInsert := dateTimeToInsert.Sub(port.ActualDataDateTime).Seconds()
 		if intervalToInsert < 0 {
-			LogWarning(device.Name, "Data for "+port.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+port.LastDateTime.String()+"]")
+			LogWarning(device.Name, "Data for "+port.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+port.ActualDataDateTime.String()+"]")
 			continue
 		}
 		recordToInsert := DeviceAnalogRecord{DateTime: dateTimeToInsert, Data: float32(dataToInsert), DevicePortId: port.ID, Interval: float32(intervalToInsert)}
 		db.NewRecord(recordToInsert)
 		db.Create(&recordToInsert)
 
-		port.LastData = parsedData[positionInFile]
-		port.LastDateTime = dateTimeToInsert
+		port.ActualData = parsedData[positionInFile]
+		port.ActualDataDateTime = dateTimeToInsert
 		db.Save(&port)
 	}
 }

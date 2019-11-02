@@ -82,7 +82,7 @@ func RunDevice(device Device) {
 		device.Sleep(start)
 		deviceIsActive = CheckActive(device)
 	}
-	RemoveDeviceFromRunningDevice(device)
+	RemoveDeviceFromRunningDevices(device)
 	LogInfo(device.Name, "Device not active, stopped running")
 
 }
@@ -128,7 +128,7 @@ func CheckActive(device Device) bool {
 	return false
 }
 
-func RemoveDeviceFromRunningDevice(device Device) {
+func RemoveDeviceFromRunningDevices(device Device) {
 	for idx, runningDevice := range runningDevices {
 		if device.Name == runningDevice.Name {
 			deviceSync.Lock()

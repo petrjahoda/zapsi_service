@@ -202,15 +202,17 @@ func (device Device) ProcessData(intermediateData []IntermediateData) error {
 	totalNumberOfRecords := len(intermediateData)
 	displayProgress := true
 	for progress, record := range intermediateData {
-		if record.Type == digital {
+		switch record.Type {
+		case digital:
 			AddDigitalDataToDatabase(&record, db, device)
-		} else if record.Type == analog {
+		case analog:
 			AddAnalogDataToDatabase(&record, db, device)
-		} else if record.Type == serial {
+		case serial:
 			AddSerialDataToDatabase(&record, db, device)
-		} else if record.Type == energy {
+		case energy:
 			AddEnergyDataToDatabase(&record, db, device)
 		}
+
 		var virtualDigitalPorts []DevicePort
 		var virtualAnalogPorts []DevicePort
 		var virtualSerialPorts []DevicePort
@@ -715,13 +717,14 @@ func AddDataForProcessing(filename string, data *[]IntermediateData, device Devi
 
 func AddIntermediateData(finalDateTime time.Time, rawData string, filename string, data *[]IntermediateData) {
 	dataForInsert := IntermediateData{DateTime: finalDateTime, RawData: rawData}
-	if filename == "analog.txt" {
+	switch filename {
+	case "analog.txt":
 		dataForInsert.Type = analog
-	} else if filename == "digital.txt" {
+	case "digital.txt":
 		dataForInsert.Type = digital
-	} else if filename == "serial.txt" {
+	case "serial.txt":
 		dataForInsert.Type = serial
-	} else if filename == "ui_value.txt" {
+	case "ui_value.txt":
 		dataForInsert.Type = energy
 	}
 	*data = append(*data, dataForInsert)
@@ -758,13 +761,15 @@ func GetDateTimeFromData(data []string) (time.Time, error) {
 		}
 		input := dataYear + "-" + dataMonth + "-" + dataDay + " " + dataHour + ":" + dataMinute + ":" + dataSecond + "." + dataMilliSecond
 		var layout string
-		if len(dataMilliSecond) == 1 {
+		switch len(dataMilliSecond) {
+		case 1:
 			layout = "2006-1-2 15:4:5.0"
-		} else if len(dataMilliSecond) == 2 {
+		case 2:
 			layout = "2006-1-2 15:4:5.00"
-		} else {
+		default:
 			layout = "2006-1-2 15:4:5.000"
 		}
+
 		finalDateTime, err := time.Parse(layout, input)
 		return finalDateTime, err
 	}

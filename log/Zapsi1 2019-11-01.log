@@ -1,0 +1,175 @@
+2019-11-01 20:52:38.874   Zapsi1   INF   Device started running
+2019-11-01 20:52:38.874   Zapsi1   INF   Device directory exists
+2019-11-01 20:52:38.874   Zapsi1   INF   UDP connection opened
+2019-11-01 20:52:38.874   Zapsi1   INF   UDP data written to Zapsi: set_datetime=01.11.2019 19:52:38 05&, with result of 36
+2019-11-01 20:52:38.875   Zapsi1   INF   UDP connection closed
+2019-11-01 20:52:38.875   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:52:38.892   Zapsi1   INF   Device has digital ports
+2019-11-01 20:52:38.954   Zapsi1   WRN   http://192.168.3.60/log/digital.txt problem downloading Get http://192.168.3.60/log/digital.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:52:38.954   Zapsi1   INF   Device has analog ports
+2019-11-01 20:52:39.071   Zapsi1   WRN   http://192.168.3.60/log/analog.txt problem downloading Get http://192.168.3.60/log/analog.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:52:39.071   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:52:39.071   Zapsi1   INF   Processing takes 196.570854ms
+2019-11-01 20:52:39.071   Zapsi1   INF   Sleeping for 9.803306038s
+2019-11-01 20:52:48.876   Zapsi1   INF   Device still active
+2019-11-01 20:52:48.877   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:52:48.889   Zapsi1   INF   Device has digital ports
+2019-11-01 20:52:48.962   Zapsi1   WRN   http://192.168.3.60/log/digital.txt problem downloading Get http://192.168.3.60/log/digital.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:52:48.962   Zapsi1   INF   Device has analog ports
+2019-11-01 20:52:49.029   Zapsi1   WRN   http://192.168.3.60/log/analog.txt problem downloading Get http://192.168.3.60/log/analog.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:52:49.029   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:52:49.030   Zapsi1   INF   Processing takes 153.170443ms
+2019-11-01 20:52:49.030   Zapsi1   INF   Sleeping for 9.846775752s
+2019-11-01 20:52:58.877   Zapsi1   INF   Device still active
+2019-11-01 20:52:58.877   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:52:58.893   Zapsi1   INF   Device has digital ports
+2019-11-01 20:52:58.983   Zapsi1   WRN   http://192.168.3.60/log/digital.txt problem downloading Get http://192.168.3.60/log/digital.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:52:58.983   Zapsi1   INF   Device has analog ports
+2019-11-01 20:52:59.042   Zapsi1   WRN   http://192.168.3.60/log/analog.txt problem downloading Get http://192.168.3.60/log/analog.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:52:59.043   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:52:59.043   Zapsi1   INF   Processing takes 165.772211ms
+2019-11-01 20:52:59.043   Zapsi1   INF   Sleeping for 9.83416757s
+2019-11-01 20:53:08.878   Zapsi1   INF   Device still active
+2019-11-01 20:53:08.878   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:53:08.891   Zapsi1   INF   Device has digital ports
+2019-11-01 20:53:08.957   Zapsi1   WRN   http://192.168.3.60/log/digital.txt problem downloading Get http://192.168.3.60/log/digital.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:53:08.957   Zapsi1   INF   Device has analog ports
+2019-11-01 20:53:09.018   Zapsi1   WRN   http://192.168.3.60/log/analog.txt problem downloading Get http://192.168.3.60/log/analog.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:53:09.018   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:53:09.018   Zapsi1   INF   Processing takes 140.699718ms
+2019-11-01 20:53:09.019   Zapsi1   INF   Sleeping for 9.859222663s
+2019-11-01 20:53:18.879   Zapsi1   INF   Device still active
+2019-11-01 20:53:18.879   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:53:18.902   Zapsi1   INF   Device has digital ports
+2019-11-01 20:53:18.962   Zapsi1   WRN   http://192.168.3.60/log/digital.txt problem downloading Get http://192.168.3.60/log/digital.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:53:18.962   Zapsi1   INF   Device has analog ports
+2019-11-01 20:53:19.031   Zapsi1   WRN   http://192.168.3.60/log/analog.txt problem downloading Get http://192.168.3.60/log/analog.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:53:19.031   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:53:19.031   Zapsi1   INF   Processing takes 152.086587ms
+2019-11-01 20:53:19.031   Zapsi1   INF   Sleeping for 9.847803231s
+2019-11-01 20:53:28.880   Zapsi1   INF   Device still active
+2019-11-01 20:53:28.880   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:53:28.912   Zapsi1   INF   Device has digital ports
+2019-11-01 20:53:28.987   Zapsi1   WRN   http://192.168.3.60/log/digital.txt problem downloading Get http://192.168.3.60/log/digital.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:53:28.988   Zapsi1   INF   Device has analog ports
+2019-11-01 20:53:29.052   Zapsi1   WRN   http://192.168.3.60/log/analog.txt problem downloading Get http://192.168.3.60/log/analog.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:53:29.053   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:53:29.053   Zapsi1   INF   Processing takes 172.968884ms
+2019-11-01 20:53:29.053   Zapsi1   INF   Sleeping for 9.826919265s
+2019-11-01 20:53:38.885   Zapsi1   INF   Device still active
+2019-11-01 20:53:38.886   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:53:38.903   Zapsi1   INF   Device has digital ports
+2019-11-01 20:53:38.973   Zapsi1   WRN   http://192.168.3.60/log/digital.txt problem downloading Get http://192.168.3.60/log/digital.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:53:38.974   Zapsi1   INF   Device has analog ports
+2019-11-01 20:53:39.038   Zapsi1   WRN   http://192.168.3.60/log/analog.txt problem downloading Get http://192.168.3.60/log/analog.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:53:39.038   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:53:39.038   Zapsi1   INF   Processing takes 152.46163ms
+2019-11-01 20:53:39.038   Zapsi1   INF   Sleeping for 9.847468982s
+2019-11-01 20:53:48.887   Zapsi1   INF   Device still active
+2019-11-01 20:53:48.887   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:53:48.902   Zapsi1   INF   Device has digital ports
+2019-11-01 20:53:48.970   Zapsi1   WRN   http://192.168.3.60/log/digital.txt problem downloading Get http://192.168.3.60/log/digital.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:53:48.970   Zapsi1   INF   Device has analog ports
+2019-11-01 20:53:49.030   Zapsi1   WRN   http://192.168.3.60/log/analog.txt problem downloading Get http://192.168.3.60/log/analog.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:53:49.030   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:53:49.031   Zapsi1   INF   Processing takes 143.305639ms
+2019-11-01 20:53:49.031   Zapsi1   INF   Sleeping for 9.85662007s
+2019-11-01 20:53:58.889   Zapsi1   INF   Device still active
+2019-11-01 20:53:58.889   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:53:58.906   Zapsi1   INF   Device has digital ports
+2019-11-01 20:53:58.974   Zapsi1   WRN   http://192.168.3.60/log/digital.txt problem downloading Get http://192.168.3.60/log/digital.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:53:58.975   Zapsi1   INF   Device has analog ports
+2019-11-01 20:53:59.043   Zapsi1   WRN   http://192.168.3.60/log/analog.txt problem downloading Get http://192.168.3.60/log/analog.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:53:59.044   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:53:59.044   Zapsi1   INF   Processing takes 155.404796ms
+2019-11-01 20:53:59.044   Zapsi1   INF   Sleeping for 9.84449792s
+2019-11-01 20:54:08.890   Zapsi1   INF   Device still active
+2019-11-01 20:54:08.891   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:54:08.905   Zapsi1   INF   Device has digital ports
+2019-11-01 20:54:08.995   Zapsi1   WRN   http://192.168.3.60/log/digital.txt problem downloading Get http://192.168.3.60/log/digital.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:54:08.995   Zapsi1   INF   Device has analog ports
+2019-11-01 20:54:09.060   Zapsi1   WRN   http://192.168.3.60/log/analog.txt problem downloading Get http://192.168.3.60/log/analog.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:54:09.061   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:54:09.061   Zapsi1   INF   Processing takes 170.266211ms
+2019-11-01 20:54:09.061   Zapsi1   INF   Sleeping for 9.829634627s
+2019-11-01 20:54:18.895   Zapsi1   INF   Device still active
+2019-11-01 20:54:18.896   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:54:18.917   Zapsi1   INF   Device has digital ports
+2019-11-01 20:54:19.024   Zapsi1   WRN   http://192.168.3.60/log/digital.txt problem downloading Get http://192.168.3.60/log/digital.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:54:19.024   Zapsi1   INF   Device has analog ports
+2019-11-01 20:54:19.086   Zapsi1   WRN   http://192.168.3.60/log/analog.txt problem downloading Get http://192.168.3.60/log/analog.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:54:19.087   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:54:19.087   Zapsi1   INF   Processing takes 191.242334ms
+2019-11-01 20:54:19.087   Zapsi1   INF   Sleeping for 9.808594943s
+2019-11-01 20:54:28.898   Zapsi1   INF   Device still active
+2019-11-01 20:54:28.898   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:54:28.910   Zapsi1   INF   Device has digital ports
+2019-11-01 20:54:28.981   Zapsi1   WRN   http://192.168.3.60/log/digital.txt problem downloading Get http://192.168.3.60/log/digital.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:54:28.981   Zapsi1   INF   Device has analog ports
+2019-11-01 20:54:29.040   Zapsi1   WRN   http://192.168.3.60/log/analog.txt problem downloading Get http://192.168.3.60/log/analog.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:54:29.041   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:54:29.041   Zapsi1   INF   Processing takes 142.956743ms
+2019-11-01 20:54:29.041   Zapsi1   INF   Sleeping for 9.856933029s
+2019-11-01 20:54:38.908   Zapsi1   INF   Device still active
+2019-11-01 20:54:38.908   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:54:38.922   Zapsi1   INF   Device has digital ports
+2019-11-01 20:54:38.992   Zapsi1   WRN   http://192.168.3.60/log/digital.txt problem downloading Get http://192.168.3.60/log/digital.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:54:38.992   Zapsi1   INF   Device has analog ports
+2019-11-01 20:54:39.057   Zapsi1   WRN   http://192.168.3.60/log/analog.txt problem downloading Get http://192.168.3.60/log/analog.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:54:39.058   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:54:39.058   Zapsi1   INF   Processing takes 149.680514ms
+2019-11-01 20:54:39.058   Zapsi1   INF   Sleeping for 9.850200781s
+2019-11-01 20:54:48.914   Zapsi1   INF   Device still active
+2019-11-01 20:54:48.914   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:54:48.931   Zapsi1   INF   Device has digital ports
+2019-11-01 20:54:49.000   Zapsi1   WRN   http://192.168.3.60/log/digital.txt problem downloading Get http://192.168.3.60/log/digital.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:54:49.000   Zapsi1   INF   Device has analog ports
+2019-11-01 20:54:49.060   Zapsi1   WRN   http://192.168.3.60/log/analog.txt problem downloading Get http://192.168.3.60/log/analog.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:54:49.061   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:54:49.061   Zapsi1   INF   Processing takes 147.492602ms
+2019-11-01 20:54:49.061   Zapsi1   INF   Sleeping for 9.852402386s
+2019-11-01 20:54:58.915   Zapsi1   INF   Device still active
+2019-11-01 20:54:58.915   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:54:58.933   Zapsi1   INF   Device has digital ports
+2019-11-01 20:54:59.001   Zapsi1   WRN   http://192.168.3.60/log/digital.txt problem downloading Get http://192.168.3.60/log/digital.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:54:59.001   Zapsi1   INF   Device has analog ports
+2019-11-01 20:54:59.065   Zapsi1   WRN   http://192.168.3.60/log/analog.txt problem downloading Get http://192.168.3.60/log/analog.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:54:59.065   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:54:59.065   Zapsi1   INF   Processing takes 150.301866ms
+2019-11-01 20:54:59.066   Zapsi1   INF   Sleeping for 9.849529531s
+2019-11-01 20:55:08.920   Zapsi1   INF   Device still active
+2019-11-01 20:55:08.920   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:55:08.933   Zapsi1   INF   Device has digital ports
+2019-11-01 20:55:09.003   Zapsi1   WRN   http://192.168.3.60/log/digital.txt problem downloading Get http://192.168.3.60/log/digital.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:55:09.003   Zapsi1   INF   Device has analog ports
+2019-11-01 20:55:09.066   Zapsi1   WRN   http://192.168.3.60/log/analog.txt problem downloading Get http://192.168.3.60/log/analog.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:55:09.066   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:55:09.066   Zapsi1   INF   Processing takes 146.49434ms
+2019-11-01 20:55:09.067   Zapsi1   INF   Sleeping for 9.853387308s
+2019-11-01 20:55:18.925   Zapsi1   INF   Device still active
+2019-11-01 20:55:18.926   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:55:18.943   Zapsi1   INF   Device has digital ports
+2019-11-01 20:55:19.005   Zapsi1   WRN   http://192.168.3.60/log/digital.txt problem downloading Get http://192.168.3.60/log/digital.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:55:19.006   Zapsi1   INF   Device has analog ports
+2019-11-01 20:55:19.091   Zapsi1   WRN   http://192.168.3.60/log/analog.txt problem downloading Get http://192.168.3.60/log/analog.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:55:19.092   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:55:19.092   Zapsi1   INF   Processing takes 166.559611ms
+2019-11-01 20:55:19.092   Zapsi1   INF   Sleeping for 9.833303422s
+2019-11-01 20:55:28.929   Zapsi1   INF   Device still active
+2019-11-01 20:55:28.929   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:55:28.942   Zapsi1   INF   Device has digital ports
+2019-11-01 20:55:29.002   Zapsi1   WRN   http://192.168.3.60/log/digital.txt problem downloading Get http://192.168.3.60/log/digital.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:55:29.002   Zapsi1   INF   Device has analog ports
+2019-11-01 20:55:29.065   Zapsi1   WRN   http://192.168.3.60/log/analog.txt problem downloading Get http://192.168.3.60/log/analog.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:55:29.066   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:55:29.066   Zapsi1   INF   Processing takes 137.047326ms
+2019-11-01 20:55:29.066   Zapsi1   INF   Sleeping for 9.862784104s
+2019-11-01 20:55:38.933   Zapsi1   INF   Device still active
+2019-11-01 20:55:38.934   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:55:38.948   Zapsi1   INF   Device has digital ports
+2019-11-01 20:55:39.022   Zapsi1   WRN   http://192.168.3.60/log/digital.txt problem downloading Get http://192.168.3.60/log/digital.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:55:39.022   Zapsi1   INF   Device has analog ports
+2019-11-01 20:55:39.135   Zapsi1   WRN   http://192.168.3.60/log/analog.txt problem downloading Get http://192.168.3.60/log/analog.txt: dial tcp 192.168.3.60:80: connect: no route to host
+2019-11-01 20:55:39.135   Zapsi1   INF   Data sorted, number of records: 0
+2019-11-01 20:55:39.136   Zapsi1   INF   Processing takes 202.133367ms
+2019-11-01 20:55:39.136   Zapsi1   INF   Sleeping for 9.797724118s

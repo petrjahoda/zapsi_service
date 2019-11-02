@@ -1,0 +1,65 @@
+2019-11-01 20:53:48.719   Zapsi2   INF   Device started running
+2019-11-01 20:53:48.719   Zapsi2   WRN   Device directory not exist, creating
+2019-11-01 20:53:48.719   Zapsi2   INF   Device directory created
+2019-11-01 20:53:48.719   Zapsi2   INF   UDP connection opened
+2019-11-01 20:53:48.719   Zapsi2   INF   UDP data written to Zapsi: set_datetime=01.11.2019 19:53:48 05&, with result of 36
+2019-11-01 20:53:48.719   Zapsi2   INF   UDP connection closed
+2019-11-01 20:53:48.719   Zapsi2   INF   Data sorted, number of records: 0
+2019-11-01 20:53:48.737   Zapsi2   INF   Data sorted, number of records: 0
+2019-11-01 20:53:48.738   Zapsi2   INF   Processing takes 18.222163ms
+2019-11-01 20:53:48.738   Zapsi2   INF   Sleeping for 9.981719283s
+2019-11-01 20:53:58.720   Zapsi2   INF   Device still active
+2019-11-01 20:53:58.720   Zapsi2   INF   Data sorted, number of records: 0
+2019-11-01 20:53:58.736   Zapsi2   INF   Data sorted, number of records: 0
+2019-11-01 20:53:58.736   Zapsi2   INF   Processing takes 16.486758ms
+2019-11-01 20:53:58.736   Zapsi2   INF   Sleeping for 9.983446461s
+2019-11-01 20:54:08.724   Zapsi2   INF   Device still active
+2019-11-01 20:54:08.724   Zapsi2   INF   Data sorted, number of records: 0
+2019-11-01 20:54:08.746   Zapsi2   INF   Data sorted, number of records: 0
+2019-11-01 20:54:08.746   Zapsi2   INF   Processing takes 22.283235ms
+2019-11-01 20:54:08.746   Zapsi2   INF   Sleeping for 9.977667097s
+2019-11-01 20:54:18.724   Zapsi2   INF   Device still active
+2019-11-01 20:54:18.724   Zapsi2   INF   Data sorted, number of records: 0
+2019-11-01 20:54:18.734   Zapsi2   INF   Data sorted, number of records: 0
+2019-11-01 20:54:18.734   Zapsi2   INF   Processing takes 10.179655ms
+2019-11-01 20:54:18.734   Zapsi2   INF   Sleeping for 9.989766376s
+2019-11-01 20:54:28.726   Zapsi2   INF   Device still active
+2019-11-01 20:54:28.726   Zapsi2   INF   Data sorted, number of records: 0
+2019-11-01 20:54:28.750   Zapsi2   INF   Data sorted, number of records: 0
+2019-11-01 20:54:28.751   Zapsi2   INF   Processing takes 24.529835ms
+2019-11-01 20:54:28.751   Zapsi2   INF   Sleeping for 9.975146672s
+2019-11-01 20:54:38.730   Zapsi2   INF   Device still active
+2019-11-01 20:54:38.730   Zapsi2   INF   Data sorted, number of records: 0
+2019-11-01 20:54:38.814   Zapsi2   INF   Data sorted, number of records: 0
+2019-11-01 20:54:38.814   Zapsi2   INF   Processing takes 83.631361ms
+2019-11-01 20:54:38.814   Zapsi2   INF   Sleeping for 9.916223152s
+2019-11-01 20:54:48.731   Zapsi2   INF   Device still active
+2019-11-01 20:54:48.731   Zapsi2   INF   Data sorted, number of records: 0
+2019-11-01 20:54:48.748   Zapsi2   INF   Data sorted, number of records: 0
+2019-11-01 20:54:48.748   Zapsi2   INF   Processing takes 17.274596ms
+2019-11-01 20:54:48.748   Zapsi2   INF   Sleeping for 9.982665679s
+2019-11-01 20:54:58.732   Zapsi2   INF   Device still active
+2019-11-01 20:54:58.732   Zapsi2   INF   Data sorted, number of records: 0
+2019-11-01 20:54:58.752   Zapsi2   INF   Data sorted, number of records: 0
+2019-11-01 20:54:58.752   Zapsi2   INF   Processing takes 19.852979ms
+2019-11-01 20:54:58.752   Zapsi2   INF   Sleeping for 9.980095723s
+2019-11-01 20:55:08.732   Zapsi2   INF   Device still active
+2019-11-01 20:55:08.732   Zapsi2   INF   Data sorted, number of records: 0
+2019-11-01 20:55:08.746   Zapsi2   INF   Data sorted, number of records: 0
+2019-11-01 20:55:08.746   Zapsi2   INF   Processing takes 13.313066ms
+2019-11-01 20:55:08.746   Zapsi2   INF   Sleeping for 9.986617303s
+2019-11-01 20:55:18.735   Zapsi2   INF   Device still active
+2019-11-01 20:55:18.735   Zapsi2   INF   Data sorted, number of records: 0
+2019-11-01 20:55:18.748   Zapsi2   INF   Data sorted, number of records: 0
+2019-11-01 20:55:18.748   Zapsi2   INF   Processing takes 13.179868ms
+2019-11-01 20:55:18.748   Zapsi2   INF   Sleeping for 9.986751174s
+2019-11-01 20:55:28.735   Zapsi2   INF   Device still active
+2019-11-01 20:55:28.735   Zapsi2   INF   Data sorted, number of records: 0
+2019-11-01 20:55:28.747   Zapsi2   INF   Data sorted, number of records: 0
+2019-11-01 20:55:28.747   Zapsi2   INF   Processing takes 12.213633ms
+2019-11-01 20:55:28.747   Zapsi2   INF   Sleeping for 9.987730328s
+2019-11-01 20:55:38.736   Zapsi2   INF   Device still active
+2019-11-01 20:55:38.737   Zapsi2   INF   Data sorted, number of records: 0
+2019-11-01 20:55:38.759   Zapsi2   INF   Data sorted, number of records: 0
+2019-11-01 20:55:38.759   Zapsi2   INF   Processing takes 22.396064ms
+2019-11-01 20:55:38.759   Zapsi2   INF   Sleeping for 9.977542401s

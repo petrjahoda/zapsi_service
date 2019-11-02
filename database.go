@@ -10,11 +10,13 @@ import (
 type DeviceType struct {
 	gorm.Model
 	Name string `gorm:"unique"`
+	Note string
 }
 
 type DevicePortType struct {
 	gorm.Model
 	Name string `gorm:"unique"`
+	Note string
 }
 
 type Setting struct {
@@ -22,18 +24,21 @@ type Setting struct {
 	Key     string `gorm:"unique"`
 	Value   string
 	Enabled bool
+	Note    string
 }
 
 type Device struct {
 	gorm.Model
-	Name         string `gorm:"unique"`
-	DeviceTypeId uint
-	IpAddress    string `gorm:"unique"`
-	MacAddress   string
-	TypeName     string
-	IsActivated  bool
-	Settings     string
-	DevicePorts  []DevicePort
+	Name        string `gorm:"unique"`
+	DeviceType  uint
+	IpAddress   string `gorm:"unique"`
+	MacAddress  string
+	TypeName    string
+	IsActivated bool
+	Settings    string
+	Workplace   uint
+	DevicePorts []DevicePort
+	Note        string
 }
 
 type DevicePort struct {
@@ -49,6 +54,7 @@ type DevicePort struct {
 	PlcDataAddress   string
 	Settings         string
 	Virtual          bool
+	Note             string
 }
 
 type DeviceAnalogRecord struct {

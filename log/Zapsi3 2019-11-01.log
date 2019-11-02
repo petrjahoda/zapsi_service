@@ -1,0 +1,65 @@
+2019-11-01 20:53:48.718   Zapsi3   INF   Device started running
+2019-11-01 20:53:48.718   Zapsi3   WRN   Device directory not exist, creating
+2019-11-01 20:53:48.719   Zapsi3   INF   Device directory created
+2019-11-01 20:53:48.719   Zapsi3   INF   UDP connection opened
+2019-11-01 20:53:48.719   Zapsi3   INF   UDP data written to Zapsi: set_datetime=01.11.2019 19:53:48 05&, with result of 36
+2019-11-01 20:53:48.719   Zapsi3   INF   UDP connection closed
+2019-11-01 20:53:48.719   Zapsi3   INF   Data sorted, number of records: 0
+2019-11-01 20:53:48.730   Zapsi3   INF   Data sorted, number of records: 0
+2019-11-01 20:53:48.730   Zapsi3   INF   Processing takes 11.220145ms
+2019-11-01 20:53:48.731   Zapsi3   INF   Sleeping for 9.988672526s
+2019-11-01 20:53:58.720   Zapsi3   INF   Device still active
+2019-11-01 20:53:58.720   Zapsi3   INF   Data sorted, number of records: 0
+2019-11-01 20:53:58.738   Zapsi3   INF   Data sorted, number of records: 0
+2019-11-01 20:53:58.738   Zapsi3   INF   Processing takes 18.00199ms
+2019-11-01 20:53:58.738   Zapsi3   INF   Sleeping for 9.98194003s
+2019-11-01 20:54:08.724   Zapsi3   INF   Device still active
+2019-11-01 20:54:08.724   Zapsi3   INF   Data sorted, number of records: 0
+2019-11-01 20:54:08.740   Zapsi3   INF   Data sorted, number of records: 0
+2019-11-01 20:54:08.741   Zapsi3   INF   Processing takes 16.847579ms
+2019-11-01 20:54:08.741   Zapsi3   INF   Sleeping for 9.983096806s
+2019-11-01 20:54:18.724   Zapsi3   INF   Device still active
+2019-11-01 20:54:18.724   Zapsi3   INF   Data sorted, number of records: 0
+2019-11-01 20:54:18.737   Zapsi3   INF   Data sorted, number of records: 0
+2019-11-01 20:54:18.737   Zapsi3   INF   Processing takes 13.125504ms
+2019-11-01 20:54:18.737   Zapsi3   INF   Sleeping for 9.986791145s
+2019-11-01 20:54:28.726   Zapsi3   INF   Device still active
+2019-11-01 20:54:28.726   Zapsi3   INF   Data sorted, number of records: 0
+2019-11-01 20:54:28.746   Zapsi3   INF   Data sorted, number of records: 0
+2019-11-01 20:54:28.746   Zapsi3   INF   Processing takes 19.903898ms
+2019-11-01 20:54:28.746   Zapsi3   INF   Sleeping for 9.979975014s
+2019-11-01 20:54:38.730   Zapsi3   INF   Device still active
+2019-11-01 20:54:38.730   Zapsi3   INF   Data sorted, number of records: 0
+2019-11-01 20:54:38.814   Zapsi3   INF   Data sorted, number of records: 0
+2019-11-01 20:54:38.814   Zapsi3   INF   Processing takes 83.653785ms
+2019-11-01 20:54:38.814   Zapsi3   INF   Sleeping for 9.916203899s
+2019-11-01 20:54:48.731   Zapsi3   INF   Device still active
+2019-11-01 20:54:48.731   Zapsi3   INF   Data sorted, number of records: 0
+2019-11-01 20:54:48.748   Zapsi3   INF   Data sorted, number of records: 0
+2019-11-01 20:54:48.748   Zapsi3   INF   Processing takes 17.165591ms
+2019-11-01 20:54:48.748   Zapsi3   INF   Sleeping for 9.982763675s
+2019-11-01 20:54:58.732   Zapsi3   INF   Device still active
+2019-11-01 20:54:58.732   Zapsi3   INF   Data sorted, number of records: 0
+2019-11-01 20:54:58.747   Zapsi3   INF   Data sorted, number of records: 0
+2019-11-01 20:54:58.748   Zapsi3   INF   Processing takes 15.594372ms
+2019-11-01 20:54:58.748   Zapsi3   INF   Sleeping for 9.984325967s
+2019-11-01 20:55:08.732   Zapsi3   INF   Device still active
+2019-11-01 20:55:08.732   Zapsi3   INF   Data sorted, number of records: 0
+2019-11-01 20:55:08.743   Zapsi3   INF   Data sorted, number of records: 0
+2019-11-01 20:55:08.743   Zapsi3   INF   Processing takes 10.61593ms
+2019-11-01 20:55:08.743   Zapsi3   INF   Sleeping for 9.989307226s
+2019-11-01 20:55:18.735   Zapsi3   INF   Device still active
+2019-11-01 20:55:18.735   Zapsi3   INF   Data sorted, number of records: 0
+2019-11-01 20:55:18.750   Zapsi3   INF   Data sorted, number of records: 0
+2019-11-01 20:55:18.750   Zapsi3   INF   Processing takes 15.222055ms
+2019-11-01 20:55:18.750   Zapsi3   INF   Sleeping for 9.984710768s
+2019-11-01 20:55:28.735   Zapsi3   INF   Device still active
+2019-11-01 20:55:28.735   Zapsi3   INF   Data sorted, number of records: 0
+2019-11-01 20:55:28.749   Zapsi3   INF   Data sorted, number of records: 0
+2019-11-01 20:55:28.749   Zapsi3   INF   Processing takes 13.791088ms
+2019-11-01 20:55:28.749   Zapsi3   INF   Sleeping for 9.986158052s
+2019-11-01 20:55:38.736   Zapsi3   INF   Device still active
+2019-11-01 20:55:38.737   Zapsi3   INF   Data sorted, number of records: 0
+2019-11-01 20:55:38.756   Zapsi3   INF   Data sorted, number of records: 0
+2019-11-01 20:55:38.756   Zapsi3   INF   Processing takes 19.48993ms
+2019-11-01 20:55:38.756   Zapsi3   INF   Sleeping for 9.980454342s

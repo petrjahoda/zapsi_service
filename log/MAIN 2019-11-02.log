@@ -1,0 +1,16 @@
+2019-11-02 10:58:09.969   MAIN   INF   Program version 2019.4.1.29 started
+2019-11-02 10:58:09.974   MAIN   ERR   Problem opening zapsi4 database: pq: database "zapsi4" does not exist
+2019-11-02 10:58:09.975   MAIN   ERR   Email not sent: dial tcp :0: connect: can't assign requested address
+2019-11-02 10:58:09.975   MAIN   INF   Program running
+2019-11-02 10:58:09.978   MAIN   WRN   Database zapsi4 does not exist
+2019-11-02 10:58:10.056   MAIN   INF   Database zapsi4 created
+2019-11-02 10:58:10.064   MAIN   INF   DeviceType table not exists, creating
+2019-11-02 10:58:10.111   MAIN   INF   Device table not exists, creating
+2019-11-02 10:58:10.125   MAIN   INF   Setting table not exists, creating
+2019-11-02 10:58:10.155   MAIN   INF   DevicePortType table not exists, creating
+2019-11-02 10:58:10.180   MAIN   INF   DevicePort table not exists, creating
+2019-11-02 10:58:10.195   MAIN   INF   DeviceAnalogRecord table not exists, creating
+2019-11-02 10:58:10.213   MAIN   INF   DeviceDigitalRecord table not exists, creating
+2019-11-02 10:58:10.225   MAIN   INF   DeviceSerialRecord table not exists, creating
+2019-11-02 10:58:10.258   MAIN   INF   Active devices: 0, running devices: 0
+2019-11-02 10:58:10.258   MAIN   INF   Sleeping for 9.716833096s

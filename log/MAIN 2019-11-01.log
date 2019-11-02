@@ -1,0 +1,59 @@
+2019-11-01 20:52:38.019   MAIN   INF   Program version 2019.4.1.29 started
+2019-11-01 20:52:38.449   MAIN   ERR   Email not sent: 535 5.7.0 ...authentication rejected (Use LOGIN or PLAIN Authentication, please)
+2019-11-01 20:52:38.449   MAIN   INF   Program running
+2019-11-01 20:52:38.874   MAIN   INF   Active devices: 1, running devices: 0
+2019-11-01 20:52:38.874   MAIN   INF   Sleeping for 9.575268715s
+2019-11-01 20:52:48.451   MAIN   INF   Program running
+2019-11-01 20:52:48.735   MAIN   INF   Active devices: 1, running devices: 1
+2019-11-01 20:52:48.735   MAIN   INF   Sleeping for 9.71593326s
+2019-11-01 20:52:58.455   MAIN   INF   Program running
+2019-11-01 20:52:58.724   MAIN   INF   Active devices: 1, running devices: 1
+2019-11-01 20:52:58.725   MAIN   INF   Sleeping for 9.730750492s
+2019-11-01 20:53:08.460   MAIN   INF   Program running
+2019-11-01 20:53:08.787   MAIN   INF   Active devices: 1, running devices: 1
+2019-11-01 20:53:08.788   MAIN   INF   Sleeping for 9.672377591s
+2019-11-01 20:53:18.463   MAIN   INF   Program running
+2019-11-01 20:53:18.933   MAIN   INF   Active devices: 1, running devices: 1
+2019-11-01 20:53:18.933   MAIN   INF   Sleeping for 9.529669595s
+2019-11-01 20:53:28.468   MAIN   INF   Program running
+2019-11-01 20:53:28.888   MAIN   INF   Active devices: 1, running devices: 1
+2019-11-01 20:53:28.888   MAIN   INF   Sleeping for 9.579440605s
+2019-11-01 20:53:38.469   MAIN   INF   Program running
+2019-11-01 20:53:38.861   MAIN   INF   Active devices: 1, running devices: 1
+2019-11-01 20:53:38.861   MAIN   INF   Sleeping for 9.607915627s
+2019-11-01 20:53:48.471   MAIN   INF   Program running
+2019-11-01 20:53:48.718   MAIN   INF   Active devices: 3, running devices: 1
+2019-11-01 20:53:48.718   MAIN   INF   Sleeping for 9.752835942s
+2019-11-01 20:53:58.473   MAIN   INF   Program running
+2019-11-01 20:53:58.751   MAIN   INF   Active devices: 3, running devices: 3
+2019-11-01 20:53:58.751   MAIN   INF   Sleeping for 9.721722962s
+2019-11-01 20:54:08.473   MAIN   INF   Program running
+2019-11-01 20:54:08.766   MAIN   INF   Active devices: 3, running devices: 3
+2019-11-01 20:54:08.766   MAIN   INF   Sleeping for 9.707280682s
+2019-11-01 20:54:18.474   MAIN   INF   Program running
+2019-11-01 20:54:18.730   MAIN   INF   Active devices: 3, running devices: 3
+2019-11-01 20:54:18.730   MAIN   INF   Sleeping for 9.743611487s
+2019-11-01 20:54:28.475   MAIN   INF   Program running
+2019-11-01 20:54:28.782   MAIN   INF   Active devices: 3, running devices: 3
+2019-11-01 20:54:28.782   MAIN   INF   Sleeping for 9.692579908s
+2019-11-01 20:54:38.475   MAIN   INF   Program running
+2019-11-01 20:54:38.820   MAIN   INF   Active devices: 3, running devices: 3
+2019-11-01 20:54:38.820   MAIN   INF   Sleeping for 9.654856615s
+2019-11-01 20:54:48.478   MAIN   INF   Program running
+2019-11-01 20:54:48.756   MAIN   INF   Active devices: 3, running devices: 3
+2019-11-01 20:54:48.756   MAIN   INF   Sleeping for 9.721688468s
+2019-11-01 20:54:58.481   MAIN   INF   Program running
+2019-11-01 20:54:58.752   MAIN   INF   Active devices: 3, running devices: 3
+2019-11-01 20:54:58.752   MAIN   INF   Sleeping for 9.728786958s
+2019-11-01 20:55:08.485   MAIN   INF   Program running
+2019-11-01 20:55:08.737   MAIN   INF   Active devices: 3, running devices: 3
+2019-11-01 20:55:08.737   MAIN   INF   Sleeping for 9.748030287s
+2019-11-01 20:55:18.487   MAIN   INF   Program running
+2019-11-01 20:55:18.762   MAIN   INF   Active devices: 3, running devices: 3
+2019-11-01 20:55:18.763   MAIN   INF   Sleeping for 9.724097967s
+2019-11-01 20:55:28.489   MAIN   INF   Program running
+2019-11-01 20:55:28.770   MAIN   INF   Active devices: 3, running devices: 3
+2019-11-01 20:55:28.770   MAIN   INF   Sleeping for 9.718629798s
+2019-11-01 20:55:38.492   MAIN   INF   Program running
+2019-11-01 20:55:38.765   MAIN   INF   Active devices: 3, running devices: 3
+2019-11-01 20:55:38.765   MAIN   INF   Sleeping for 9.726213952s

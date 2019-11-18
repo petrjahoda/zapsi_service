@@ -22,12 +22,12 @@ File naming is lower case one name only.
 
 Variable naming is camelCase, reasonable name should be used. Use runningDevices instead of rd, runDev, ...
 
-##Philosophy
+## Philosophy
 Files should be maximal 1000 lines long, optimal <500 lines long. Comment are forbidden, use logging instead.
 Always use main.go as a starting point for every software. Use default go coding conventions. Handle errors first. Do not use if-else, use only if. Use switch instead of multiples if-else.
 
 
-##Git commits
+## Git commits
 Commit after every change. Use these tags:
 - new
 - enhancement

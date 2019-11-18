@@ -143,6 +143,7 @@ func UpdateActiveDevices(reference string) {
 	db, err := gorm.Open(dialect, connectionString)
 	if err != nil {
 		LogError(reference, "Problem opening "+DatabaseName+" database: "+err.Error())
+		activeDevices = nil
 		return
 	}
 	defer db.Close()

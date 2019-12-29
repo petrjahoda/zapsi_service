@@ -1,0 +1,8 @@
+2019-12-29 08:52:29.738   MAIN   INF   Program version 2019.4.3.21 started
+2019-12-29 08:52:29.739   MAIN   INF   Program running
+2019-12-29 08:52:29.741   MAIN   WRN   Database zapsi4 does not exist
+2019-12-29 08:52:29.742   MAIN   ERR   Problem opening postgres database: dial tcp [::1]:5432: connect: connection refused
+2019-12-29 08:52:29.742   MAIN   ERR   Problem opening postgres database: dial tcp [::1]:5432: connect: connection refused
+2019-12-29 08:52:29.743   MAIN   ERR   Problem opening zapsi4 database: dial tcp [::1]:5432: connect: connection refused
+2019-12-29 08:52:29.743   MAIN   INF   Active devices: 0, running devices: 0
+2019-12-29 08:52:29.743   MAIN   INF   Sleeping for 9.995436353s

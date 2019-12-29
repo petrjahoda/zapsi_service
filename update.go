@@ -14,6 +14,7 @@ func Update() {
 		println("Error reading main.go")
 		os.Exit(1)
 	}
+	println("File opened")
 
 	result := ""
 	for _, line := range strings.Split(strings.TrimSuffix(string(readFile), "\n"), "\n") {

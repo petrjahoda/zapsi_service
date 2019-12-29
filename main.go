@@ -148,6 +148,6 @@ func UpdateActiveDevices(reference string) {
 	defer db.Close()
 	var deviceType DeviceType
 	db.Where("name=?", "Zapsi").Find(&deviceType)
-	db.Where("device_type_id=?", deviceType.ID).Where("is_activated = true").Find(&activeDevices)
+	db.Where("device_type=?", deviceType.ID).Where("is_activated = true").Find(&activeDevices)
 	LogDebug("MAIN", "Zapsi device type id is "+strconv.Itoa(int(deviceType.ID)))
 }

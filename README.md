@@ -2,8 +2,8 @@
 
 
 ## Installation
-* use docker image from https://cloud.docker.com/repository/docker/petrjahoda/zapsi_service
-* use linux, mac or windows version and make it run like a service
+* use docker image from https://cloud.docker.com/r/petrjahoda/zapsi_service
+* use linux, mac or windows version and make it run like a service (on windows use nssm)
 
 ## Description
 Go service that download data from Zapsi devices and insert them to database.

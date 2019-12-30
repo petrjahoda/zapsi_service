@@ -34,7 +34,7 @@ type Device struct {
 	IpAddress   string `gorm:"unique"`
 	MacAddress  string
 	TypeName    string
-	IsActivated bool
+	Activated   bool
 	Settings    string
 	Workplace   uint
 	DevicePorts []DevicePort

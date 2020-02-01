@@ -27,13 +27,11 @@ func main() {
 	CreateConfigIfNotExists()
 	LoadSettingsFromConfigFile()
 	LogDebug("MAIN", "Using ["+DatabaseType+"] on "+DatabaseIpAddress+":"+DatabasePort+" with database "+DatabaseName)
+	CompleteDatabaseCheck()
 	for {
 		start := time.Now()
 		LogInfo("MAIN", "Program running")
-		CheckDatabase()
-		CheckTables()
 		UpdateActiveDevices("MAIN")
-		WriteProgramVersionIntoSettings()
 		DeleteOldLogFiles()
 		LogInfo("MAIN", "Active devices: "+strconv.Itoa(len(activeDevices))+", running devices: "+strconv.Itoa(len(runningDevices)))
 		for _, activeDevice := range activeDevices {
@@ -46,6 +44,18 @@ func main() {
 			sleeptime := downloadInSeconds*time.Second - time.Since(start)
 			LogInfo("MAIN", "Sleeping for "+sleeptime.String())
 			time.Sleep(sleeptime)
+		}
+	}
+}
+
+func CompleteDatabaseCheck() {
+	firstRunCheckComplete := false
+	for firstRunCheckComplete == false {
+		databaseOk := CheckDatabase()
+		tablesOk := CheckTables()
+		if databaseOk && tablesOk {
+			WriteProgramVersionIntoSettings()
+			firstRunCheckComplete = true
 		}
 	}
 }

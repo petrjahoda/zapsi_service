@@ -81,7 +81,7 @@ type DeviceSerialRecord struct {
 	Interval     float32
 }
 
-func CheckDatabase() {
+func CheckDatabase() bool {
 	var connectionString string
 	var defaultString string
 	var dialect string
@@ -99,26 +99,28 @@ func CheckDatabase() {
 		LogWarning("MAIN", "Database zapsi4 does not exist")
 		db, err = gorm.Open(dialect, defaultString)
 		if err != nil {
-			LogError("MAIN", "Problem opening postgres database: "+err.Error())
-			return
+			LogError("MAIN", "Problem opening database: "+err.Error())
+			return false
 		}
 		db = db.Exec("CREATE DATABASE zapsi4;")
 		if db.Error != nil {
 			LogError("MAIN", "Cannot create database zapsi4")
 		}
 		LogInfo("MAIN", "Database zapsi4 created")
+		return true
 
 	}
 	defer db.Close()
 	LogDebug("MAIN", "Database zapsi4 exists")
+	return true
 }
 
-func CheckTables() {
+func CheckTables() bool {
 	connectionString, dialect := CheckDatabaseType()
 	db, err := gorm.Open(dialect, connectionString)
 	if err != nil {
 		LogError("MAIN", "Problem opening "+dialect+" database: "+err.Error())
-		return
+		return false
 	}
 	defer db.Close()
 	if !db.HasTable(&DeviceType{}) {
@@ -127,18 +129,9 @@ func CheckTables() {
 		zapsi := DeviceType{Name: "Zapsi"}
 		db.NewRecord(zapsi)
 		db.Create(&zapsi)
-		zapsiTouchOriginal := DeviceType{Name: "Zapsi Touch Original"}
-		db.NewRecord(zapsiTouchOriginal)
-		db.Create(&zapsiTouchOriginal)
-		zapsiTouchVirtual := DeviceType{Name: "Zapsi Touch Virtual"}
-		db.NewRecord(zapsiTouchVirtual)
-		db.Create(&zapsiTouchVirtual)
-		zapsiTouchRpiOne := DeviceType{Name: "Zapsi Touch Rpi 1"}
-		db.NewRecord(zapsiTouchRpiOne)
-		db.Create(&zapsiTouchRpiOne)
-		zapsiTouchRpiTwo := DeviceType{Name: "Zapsi Touch Rpi 2"}
-		db.NewRecord(zapsiTouchRpiTwo)
-		db.Create(&zapsiTouchRpiTwo)
+		zapsiTouch := DeviceType{Name: "Zapsi Touch"}
+		db.NewRecord(zapsiTouch)
+		db.Create(&zapsiTouch)
 		siemens := DeviceType{Name: "Siemens"}
 		db.NewRecord(siemens)
 		db.Create(&siemens)
@@ -235,7 +228,7 @@ func CheckTables() {
 	} else {
 		db.AutoMigrate(&DeviceSerialRecord{})
 	}
-
+	return true
 }
 
 func CheckDatabaseType() (string, string) {

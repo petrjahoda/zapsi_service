@@ -188,13 +188,13 @@ func CheckActive(device zapsi_database.Device) bool {
 }
 
 func RemoveDeviceFromRunningDevices(device zapsi_database.Device) {
+	deviceSync.Lock()
 	for idx, runningDevice := range runningDevices {
 		if device.Name == runningDevice.Name {
-			deviceSync.Lock()
 			runningDevices = append(runningDevices[0:idx], runningDevices[idx+1:]...)
-			deviceSync.Unlock()
 		}
 	}
+	deviceSync.Unlock()
 }
 
 func UpdateActiveDevices(reference string) {

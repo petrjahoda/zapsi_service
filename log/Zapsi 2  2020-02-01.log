@@ -1,0 +1,10 @@
+2020-02-01 21:09:15.724   Zapsi 2    INF   Device started running
+2020-02-01 21:09:15.724   Zapsi 2    WRN   Device directory not exist, creating
+2020-02-01 21:09:15.724   Zapsi 2    INF   Device directory created
+2020-02-01 21:09:15.724   Zapsi 2    INF   UDP connection opened
+2020-02-01 21:09:15.724   Zapsi 2    INF   UDP data written to Zapsi: set_datetime=01.02.2020 20:09:15 06&, with result of 36
+2020-02-01 21:09:15.724   Zapsi 2    INF   UDP connection closed
+2020-02-01 21:09:15.725   Zapsi 2    INF   Data sorted, number of records: 0
+2020-02-01 21:09:15.742   Zapsi 2    INF   Data sorted, number of records: 0
+2020-02-01 21:09:15.742   Zapsi 2    INF   Processing takes 17.593509ms
+2020-02-01 21:09:15.742   Zapsi 2    INF   Sleeping for 9.982341526s

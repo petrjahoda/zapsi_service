@@ -29,16 +29,16 @@ type Setting struct {
 
 type Device struct {
 	gorm.Model
-	Name        string `gorm:"unique"`
-	DeviceType  uint
-	IpAddress   string `gorm:"unique"`
-	MacAddress  string
-	TypeName    string
-	Activated   bool
-	Settings    string
-	Workplace   uint
-	DevicePorts []DevicePort
-	Note        string
+	Name         string `gorm:"unique"`
+	DeviceTypeId uint
+	IpAddress    string `gorm:"unique"`
+	MacAddress   string
+	TypeName     string
+	Activated    bool
+	Settings     string
+	Workplace    uint
+	DevicePorts  []DevicePort
+	Note         string
 }
 
 type DevicePort struct {
@@ -124,7 +124,7 @@ func CheckTables() bool {
 	}
 	defer db.Close()
 	if !db.HasTable(&DeviceType{}) {
-		LogInfo("MAIN", "DeviceType table not exists, creating")
+		LogInfo("MAIN", "DeviceTypeId table not exists, creating")
 		db.CreateTable(&DeviceType{})
 		zapsi := DeviceType{Name: "Zapsi"}
 		db.NewRecord(zapsi)

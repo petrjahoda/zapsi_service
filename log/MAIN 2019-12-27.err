@@ -1,5 +1,0 @@
-2019-12-27 11:34:51.596   MAIN   ERR   Problem opening zapsi4 database: dial tcp [::1]:5432: connect: connection refused
-2019-12-27 11:34:51.596   MAIN   ERR   Email not sent: dial tcp :0: connect: can't assign requested address
-2019-12-27 11:34:51.597   MAIN   ERR   Problem opening postgres database: dial tcp [::1]:5432: connect: connection refused
-2019-12-27 11:34:51.598   MAIN   ERR   Problem opening postgres database: dial tcp [::1]:5432: connect: connection refused
-2019-12-27 11:34:51.598   MAIN   ERR   Problem opening zapsi4 database: dial tcp [::1]:5432: connect: connection refused

@@ -32,6 +32,7 @@ func main() {
 		CheckDatabase()
 		CheckTables()
 		UpdateActiveDevices("MAIN")
+		WriteProgramVersionIntoSettings("State Service", version)
 		DeleteOldLogFiles()
 		LogInfo("MAIN", "Active devices: "+strconv.Itoa(len(activeDevices))+", running devices: "+strconv.Itoa(len(runningDevices)))
 		for _, activeDevice := range activeDevices {
@@ -46,6 +47,23 @@ func main() {
 			time.Sleep(sleeptime)
 		}
 	}
+}
+
+func WriteProgramVersionIntoSettings(programName string, version string) {
+	connectionString, dialect := CheckDatabaseType()
+	db, err := gorm.Open(dialect, connectionString)
+	if err != nil {
+		LogError("MAIN", "Problem opening "+DatabaseName+" database: "+err.Error())
+		activeDevices = nil
+		return
+	}
+	defer db.Close()
+	var settings Setting
+	db.Where("key=?", programName).Find(&settings)
+	settings.Key = programName
+	settings.Value = version
+	db.Save(&settings)
+	LogDebug("MAIN", "Updated version in database for "+programName)
 }
 
 func CheckDevice(device Device) bool {
@@ -148,6 +166,6 @@ func UpdateActiveDevices(reference string) {
 	defer db.Close()
 	var deviceType DeviceType
 	db.Where("name=?", "Zapsi").Find(&deviceType)
-	db.Where("device_type=?", deviceType.ID).Where("is_activated = true").Find(&activeDevices)
+	db.Where("device_type=?", deviceType.ID).Where("activated = true").Find(&activeDevices)
 	LogDebug("MAIN", "Zapsi device type id is "+strconv.Itoa(int(deviceType.ID)))
 }

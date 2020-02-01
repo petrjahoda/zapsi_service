@@ -13,3 +13,10 @@
 2020-02-01 07:31:18.783   CNC 19   INF   UDP connection closed
 2020-02-01 07:31:18.784   CNC 19   INF   Data sorted, number of records: 0
 2020-02-01 07:31:18.940   CNC 19   INF   Device has digital ports
+2020-02-01 18:56:43.269   CNC 19   INF   Device started running
+2020-02-01 18:56:43.269   CNC 19   INF   Device directory exists
+2020-02-01 18:56:43.270   CNC 19   INF   UDP connection opened
+2020-02-01 18:56:43.270   CNC 19   INF   UDP data written to Zapsi: set_datetime=01.02.2020 17:56:43 06&, with result of 36
+2020-02-01 18:56:43.272   CNC 19   INF   UDP connection closed
+2020-02-01 18:56:43.272   CNC 19   INF   Data sorted, number of records: 0
+2020-02-01 18:56:44.076   CNC 19   INF   Device has digital ports

@@ -11,6 +11,7 @@ import (
 )
 
 const version = "2020.1.2.1"
+const programName = "Zapsi Service"
 const deleteLogsAfter = 240 * time.Hour
 const downloadInSeconds = 10
 
@@ -22,7 +23,7 @@ var (
 
 func main() {
 	LogDirectoryFileCheck("MAIN")
-	LogInfo("MAIN", "Program version "+version+" started")
+	LogInfo("MAIN", programName+" version "+version+" started")
 	CreateConfigIfNotExists()
 	LoadSettingsFromConfigFile()
 	LogDebug("MAIN", "Using ["+DatabaseType+"] on "+DatabaseIpAddress+":"+DatabasePort+" with database "+DatabaseName)
@@ -32,7 +33,7 @@ func main() {
 		CheckDatabase()
 		CheckTables()
 		UpdateActiveDevices("MAIN")
-		WriteProgramVersionIntoSettings("State Service", version)
+		WriteProgramVersionIntoSettings()
 		DeleteOldLogFiles()
 		LogInfo("MAIN", "Active devices: "+strconv.Itoa(len(activeDevices))+", running devices: "+strconv.Itoa(len(runningDevices)))
 		for _, activeDevice := range activeDevices {
@@ -49,7 +50,7 @@ func main() {
 	}
 }
 
-func WriteProgramVersionIntoSettings(programName string, version string) {
+func WriteProgramVersionIntoSettings() {
 	connectionString, dialect := CheckDatabaseType()
 	db, err := gorm.Open(dialect, connectionString)
 	if err != nil {

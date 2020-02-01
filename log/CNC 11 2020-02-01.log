@@ -20,3 +20,10 @@
 2020-02-01 18:56:43.272   CNC 11   INF   UDP connection closed
 2020-02-01 18:56:43.273   CNC 11   INF   Data sorted, number of records: 0
 2020-02-01 18:56:44.065   CNC 11   INF   Device has digital ports
+2020-02-01 19:22:11.066   CNC 11   INF   Device started running
+2020-02-01 19:22:11.067   CNC 11   INF   Device directory exists
+2020-02-01 19:22:11.067   CNC 11   INF   UDP connection opened
+2020-02-01 19:22:11.067   CNC 11   INF   UDP data written to Zapsi: set_datetime=01.02.2020 18:22:11 06&, with result of 36
+2020-02-01 19:22:11.068   CNC 11   INF   UDP connection closed
+2020-02-01 19:22:11.068   CNC 11   INF   Data sorted, number of records: 0
+2020-02-01 19:22:12.040   CNC 11   INF   Device has digital ports

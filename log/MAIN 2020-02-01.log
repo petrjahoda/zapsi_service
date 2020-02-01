@@ -30,3 +30,14 @@
 2020-02-01 19:22:11.052   MAIN   INF   Program running
 2020-02-01 19:22:11.065   MAIN   INF   Active devices: 20, running devices: 0
 2020-02-01 19:22:11.065   MAIN   INF   Sleeping for 9.987356782s
+2020-02-01 21:08:08.858   MAIN   INF   Zapsi Service version 2020.1.2.1 started
+2020-02-01 21:08:10.621   MAIN   INF   Program running
+2020-02-01 21:08:10.632   MAIN   INF   Active devices: 0, running devices: 0
+2020-02-01 21:08:10.632   MAIN   INF   Sleeping for 9.988976258s
+2020-02-01 21:09:04.012   MAIN   INF   Zapsi Service version 2020.1.2.1 started
+2020-02-01 21:09:05.704   MAIN   INF   Program running
+2020-02-01 21:09:05.714   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-01 21:09:05.714   MAIN   INF   Sleeping for 9.989753478s
+2020-02-01 21:09:15.707   MAIN   INF   Program running
+2020-02-01 21:09:15.724   MAIN   INF   Active devices: 2, running devices: 1
+2020-02-01 21:09:15.724   MAIN   INF   Sleeping for 9.983241204s

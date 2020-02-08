@@ -1,7 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"github.com/fatih/color"
+	. "github.com/logrusorgru/aurora"
 	"io/ioutil"
 	"os"
 	"path/filepath"
@@ -10,23 +12,23 @@ import (
 )
 
 func LogInfo(reference, data string) {
-	color.Green(time.Now().Format("2006-01-02 15:04:05.000") + " [" + reference + "] --INF-- " + data)
+	fmt.Println(Green(time.Now().Format("2006-01-02 15:04:05.000") + " [" + reference + "] --INF-- " + data))
 	AppendDataToLog("INF", reference, data)
 }
 
 func LogError(reference, data string) {
-	color.Red(time.Now().Format("2006-01-02 15:04:05.000") + " [" + reference + "] --ERR-- " + data)
+	fmt.Println(Red(time.Now().Format("2006-01-02 15:04:05.000") + " [" + reference + "] --INF-- " + data))
 	AppendDataToLog("ERR", reference, data)
 	AppendDataToErrLog("ERR", reference, data)
 }
 
 func LogWarning(reference, data string) {
-	color.Yellow(time.Now().Format("2006-01-02 15:04:05.000") + " [" + reference + "] --WAR-- " + data)
+	fmt.Println(Yellow(time.Now().Format("2006-01-02 15:04:05.000") + " [" + reference + "] --INF-- " + data))
 	AppendDataToLog("WRN", reference, data)
 }
 
 func LogDebug(reference, data string) {
-	color.Blue(time.Now().Format("2006-01-02 15:04:05.000") + " [" + reference + "] --DEB-- " + data)
+	fmt.Println(Blue(time.Now().Format("2006-01-02 15:04:05.000") + " [" + reference + "] --INF-- " + data))
 }
 
 func LogDirectoryFileCheck(reference string) {

@@ -14,7 +14,7 @@ require (
 	github.com/lib/pq v1.3.0 // indirect
 	github.com/logrusorgru/aurora v0.0.0-20200102142835-e9ef32dff381
 	github.com/mattn/go-sqlite3 v2.0.3+incompatible // indirect
-	github.com/petrjahoda/zapsi_database v0.0.0-20200208063026-4e083039b076
+	github.com/petrjahoda/zapsi_database v0.0.0-20200208123844-23c1eb95a58c
 	golang.org/x/crypto v0.0.0-20200208060501-ecb85df21340 // indirect
 	golang.org/x/sys v0.0.0-20200202164722-d101bd2416d5 // indirect
 )

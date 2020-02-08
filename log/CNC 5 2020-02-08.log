@@ -1,0 +1,72 @@
+2020-02-08 08:42:42.060   CNC 5   INF   Device started running
+2020-02-08 08:42:42.060   CNC 5   INF   Device directory exists
+2020-02-08 08:42:42.060   CNC 5   INF   UDP connection opened
+2020-02-08 08:42:42.060   CNC 5   INF   UDP data written to Zapsi: set_datetime=08.02.2020 07:42:42 06&, with result of 36
+2020-02-08 08:42:42.061   CNC 5   INF   UDP connection closed
+2020-02-08 08:42:42.061   CNC 5   INF   Data sorted, number of records: 0
+2020-02-08 08:42:42.138   CNC 5   INF   Device has digital ports
+2020-02-08 08:43:41.152   CNC 5   INF   Device started running
+2020-02-08 08:43:41.153   CNC 5   INF   Device directory exists
+2020-02-08 08:43:41.153   CNC 5   INF   UDP connection opened
+2020-02-08 08:43:41.153   CNC 5   INF   UDP data written to Zapsi: set_datetime=08.02.2020 07:43:41 06&, with result of 36
+2020-02-08 08:43:41.153   CNC 5   INF   UDP connection closed
+2020-02-08 08:43:41.154   CNC 5   INF   Data sorted, number of records: 0
+2020-02-08 08:43:41.285   CNC 5   INF   Device has digital ports
+2020-02-08 08:44:21.629   CNC 5   INF   Device started running
+2020-02-08 08:44:21.630   CNC 5   INF   Device directory exists
+2020-02-08 08:44:21.630   CNC 5   INF   UDP connection opened
+2020-02-08 08:44:21.631   CNC 5   INF   UDP data written to Zapsi: set_datetime=08.02.2020 07:44:21 06&, with result of 36
+2020-02-08 08:44:21.632   CNC 5   INF   UDP connection closed
+2020-02-08 08:44:21.632   CNC 5   INF   Data sorted, number of records: 0
+2020-02-08 08:44:21.769   CNC 5   INF   Device has digital ports
+2020-02-08 08:44:56.987   CNC 5   INF   Device started running
+2020-02-08 08:44:56.988   CNC 5   INF   Device directory exists
+2020-02-08 08:44:56.988   CNC 5   INF   UDP connection opened
+2020-02-08 08:44:56.989   CNC 5   INF   UDP data written to Zapsi: set_datetime=08.02.2020 07:44:56 06&, with result of 36
+2020-02-08 08:44:56.989   CNC 5   INF   UDP connection closed
+2020-02-08 08:44:56.990   CNC 5   INF   Data sorted, number of records: 0
+2020-02-08 08:44:57.115   CNC 5   INF   Device has digital ports
+2020-02-08 08:45:29.408   CNC 5   INF   Device started running
+2020-02-08 08:45:29.409   CNC 5   INF   Device directory exists
+2020-02-08 08:45:29.409   CNC 5   INF   UDP connection opened
+2020-02-08 08:45:29.410   CNC 5   INF   UDP data written to Zapsi: set_datetime=08.02.2020 07:45:29 06&, with result of 36
+2020-02-08 08:45:29.410   CNC 5   INF   UDP connection closed
+2020-02-08 08:45:29.411   CNC 5   INF   Data sorted, number of records: 0
+2020-02-08 08:45:29.520   CNC 5   INF   Device has digital ports
+2020-02-08 08:45:59.521   CNC 5   WRN   http://192.168.0.5/log/digital.txt problem downloading Get http://192.168.0.5/log/digital.txt: dial tcp 192.168.0.5:80: i/o timeout
+2020-02-08 08:45:59.521   CNC 5   INF   Device has analog ports
+2020-02-08 08:46:29.521   CNC 5   WRN   http://192.168.0.5/log/analog.txt problem downloading Get http://192.168.0.5/log/analog.txt: dial tcp 192.168.0.5:80: i/o timeout
+2020-02-08 08:46:29.522   CNC 5   INF   Data sorted, number of records: 0
+2020-02-08 08:46:29.522   CNC 5   INF   Processing takes 1m0.11101137s
+2020-02-08 08:46:29.522   CNC 5   INF   Device still active
+2020-02-08 08:46:29.522   CNC 5   INF   Device not active, stopped running
+2020-02-08 08:50:06.320   CNC 5   INF   Device started running
+2020-02-08 08:50:06.320   CNC 5   INF   Device directory exists
+2020-02-08 08:50:06.320   CNC 5   INF   UDP connection opened
+2020-02-08 08:50:06.320   CNC 5   INF   UDP data written to Zapsi: set_datetime=08.02.2020 07:50:06 06&, with result of 36
+2020-02-08 08:50:06.321   CNC 5   INF   UDP connection closed
+2020-02-08 08:50:06.321   CNC 5   INF   Data sorted, number of records: 0
+2020-02-08 08:50:06.451   CNC 5   INF   Device has digital ports
+2020-02-08 08:50:36.451   CNC 5   WRN   http://192.168.0.5/log/digital.txt problem downloading Get http://192.168.0.5/log/digital.txt: dial tcp 192.168.0.5:80: i/o timeout
+2020-02-08 08:50:36.452   CNC 5   INF   Device has analog ports
+2020-02-08 08:50:51.955   CNC 5   INF   Device started running
+2020-02-08 08:50:51.956   CNC 5   INF   Device directory exists
+2020-02-08 08:50:51.956   CNC 5   INF   UDP connection opened
+2020-02-08 08:50:51.956   CNC 5   INF   UDP data written to Zapsi: set_datetime=08.02.2020 07:50:51 06&, with result of 36
+2020-02-08 08:50:51.956   CNC 5   INF   UDP connection closed
+2020-02-08 08:50:51.957   CNC 5   INF   Data sorted, number of records: 0
+2020-02-08 08:50:52.072   CNC 5   INF   Device has digital ports
+2020-02-08 08:51:28.636   CNC 5   INF   Device started running
+2020-02-08 08:51:28.636   CNC 5   INF   Device directory exists
+2020-02-08 08:51:28.636   CNC 5   INF   UDP connection opened
+2020-02-08 08:51:28.636   CNC 5   INF   UDP data written to Zapsi: set_datetime=08.02.2020 07:51:28 06&, with result of 36
+2020-02-08 08:51:28.637   CNC 5   INF   UDP connection closed
+2020-02-08 08:51:28.637   CNC 5   INF   Data sorted, number of records: 0
+2020-02-08 08:51:28.769   CNC 5   INF   Device has digital ports
+2020-02-08 08:51:33.770   CNC 5   WRN   http://192.168.0.5/log/digital.txt problem downloading Get http://192.168.0.5/log/digital.txt: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+2020-02-08 08:51:33.771   CNC 5   INF   Device has analog ports
+2020-02-08 08:51:38.772   CNC 5   WRN   http://192.168.0.5/log/analog.txt problem downloading Get http://192.168.0.5/log/analog.txt: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+2020-02-08 08:51:38.773   CNC 5   INF   Data sorted, number of records: 0
+2020-02-08 08:51:38.773   CNC 5   INF   Processing takes 10.136403522s
+2020-02-08 08:51:38.773   CNC 5   INF   Device still active
+2020-02-08 08:51:38.773   CNC 5   INF   Device not active, stopped running

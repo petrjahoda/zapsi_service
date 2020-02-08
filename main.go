@@ -41,7 +41,7 @@ func (p *program) run() {
 	CreateConfigIfNotExists()
 	LoadSettingsFromConfigFile()
 	LogDebug("MAIN", "Using ["+DatabaseType+"] on "+DatabaseIpAddress+":"+DatabasePort+" with database "+DatabaseName)
-	CompleteDatabaseCheck()
+	WriteProgramVersionIntoSettings()
 	for {
 		start := time.Now()
 		LogInfo("MAIN", "Program running")
@@ -88,21 +88,6 @@ func main() {
 		LogError("MAIN", "Problem starting "+serviceConfig.Name)
 	}
 
-}
-
-func CompleteDatabaseCheck() {
-	firstRunCheckComplete := false
-	for firstRunCheckComplete == false {
-		databaseOk := zapsi_database.CheckDatabase(DatabaseType, DatabaseIpAddress, DatabasePort, DatabaseLogin, DatabaseName, DatabasePassword)
-		tablesOk, err := zapsi_database.CheckTables(DatabaseType, DatabaseIpAddress, DatabasePort, DatabaseLogin, DatabaseName, DatabasePassword)
-		if err != nil {
-			LogInfo("MAIN", "Problem creating tables: "+err.Error())
-		}
-		if databaseOk && tablesOk {
-			WriteProgramVersionIntoSettings()
-			firstRunCheckComplete = true
-		}
-	}
 }
 
 func WriteProgramVersionIntoSettings() {

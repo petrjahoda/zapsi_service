@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/jinzhu/gorm"
+	"github.com/kardianos/service"
 	"github.com/petrjahoda/zapsi_database"
 	"os"
 	"path/filepath"
@@ -13,8 +14,11 @@ import (
 
 const version = "2020.1.2.8"
 const programName = "Zapsi Service"
+const programDesription = "Downloads data from Zapsi devices"
 const deleteLogsAfter = 240 * time.Hour
 const downloadInSeconds = 10
+
+var serviceRunning = false
 
 var (
 	activeDevices  []zapsi_database.Device
@@ -22,7 +26,16 @@ var (
 	deviceSync     sync.Mutex
 )
 
-func main() {
+type program struct{}
+
+func (p *program) Start(s service.Service) error {
+	LogInfo("MAIN", "Starting "+programName+" on "+s.Platform())
+	go p.run()
+	serviceRunning = true
+	return nil
+}
+
+func (p *program) run() {
 	LogDirectoryFileCheck("MAIN")
 	LogInfo("MAIN", programName+" version "+version+" started")
 	CreateConfigIfNotExists()
@@ -42,11 +55,39 @@ func main() {
 			}
 		}
 		if time.Since(start) < (downloadInSeconds * time.Second) {
-			sleeptime := downloadInSeconds*time.Second - time.Since(start)
-			LogInfo("MAIN", "Sleeping for "+sleeptime.String())
-			time.Sleep(sleeptime)
+			sleepTime := downloadInSeconds*time.Second - time.Since(start)
+			LogInfo("MAIN", "Sleeping for "+sleepTime.String())
+			time.Sleep(sleepTime)
 		}
 	}
+}
+func (p *program) Stop(s service.Service) error {
+	serviceRunning = false
+	for len(runningDevices) != 0 {
+		LogInfo("MAIN", "Stopping, still running devices: "+strconv.Itoa(len(runningDevices)))
+		time.Sleep(1 * time.Second)
+	}
+	LogInfo("MAIN", "Stopped on platform "+s.Platform())
+	return nil
+}
+
+func main() {
+
+	serviceConfig := &service.Config{
+		Name:        programName,
+		DisplayName: programName,
+		Description: programDesription,
+	}
+	prg := &program{}
+	s, err := service.New(prg, serviceConfig)
+	if err != nil {
+		LogError("MAIN", err.Error())
+	}
+	err = s.Run()
+	if err != nil {
+		LogError("MAIN", "Problem starting "+serviceConfig.Name)
+	}
+
 }
 
 func CompleteDatabaseCheck() {
@@ -99,7 +140,8 @@ func RunDevice(device zapsi_database.Device) {
 	CreateDirectoryIfNotExists(device)
 	SendTime(device)
 	timeUpdatedInLoop := false
-	for deviceIsActive {
+	for deviceIsActive && serviceRunning {
+		println(serviceRunning)
 		start := time.Now()
 		ProcessDownloadedFiles(device)
 		success, err := DownloadData(device)

@@ -84,6 +84,8 @@ func AppendDataToErrLog(logLevel string, reference string, data string) {
 }
 
 func DeleteOldLogFiles() {
+	LogInfo("MAIN", "Deleting old log files")
+	timer := time.Now()
 	directory, err := ioutil.ReadDir("log")
 	if err != nil {
 		LogError("MAIN", "Problem opening log directory")
@@ -101,4 +103,5 @@ func DeleteOldLogFiles() {
 			}
 		}
 	}
+	LogInfo("MAIN", "Old log files deleted, elapsed: "+time.Since(timer).String())
 }

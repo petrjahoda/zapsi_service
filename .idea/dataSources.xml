@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="zapsi" uuid="7b321f7a-35a3-4360-82ca-bbf8696d5ee3">
+    <data-source source="LOCAL" name="postgres@localhost" uuid="3d0828bf-fdd5-4722-bad2-37ec3df4bcc5">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/postgres</jdbc-url>
-    </data-source>
-    <data-source source="LOCAL" name="zapsi2" uuid="92a04b5b-a350-4d5e-ab9a-138e2bdc771c">
-      <driver-ref>mariadb</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mariadb://localhost:3306/zapsi2</jdbc-url>
     </data-source>
   </component>
 </project>

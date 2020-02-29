@@ -1,0 +1,1706 @@
+2020-02-29 13:47:50.256   MAIN   INF   Starting Zapsi Service on darwin-launchd
+2020-02-29 13:47:55.258   MAIN   INF   Zapsi Service version 2020.1.2.29 started
+2020-02-29 13:47:55.270   MAIN   ERR   Problem opening zapsi4 database: pq: database "zapsi4" does not exist
+2020-02-29 13:47:55.270   MAIN   INF   Program running
+2020-02-29 13:47:55.275   MAIN   ERR   Problem opening zapsi4 database: pq: database "zapsi4" does not exist
+2020-02-29 13:47:55.276   MAIN   INF   Deleting old log file CNC 0 2020-02-01.log with age of 666h25m43.239967102s
+2020-02-29 13:47:55.277   MAIN   INF   Deleting old log file CNC 0 2020-02-08.log with age of 508h56m16.520807247s
+2020-02-29 13:47:55.278   MAIN   INF   Deleting old log file CNC 1 2020-02-01.log with age of 666h25m43.227798121s
+2020-02-29 13:47:55.278   MAIN   INF   Deleting old log file CNC 1 2020-02-08.log with age of 508h56m16.500529151s
+2020-02-29 13:47:55.278   MAIN   INF   Deleting old log file CNC 10 2020-02-01.log with age of 666h25m43.237643812s
+2020-02-29 13:47:55.278   MAIN   INF   Deleting old log file CNC 10 2020-02-08.log with age of 508h56m16.580480818s
+2020-02-29 13:47:55.278   MAIN   INF   Deleting old log file CNC 11 2020-02-01.log with age of 666h25m43.235449023s
+2020-02-29 13:47:55.278   MAIN   INF   Deleting old log file CNC 11 2020-02-08.log with age of 508h56m16.515958252s
+2020-02-29 13:47:55.278   MAIN   INF   Deleting old log file CNC 12 2020-02-01.log with age of 666h25m43.316911429s
+2020-02-29 13:47:55.279   MAIN   INF   Deleting old log file CNC 12 2020-02-08.log with age of 508h56m16.574942767s
+2020-02-29 13:47:55.279   MAIN   INF   Deleting old log file CNC 13 2020-02-01.log with age of 666h25m43.24571366s
+2020-02-29 13:47:55.279   MAIN   INF   Deleting old log file CNC 13 2020-02-08.log with age of 508h56m16.495406754s
+2020-02-29 13:47:55.279   MAIN   INF   Deleting old log file CNC 14 2020-02-01.log with age of 666h25m43.239259642s
+2020-02-29 13:47:55.279   MAIN   INF   Deleting old log file CNC 14 2020-02-08.log with age of 508h56m16.485779737s
+2020-02-29 13:47:55.279   MAIN   INF   Deleting old log file CNC 15 2020-02-01.log with age of 666h25m43.27720432s
+2020-02-29 13:47:55.279   MAIN   INF   Deleting old log file CNC 15 2020-02-08.log with age of 508h56m16.49528183s
+2020-02-29 13:47:55.280   MAIN   INF   Deleting old log file CNC 16 2020-02-01.log with age of 666h25m43.232934224s
+2020-02-29 13:47:55.280   MAIN   INF   Deleting old log file CNC 16 2020-02-08.log with age of 508h56m16.495232744s
+2020-02-29 13:47:55.280   MAIN   INF   Deleting old log file CNC 17 2020-02-01.log with age of 666h25m43.258017088s
+2020-02-29 13:47:55.280   MAIN   INF   Deleting old log file CNC 17 2020-02-08.log with age of 508h56m16.531088967s
+2020-02-29 13:47:55.280   MAIN   INF   Deleting old log file CNC 18 2020-02-01.log with age of 666h25m43.242832765s
+2020-02-29 13:47:55.280   MAIN   INF   Deleting old log file CNC 18 2020-02-08.log with age of 508h56m16.520045175s
+2020-02-29 13:47:55.280   MAIN   INF   Deleting old log file CNC 19 2020-02-01.log with age of 666h25m43.238127387s
+2020-02-29 13:47:55.281   MAIN   INF   Deleting old log file CNC 19 2020-02-08.log with age of 508h56m16.495489268s
+2020-02-29 13:47:55.281   MAIN   INF   Deleting old log file CNC 2 2020-02-01.log with age of 666h25m43.299209944s
+2020-02-29 13:47:55.281   MAIN   INF   Deleting old log file CNC 2 2020-02-08.log with age of 508h56m16.512713317s
+2020-02-29 13:47:55.281   MAIN   INF   Deleting old log file CNC 3 2020-02-01.log with age of 666h25m43.260597236s
+2020-02-29 13:47:55.281   MAIN   INF   Deleting old log file CNC 3 2020-02-08.log with age of 508h56m16.573859466s
+2020-02-29 13:47:55.281   MAIN   INF   Deleting old log file CNC 4 2020-02-01.log with age of 666h25m43.239966866s
+2020-02-29 13:47:55.281   MAIN   INF   Deleting old log file CNC 4 2020-02-08.log with age of 508h56m16.525020589s
+2020-02-29 13:47:55.282   MAIN   INF   Deleting old log file CNC 5 2020-02-01.log with age of 666h25m43.26738052s
+2020-02-29 13:47:55.282   MAIN   INF   Deleting old log file CNC 5 2020-02-08.log with age of 508h56m16.50229012s
+2020-02-29 13:47:55.282   MAIN   INF   Deleting old log file CNC 6 2020-02-01.log with age of 666h25m43.325249397s
+2020-02-29 13:47:55.282   MAIN   INF   Deleting old log file CNC 6 2020-02-08.log with age of 508h56m16.573872541s
+2020-02-29 13:47:55.282   MAIN   INF   Deleting old log file CNC 7 2020-02-01.log with age of 666h25m43.243377545s
+2020-02-29 13:47:55.282   MAIN   INF   Deleting old log file CNC 7 2020-02-08.log with age of 508h56m16.513834513s
+2020-02-29 13:47:55.283   MAIN   INF   Deleting old log file CNC 8 2020-02-01.log with age of 666h25m43.262269845s
+2020-02-29 13:47:55.283   MAIN   INF   Deleting old log file CNC 8 2020-02-08.log with age of 508h56m16.528318423s
+2020-02-29 13:47:55.283   MAIN   INF   Deleting old log file CNC 9 2020-02-01.log with age of 666h25m43.271006662s
+2020-02-29 13:47:55.283   MAIN   INF   Deleting old log file CNC 9 2020-02-08.log with age of 508h56m16.502270544s
+2020-02-29 13:47:55.283   MAIN   INF   Deleting old log file MAIN 2020-02-01.log with age of 664h38m39.551974874s
+2020-02-29 13:47:55.283   MAIN   INF   Deleting old log file MAIN 2020-02-08.log with age of 508h56m15.728403996s
+2020-02-29 13:47:55.285   MAIN   INF   Deleting old log file Zapsi 1 2020-02-01.log with age of 664h38m39.537306542s
+2020-02-29 13:47:55.285   MAIN   INF   Deleting old log file Zapsi 2  2020-02-01.log with age of 664h38m39.533464218s
+2020-02-29 13:47:55.286   MAIN   INF   Deleting old log file darwin-launchd 2020-02-08.log with age of 508h59m41.638664833s
+2020-02-29 13:47:55.286   MAIN   INF   Active devices: 0, running devices: 0
+2020-02-29 13:47:55.286   MAIN   INF   Sleeping for 9.984196073s
+2020-02-29 13:47:58.206   MAIN   INF   Stopped on platform darwin-launchd
+2020-02-29 13:48:07.543   MAIN   INF   Starting Zapsi Service on darwin-launchd
+2020-02-29 13:48:12.547   MAIN   INF   Zapsi Service version 2020.1.2.29 started
+2020-02-29 13:48:12.568   MAIN   INF   Program running
+2020-02-29 13:48:12.582   MAIN   INF   Active devices: 20, running devices: 0
+2020-02-29 13:48:12.582   MAIN   INF   Sleeping for 9.985969561s
+2020-02-29 13:48:18.822   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:19.822   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:20.822   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:21.824   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:22.573   MAIN   INF   Program running
+2020-02-29 13:48:22.587   MAIN   INF   Active devices: 20, running devices: 20
+2020-02-29 13:48:22.587   MAIN   INF   Sleeping for 9.985528319s
+2020-02-29 13:48:22.827   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:23.830   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:24.835   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:25.836   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:26.839   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:27.843   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:28.848   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:29.851   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:30.854   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:31.855   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:32.575   MAIN   INF   Program running
+2020-02-29 13:48:32.595   MAIN   INF   Active devices: 20, running devices: 20
+2020-02-29 13:48:32.595   MAIN   INF   Sleeping for 9.980427874s
+2020-02-29 13:48:32.859   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:33.859   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:34.861   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:35.865   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:36.865   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:37.867   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:38.871   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:39.876   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:40.879   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:41.881   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:42.578   MAIN   INF   Program running
+2020-02-29 13:48:42.599   MAIN   INF   Active devices: 20, running devices: 20
+2020-02-29 13:48:42.600   MAIN   INF   Sleeping for 9.978479714s
+2020-02-29 13:48:42.885   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:43.889   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:44.893   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:45.899   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:46.901   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:47.903   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:48.904   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:49.909   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:50.909   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:51.910   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:52.582   MAIN   INF   Program running
+2020-02-29 13:48:52.597   MAIN   INF   Active devices: 20, running devices: 20
+2020-02-29 13:48:52.598   MAIN   INF   Sleeping for 9.98470327s
+2020-02-29 13:48:52.913   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:53.914   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:54.916   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:55.920   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:56.921   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:57.925   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:58.929   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:48:59.932   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:49:00.932   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:49:01.937   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:49:02.585   MAIN   INF   Program running
+2020-02-29 13:49:02.618   MAIN   INF   Active devices: 20, running devices: 20
+2020-02-29 13:49:02.618   MAIN   INF   Sleeping for 9.966868843s
+2020-02-29 13:49:02.939   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:49:03.940   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:49:04.945   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:49:05.950   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:49:06.954   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:49:07.957   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:49:08.962   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:49:09.965   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:49:10.966   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:49:11.970   MAIN   INF   Stopping, still running devices: 20
+2020-02-29 13:49:12.590   MAIN   INF   Program running
+2020-02-29 13:49:12.613   MAIN   INF   Active devices: 20, running devices: 20
+2020-02-29 13:49:12.613   MAIN   INF   Sleeping for 9.976632815s
+2020-02-29 13:49:12.974   MAIN   INF   Stopped on platform darwin-launchd
+2020-02-29 13:52:11.036   MAIN   INF   Starting Zapsi Service on darwin-launchd
+2020-02-29 13:52:16.037   MAIN   INF   Zapsi Service version 2020.1.2.29 started
+2020-02-29 13:52:16.052   MAIN   INF   Program running
+2020-02-29 13:52:16.064   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 13:52:16.065   MAIN   INF   Sleeping for 9.98784482s
+2020-02-29 13:52:26.053   MAIN   INF   Program running
+2020-02-29 13:52:26.065   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 13:52:26.065   MAIN   INF   Sleeping for 9.987326683s
+2020-02-29 13:52:34.742   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 13:52:35.746   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 13:52:36.057   MAIN   INF   Program running
+2020-02-29 13:52:36.075   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 13:52:36.075   MAIN   INF   Sleeping for 9.981414959s
+2020-02-29 13:52:36.746   MAIN   INF   Stopped on platform darwin-launchd
+2020-02-29 13:53:38.292   MAIN   INF   Starting Zapsi Service on darwin-launchd
+2020-02-29 13:53:43.293   MAIN   INF   Zapsi Service version 2020.1.2.29 started
+2020-02-29 13:53:43.313   MAIN   INF   Program running
+2020-02-29 13:53:43.326   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 13:53:43.326   MAIN   INF   Sleeping for 9.986540222s
+2020-02-29 13:53:53.314   MAIN   INF   Program running
+2020-02-29 13:53:53.328   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 13:53:53.328   MAIN   INF   Sleeping for 9.985244828s
+2020-02-29 13:53:55.624   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 13:53:56.624   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 13:53:57.630   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 13:53:58.631   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 13:53:59.636   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 13:54:00.639   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 13:54:01.640   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 13:54:02.642   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 13:54:03.315   MAIN   INF   Program running
+2020-02-29 13:54:03.332   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 13:54:03.332   MAIN   INF   Sleeping for 9.982419813s
+2020-02-29 13:54:03.643   MAIN   INF   Stopped on platform darwin-launchd
+2020-02-29 13:54:08.209   MAIN   INF   Starting Zapsi Service on darwin-launchd
+2020-02-29 13:54:13.215   MAIN   INF   Zapsi Service version 2020.1.2.29 started
+2020-02-29 13:54:13.232   MAIN   INF   Program running
+2020-02-29 13:54:13.244   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 13:54:13.244   MAIN   INF   Sleeping for 9.987926914s
+2020-02-29 13:54:20.214   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 13:54:21.218   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 13:54:22.222   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 13:54:23.222   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 13:54:23.232   MAIN   INF   Program running
+2020-02-29 13:54:23.251   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 13:54:23.251   MAIN   INF   Sleeping for 9.981420834s
+2020-02-29 13:54:24.227   MAIN   INF   Stopped on platform darwin-launchd
+2020-02-29 13:54:49.509   MAIN   INF   Starting Zapsi Service on darwin-launchd
+2020-02-29 13:54:54.512   MAIN   INF   Zapsi Service version 2020.1.2.29 started
+2020-02-29 13:54:54.533   MAIN   INF   Program running
+2020-02-29 13:54:54.545   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 13:54:54.545   MAIN   INF   Sleeping for 9.98765258s
+2020-02-29 13:54:56.473   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 13:58:36.709   MAIN   INF   Starting Zapsi Service on darwin-launchd
+2020-02-29 13:58:41.711   MAIN   INF   Zapsi Service version 2020.1.2.29 started
+2020-02-29 13:58:41.734   MAIN   INF   Program running
+2020-02-29 13:58:41.749   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 13:58:41.749   MAIN   INF   Sleeping for 9.984658229s
+2020-02-29 13:58:51.738   MAIN   INF   Program running
+2020-02-29 13:58:51.753   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 13:58:51.753   MAIN   INF   Sleeping for 9.985067895s
+2020-02-29 13:59:01.738   MAIN   INF   Program running
+2020-02-29 13:59:01.760   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 13:59:01.760   MAIN   INF   Sleeping for 9.977822649s
+2020-02-29 13:59:11.741   MAIN   INF   Program running
+2020-02-29 13:59:11.756   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 13:59:11.756   MAIN   INF   Sleeping for 9.985172902s
+2020-02-29 13:59:21.744   MAIN   INF   Program running
+2020-02-29 13:59:21.755   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 13:59:21.755   MAIN   INF   Sleeping for 9.988445212s
+2020-02-29 13:59:23.918   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 13:59:24.922   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 13:59:25.927   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 13:59:26.932   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 13:59:27.933   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 13:59:28.936   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 13:59:29.937   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 13:59:30.939   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 13:59:31.747   MAIN   INF   Program running
+2020-02-29 13:59:31.759   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 13:59:31.759   MAIN   INF   Sleeping for 9.987825568s
+2020-02-29 13:59:31.940   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 13:59:32.944   MAIN   INF   Stopped on platform darwin-launchd
+2020-02-29 13:59:35.150   MAIN   INF   Starting Zapsi Service on darwin-launchd
+2020-02-29 13:59:40.154   MAIN   INF   Zapsi Service version 2020.1.2.29 started
+2020-02-29 13:59:40.175   MAIN   INF   Program running
+2020-02-29 13:59:40.187   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 13:59:40.188   MAIN   INF   Sleeping for 9.986982118s
+2020-02-29 13:59:43.794   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 13:59:44.795   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 13:59:45.797   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 13:59:46.798   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 13:59:47.802   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 13:59:48.807   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 13:59:49.809   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 13:59:50.178   MAIN   INF   Program running
+2020-02-29 13:59:50.193   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 13:59:50.193   MAIN   INF   Sleeping for 9.984436112s
+2020-02-29 13:59:50.811   MAIN   INF   Stopped on platform darwin-launchd
+2020-02-29 14:01:14.751   MAIN   INF   Starting Zapsi Service on darwin-launchd
+2020-02-29 14:01:19.753   MAIN   INF   Zapsi Service version 2020.1.2.29 started
+2020-02-29 14:01:19.772   MAIN   INF   Program running
+2020-02-29 14:01:19.785   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:01:19.785   MAIN   INF   Sleeping for 9.987554314s
+2020-02-29 14:01:22.445   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:01:23.449   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:01:24.453   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:01:25.458   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:01:26.461   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:01:27.462   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:01:28.466   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:01:29.471   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:01:29.773   MAIN   INF   Program running
+2020-02-29 14:01:29.790   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:01:29.790   MAIN   INF   Sleeping for 9.983182526s
+2020-02-29 14:01:30.473   MAIN   INF   Stopped on platform darwin-launchd
+2020-02-29 14:01:35.030   MAIN   INF   Starting Zapsi Service on darwin-launchd
+2020-02-29 14:01:40.035   MAIN   INF   Zapsi Service version 2020.1.2.29 started
+2020-02-29 14:01:40.060   MAIN   INF   Program running
+2020-02-29 14:01:40.071   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:01:40.072   MAIN   INF   Sleeping for 9.98814129s
+2020-02-29 14:01:48.464   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:02:34.260   MAIN   INF   Starting Zapsi Service on darwin-launchd
+2020-02-29 14:02:39.265   MAIN   INF   Zapsi Service version 2020.1.2.29 started
+2020-02-29 14:02:39.286   MAIN   INF   Program running
+2020-02-29 14:02:39.299   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:02:39.299   MAIN   INF   Sleeping for 9.986521195s
+2020-02-29 14:02:40.962   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:02:41.967   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:02:42.968   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:02:43.973   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:02:44.976   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:02:45.977   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:02:46.978   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:02:47.980   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:02:48.983   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:02:49.286   MAIN   INF   Program running
+2020-02-29 14:02:49.301   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:02:49.301   MAIN   INF   Sleeping for 9.985416672s
+2020-02-29 14:02:49.986   MAIN   INF   Stopped on platform darwin-launchd
+2020-02-29 14:03:36.847   MAIN   INF   Starting Zapsi Service on darwin-launchd
+2020-02-29 14:03:41.848   MAIN   INF   Zapsi Service version 2020.1.2.29 started
+2020-02-29 14:03:41.867   MAIN   INF   Program running
+2020-02-29 14:03:41.878   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:03:41.878   MAIN   INF   Sleeping for 9.988275564s
+2020-02-29 14:03:51.872   MAIN   INF   Program running
+2020-02-29 14:03:51.893   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:03:51.893   MAIN   INF   Sleeping for 9.978397454s
+2020-02-29 14:03:56.290   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:03:57.291   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:03:58.296   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:03:59.298   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:04:00.302   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:04:01.305   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:04:01.876   MAIN   INF   Program running
+2020-02-29 14:04:01.891   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:04:01.891   MAIN   INF   Sleeping for 9.985073157s
+2020-02-29 14:04:02.309   MAIN   INF   Stopped on platform darwin-launchd
+2020-02-29 14:04:04.792   MAIN   INF   Starting Zapsi Service on darwin-launchd
+2020-02-29 14:04:09.796   MAIN   INF   Zapsi Service version 2020.1.2.29 started
+2020-02-29 14:04:09.816   MAIN   INF   Program running
+2020-02-29 14:04:09.831   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:04:09.831   MAIN   INF   Sleeping for 9.985111782s
+2020-02-29 14:04:19.817   MAIN   INF   Program running
+2020-02-29 14:04:19.834   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:04:19.834   MAIN   INF   Sleeping for 9.982534583s
+2020-02-29 14:04:29.818   MAIN   INF   Program running
+2020-02-29 14:04:29.834   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:04:29.835   MAIN   INF   Sleeping for 9.983421023s
+2020-02-29 14:04:39.821   MAIN   INF   Program running
+2020-02-29 14:04:39.836   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:04:39.836   MAIN   INF   Sleeping for 9.985022191s
+2020-02-29 14:04:49.822   MAIN   INF   Program running
+2020-02-29 14:04:49.836   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:04:49.836   MAIN   INF   Sleeping for 9.985744596s
+2020-02-29 14:04:59.827   MAIN   INF   Program running
+2020-02-29 14:04:59.842   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:04:59.842   MAIN   INF   Sleeping for 9.984436749s
+2020-02-29 14:05:09.831   MAIN   INF   Program running
+2020-02-29 14:05:09.847   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:05:09.847   MAIN   INF   Sleeping for 9.983211067s
+2020-02-29 14:05:19.831   MAIN   INF   Program running
+2020-02-29 14:05:19.849   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:05:19.849   MAIN   INF   Sleeping for 9.981323386s
+2020-02-29 14:05:29.835   MAIN   INF   Program running
+2020-02-29 14:05:29.852   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:05:29.852   MAIN   INF   Sleeping for 9.982484778s
+2020-02-29 14:05:39.837   MAIN   INF   Program running
+2020-02-29 14:05:39.859   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:05:39.859   MAIN   INF   Sleeping for 9.978438005s
+2020-02-29 14:05:49.842   MAIN   INF   Program running
+2020-02-29 14:05:49.865   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:05:49.865   MAIN   INF   Sleeping for 9.976737615s
+2020-02-29 14:05:59.847   MAIN   INF   Program running
+2020-02-29 14:05:59.867   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:05:59.867   MAIN   INF   Sleeping for 9.979190075s
+2020-02-29 14:06:09.850   MAIN   INF   Program running
+2020-02-29 14:06:09.866   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:06:09.866   MAIN   INF   Sleeping for 9.984084579s
+2020-02-29 14:06:19.854   MAIN   INF   Program running
+2020-02-29 14:06:19.874   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:06:19.874   MAIN   INF   Sleeping for 9.979240334s
+2020-02-29 14:06:29.855   MAIN   INF   Program running
+2020-02-29 14:06:29.876   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:06:29.876   MAIN   INF   Sleeping for 9.978654604s
+2020-02-29 14:06:39.857   MAIN   INF   Program running
+2020-02-29 14:06:39.878   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:06:39.878   MAIN   INF   Sleeping for 9.979220715s
+2020-02-29 14:06:49.858   MAIN   INF   Program running
+2020-02-29 14:06:49.877   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:06:49.877   MAIN   INF   Sleeping for 9.98148879s
+2020-02-29 14:06:59.861   MAIN   INF   Program running
+2020-02-29 14:06:59.884   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:06:59.884   MAIN   INF   Sleeping for 9.976866439s
+2020-02-29 14:07:09.865   MAIN   INF   Program running
+2020-02-29 14:07:09.883   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:07:09.883   MAIN   INF   Sleeping for 9.981297334s
+2020-02-29 14:07:15.425   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:07:16.429   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:07:17.431   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:07:18.436   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:07:19.438   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:07:19.867   MAIN   INF   Program running
+2020-02-29 14:07:19.882   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:07:19.883   MAIN   INF   Sleeping for 9.984578762s
+2020-02-29 14:07:20.439   MAIN   INF   Stopped on platform darwin-launchd
+2020-02-29 14:09:34.834   MAIN   INF   Starting Zapsi Service on darwin-launchd
+2020-02-29 14:09:39.839   MAIN   INF   Zapsi Service version 2020.1.2.29 started
+2020-02-29 14:09:39.861   MAIN   INF   Program running
+2020-02-29 14:09:39.888   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:09:39.888   MAIN   INF   Sleeping for 9.973039785s
+2020-02-29 14:09:49.864   MAIN   INF   Program running
+2020-02-29 14:09:49.907   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:09:49.907   MAIN   INF   Sleeping for 9.957559161s
+2020-02-29 14:09:59.869   MAIN   INF   Program running
+2020-02-29 14:09:59.918   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:09:59.919   MAIN   INF   Sleeping for 9.950524355s
+2020-02-29 14:10:09.873   MAIN   INF   Program running
+2020-02-29 14:10:09.890   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:10:09.890   MAIN   INF   Sleeping for 9.982953681s
+2020-02-29 14:10:19.877   MAIN   INF   Program running
+2020-02-29 14:10:19.900   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:10:19.900   MAIN   INF   Sleeping for 9.977307882s
+2020-02-29 14:10:29.882   MAIN   INF   Program running
+2020-02-29 14:10:29.906   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:10:29.906   MAIN   INF   Sleeping for 9.975692288s
+2020-02-29 14:10:39.882   MAIN   INF   Program running
+2020-02-29 14:10:39.901   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:10:39.902   MAIN   INF   Sleeping for 9.980850443s
+2020-02-29 14:10:49.885   MAIN   INF   Program running
+2020-02-29 14:10:49.902   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:10:49.902   MAIN   INF   Sleeping for 9.983081567s
+2020-02-29 14:10:59.889   MAIN   INF   Program running
+2020-02-29 14:10:59.904   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:10:59.904   MAIN   INF   Sleeping for 9.984828928s
+2020-02-29 14:11:09.889   MAIN   INF   Program running
+2020-02-29 14:11:09.911   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:11:09.911   MAIN   INF   Sleeping for 9.978693173s
+2020-02-29 14:11:19.893   MAIN   INF   Program running
+2020-02-29 14:11:19.907   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:11:19.907   MAIN   INF   Sleeping for 9.985583737s
+2020-02-29 14:11:28.191   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:11:29.193   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:11:29.897   MAIN   INF   Program running
+2020-02-29 14:11:29.916   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:11:29.916   MAIN   INF   Sleeping for 9.980949688s
+2020-02-29 14:11:30.196   MAIN   INF   Stopped on platform darwin-launchd
+2020-02-29 14:11:33.690   MAIN   INF   Starting Zapsi Service on darwin-launchd
+2020-02-29 14:11:38.693   MAIN   INF   Zapsi Service version 2020.1.2.29 started
+2020-02-29 14:11:38.714   MAIN   INF   Program running
+2020-02-29 14:11:38.727   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:11:38.727   MAIN   INF   Sleeping for 9.987028136s
+2020-02-29 14:11:48.717   MAIN   INF   Program running
+2020-02-29 14:11:48.736   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:11:48.737   MAIN   INF   Sleeping for 9.980235929s
+2020-02-29 14:11:58.720   MAIN   INF   Program running
+2020-02-29 14:11:58.737   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:11:58.737   MAIN   INF   Sleeping for 9.982979241s
+2020-02-29 14:12:08.724   MAIN   INF   Program running
+2020-02-29 14:12:08.746   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:12:08.746   MAIN   INF   Sleeping for 9.9777468s
+2020-02-29 14:12:18.728   MAIN   INF   Program running
+2020-02-29 14:12:18.748   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:12:18.748   MAIN   INF   Sleeping for 9.97966722s
+2020-02-29 14:12:28.732   MAIN   INF   Program running
+2020-02-29 14:12:28.755   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:12:28.755   MAIN   INF   Sleeping for 9.976972661s
+2020-02-29 14:12:38.732   MAIN   INF   Program running
+2020-02-29 14:12:38.752   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:12:38.752   MAIN   INF   Sleeping for 9.980404759s
+2020-02-29 14:12:48.736   MAIN   INF   Program running
+2020-02-29 14:12:48.757   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:12:48.757   MAIN   INF   Sleeping for 9.978578103s
+2020-02-29 14:12:58.739   MAIN   INF   Program running
+2020-02-29 14:12:58.764   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:12:58.764   MAIN   INF   Sleeping for 9.97522733s
+2020-02-29 14:13:08.740   MAIN   INF   Program running
+2020-02-29 14:13:08.758   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:13:08.758   MAIN   INF   Sleeping for 9.98153676s
+2020-02-29 14:13:18.743   MAIN   INF   Program running
+2020-02-29 14:13:18.765   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:13:18.765   MAIN   INF   Sleeping for 9.977823875s
+2020-02-29 14:13:28.746   MAIN   INF   Program running
+2020-02-29 14:13:28.767   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:13:28.768   MAIN   INF   Sleeping for 9.977858095s
+2020-02-29 14:13:38.751   MAIN   INF   Program running
+2020-02-29 14:13:38.776   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:13:38.776   MAIN   INF   Sleeping for 9.975159173s
+2020-02-29 14:13:48.752   MAIN   INF   Program running
+2020-02-29 14:13:48.768   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:13:48.769   MAIN   INF   Sleeping for 9.983162838s
+2020-02-29 14:13:58.753   MAIN   INF   Program running
+2020-02-29 14:13:58.778   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:13:58.779   MAIN   INF   Sleeping for 9.974268102s
+2020-02-29 14:14:08.756   MAIN   INF   Program running
+2020-02-29 14:14:08.774   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:14:08.775   MAIN   INF   Sleeping for 9.980868462s
+2020-02-29 14:14:18.761   MAIN   INF   Program running
+2020-02-29 14:14:18.784   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:14:18.784   MAIN   INF   Sleeping for 9.976806723s
+2020-02-29 14:14:28.762   MAIN   INF   Program running
+2020-02-29 14:14:28.783   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:14:28.783   MAIN   INF   Sleeping for 9.978427307s
+2020-02-29 14:14:38.762   MAIN   INF   Program running
+2020-02-29 14:14:38.781   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:14:38.781   MAIN   INF   Sleeping for 9.980990126s
+2020-02-29 14:14:48.763   MAIN   INF   Program running
+2020-02-29 14:14:48.779   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:14:48.780   MAIN   INF   Sleeping for 9.982798124s
+2020-02-29 14:14:58.767   MAIN   INF   Program running
+2020-02-29 14:14:58.783   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:14:58.784   MAIN   INF   Sleeping for 9.983161779s
+2020-02-29 14:15:08.768   MAIN   INF   Program running
+2020-02-29 14:15:08.784   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:15:08.784   MAIN   INF   Sleeping for 9.983463402s
+2020-02-29 14:15:18.770   MAIN   INF   Program running
+2020-02-29 14:15:18.793   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:15:18.793   MAIN   INF   Sleeping for 9.976680897s
+2020-02-29 14:15:28.770   MAIN   INF   Program running
+2020-02-29 14:15:28.793   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:15:28.793   MAIN   INF   Sleeping for 9.976959767s
+2020-02-29 14:15:38.774   MAIN   INF   Program running
+2020-02-29 14:15:38.794   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:15:38.795   MAIN   INF   Sleeping for 9.979556968s
+2020-02-29 14:15:48.778   MAIN   INF   Program running
+2020-02-29 14:15:48.806   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:15:48.806   MAIN   INF   Sleeping for 9.971488299s
+2020-02-29 14:15:58.780   MAIN   INF   Program running
+2020-02-29 14:15:58.796   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:15:58.796   MAIN   INF   Sleeping for 9.983896257s
+2020-02-29 14:16:08.782   MAIN   INF   Program running
+2020-02-29 14:16:08.801   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:16:08.801   MAIN   INF   Sleeping for 9.980402312s
+2020-02-29 14:16:18.785   MAIN   INF   Program running
+2020-02-29 14:16:18.811   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:16:18.811   MAIN   INF   Sleeping for 9.973737912s
+2020-02-29 14:16:28.040   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:16:28.788   MAIN   INF   Program running
+2020-02-29 14:16:28.808   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:16:28.809   MAIN   INF   Sleeping for 9.979026224s
+2020-02-29 14:16:29.041   MAIN   INF   Stopped on platform darwin-launchd
+2020-02-29 14:17:51.453   MAIN   INF   Starting Zapsi Service on darwin-launchd
+2020-02-29 14:17:56.456   MAIN   INF   Zapsi Service version 2020.1.2.29 started
+2020-02-29 14:17:56.477   MAIN   INF   Program running
+2020-02-29 14:17:56.490   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:17:56.490   MAIN   INF   Sleeping for 9.986771512s
+2020-02-29 14:18:06.482   MAIN   INF   Program running
+2020-02-29 14:18:06.499   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:18:06.499   MAIN   INF   Sleeping for 9.982656343s
+2020-02-29 14:18:16.484   MAIN   INF   Program running
+2020-02-29 14:18:16.504   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:18:16.505   MAIN   INF   Sleeping for 9.979490091s
+2020-02-29 14:18:26.488   MAIN   INF   Program running
+2020-02-29 14:18:26.509   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:18:26.509   MAIN   INF   Sleeping for 9.979003127s
+2020-02-29 14:18:36.490   MAIN   INF   Program running
+2020-02-29 14:18:36.516   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:18:36.516   MAIN   INF   Sleeping for 9.974108155s
+2020-02-29 14:18:46.495   MAIN   INF   Program running
+2020-02-29 14:18:46.520   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:18:46.520   MAIN   INF   Sleeping for 9.975519861s
+2020-02-29 14:18:56.498   MAIN   INF   Program running
+2020-02-29 14:18:56.513   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:18:56.513   MAIN   INF   Sleeping for 9.984138202s
+2020-02-29 14:19:06.500   MAIN   INF   Program running
+2020-02-29 14:19:06.521   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:19:06.521   MAIN   INF   Sleeping for 9.978958837s
+2020-02-29 14:19:14.839   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:19:15.844   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:19:16.501   MAIN   INF   Program running
+2020-02-29 14:19:16.521   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:19:16.521   MAIN   INF   Sleeping for 9.979961075s
+2020-02-29 14:19:16.848   MAIN   INF   Stopped on platform darwin-launchd
+2020-02-29 14:20:20.104   MAIN   INF   Starting Zapsi Service on darwin-launchd
+2020-02-29 14:20:25.108   MAIN   INF   Zapsi Service version 2020.1.2.29 started
+2020-02-29 14:20:25.128   MAIN   INF   Program running
+2020-02-29 14:20:25.145   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:20:25.145   MAIN   INF   Sleeping for 9.982904653s
+2020-02-29 14:20:35.129   MAIN   INF   Program running
+2020-02-29 14:20:35.141   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:20:35.142   MAIN   INF   Sleeping for 9.987067064s
+2020-02-29 14:20:45.130   MAIN   INF   Program running
+2020-02-29 14:20:45.146   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:20:45.146   MAIN   INF   Sleeping for 9.98452911s
+2020-02-29 14:20:55.133   MAIN   INF   Program running
+2020-02-29 14:20:55.155   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:20:55.155   MAIN   INF   Sleeping for 9.978456514s
+2020-02-29 14:21:05.135   MAIN   INF   Program running
+2020-02-29 14:21:05.146   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:21:05.146   MAIN   INF   Sleeping for 9.988771897s
+2020-02-29 14:21:15.138   MAIN   INF   Program running
+2020-02-29 14:21:15.155   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:21:15.155   MAIN   INF   Sleeping for 9.983003037s
+2020-02-29 14:21:25.143   MAIN   INF   Program running
+2020-02-29 14:21:25.158   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:21:25.158   MAIN   INF   Sleeping for 9.984805312s
+2020-02-29 14:21:35.145   MAIN   INF   Program running
+2020-02-29 14:21:35.166   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:21:35.166   MAIN   INF   Sleeping for 9.978816587s
+2020-02-29 14:21:45.147   MAIN   INF   Program running
+2020-02-29 14:21:45.162   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:21:45.162   MAIN   INF   Sleeping for 9.984514823s
+2020-02-29 14:21:55.147   MAIN   INF   Program running
+2020-02-29 14:21:55.169   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:21:55.169   MAIN   INF   Sleeping for 9.978025554s
+2020-02-29 14:22:05.149   MAIN   INF   Program running
+2020-02-29 14:22:05.166   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:22:05.166   MAIN   INF   Sleeping for 9.982674486s
+2020-02-29 14:22:15.153   MAIN   INF   Program running
+2020-02-29 14:22:15.170   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:22:15.170   MAIN   INF   Sleeping for 9.983421492s
+2020-02-29 14:22:20.083   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:22:21.085   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:22:22.085   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:22:23.086   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:22:24.089   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:22:25.091   MAIN   INF   Stopped on platform darwin-launchd
+2020-02-29 14:22:45.879   MAIN   INF   Starting Zapsi Service on darwin-launchd
+2020-02-29 14:22:45.879   MAIN   INF   Zapsi Service version 2020.1.2.29 started
+2020-02-29 14:22:45.894   MAIN   INF   Program running
+2020-02-29 14:22:45.907   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:22:45.907   MAIN   INF   Sleeping for 9.986822011s
+2020-02-29 14:22:55.895   MAIN   INF   Program running
+2020-02-29 14:22:55.911   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:22:55.911   MAIN   INF   Sleeping for 9.983764618s
+2020-02-29 14:23:05.895   MAIN   INF   Program running
+2020-02-29 14:23:05.910   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:23:05.911   MAIN   INF   Sleeping for 9.984808078s
+2020-02-29 14:23:15.896   MAIN   INF   Program running
+2020-02-29 14:23:15.911   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:23:15.911   MAIN   INF   Sleeping for 9.984844693s
+2020-02-29 14:23:25.897   MAIN   INF   Program running
+2020-02-29 14:23:25.911   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:23:25.911   MAIN   INF   Sleeping for 9.985591754s
+2020-02-29 14:23:32.683   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:23:33.685   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:23:34.690   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:23:35.690   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:23:35.898   MAIN   INF   Program running
+2020-02-29 14:23:35.918   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:23:35.918   MAIN   INF   Sleeping for 9.980714363s
+2020-02-29 14:23:36.693   MAIN   INF   Stopped on platform darwin-launchd
+2020-02-29 14:23:38.528   MAIN   INF   Starting Zapsi Service on darwin-launchd
+2020-02-29 14:23:38.529   MAIN   INF   Zapsi Service version 2020.1.2.29 started
+2020-02-29 14:23:38.547   MAIN   INF   Program running
+2020-02-29 14:23:38.559   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:23:38.559   MAIN   INF   Sleeping for 9.987597055s
+2020-02-29 14:23:48.550   MAIN   INF   Program running
+2020-02-29 14:23:48.571   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:23:48.571   MAIN   INF   Sleeping for 9.978955948s
+2020-02-29 14:23:58.552   MAIN   INF   Program running
+2020-02-29 14:23:58.568   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:23:58.568   MAIN   INF   Sleeping for 9.983660069s
+2020-02-29 14:24:01.130   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:24:02.134   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:24:03.135   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:24:04.136   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:24:05.137   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:24:06.142   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:24:07.145   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:24:08.150   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:24:08.557   MAIN   INF   Program running
+2020-02-29 14:24:08.573   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:24:08.574   MAIN   INF   Sleeping for 9.983037781s
+2020-02-29 14:24:09.153   MAIN   INF   Stopped on platform darwin-launchd
+2020-02-29 14:25:06.531   MAIN   INF   Starting Zapsi Service on darwin-launchd
+2020-02-29 14:25:06.531   MAIN   INF   Zapsi Service version 2020.1.2.29 started
+2020-02-29 14:25:06.546   MAIN   INF   Program running
+2020-02-29 14:25:06.557   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:25:06.557   MAIN   INF   Sleeping for 9.988991518s
+2020-02-29 14:25:16.549   MAIN   INF   Program running
+2020-02-29 14:25:16.569   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:25:16.569   MAIN   INF   Sleeping for 9.980105987s
+2020-02-29 14:25:26.550   MAIN   INF   Program running
+2020-02-29 14:25:26.560   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:25:26.560   MAIN   INF   Sleeping for 9.989244161s
+2020-02-29 14:25:36.554   MAIN   INF   Program running
+2020-02-29 14:25:36.573   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:25:36.574   MAIN   INF   Sleeping for 9.980728808s
+2020-02-29 14:25:46.559   MAIN   INF   Program running
+2020-02-29 14:25:46.579   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:25:46.579   MAIN   INF   Sleeping for 9.979874099s
+2020-02-29 14:25:48.809   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:25:49.810   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:25:50.816   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:25:51.820   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:25:52.821   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:25:53.825   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:25:54.831   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:25:55.836   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:25:56.561   MAIN   INF   Program running
+2020-02-29 14:25:56.572   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:25:56.572   MAIN   INF   Sleeping for 9.989384133s
+2020-02-29 14:25:56.839   MAIN   INF   Stopped on platform darwin-launchd
+2020-02-29 14:30:24.420   MAIN   INF   Starting Zapsi Service on darwin-launchd
+2020-02-29 14:30:24.420   MAIN   INF   Zapsi Service version 2020.1.2.29 started
+2020-02-29 14:30:24.439   MAIN   INF   Program running
+2020-02-29 14:30:24.449   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:30:24.449   MAIN   INF   Sleeping for 9.989267436s
+2020-02-29 14:30:34.440   MAIN   INF   Program running
+2020-02-29 14:30:34.457   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:30:34.457   MAIN   INF   Sleeping for 9.983342666s
+2020-02-29 14:30:44.441   MAIN   INF   Program running
+2020-02-29 14:30:44.470   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:30:44.470   MAIN   INF   Sleeping for 9.970870032s
+2020-02-29 14:30:54.442   MAIN   INF   Program running
+2020-02-29 14:30:54.470   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:30:54.470   MAIN   INF   Sleeping for 9.971884592s
+2020-02-29 14:31:04.445   MAIN   INF   Program running
+2020-02-29 14:31:04.467   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:31:04.467   MAIN   INF   Sleeping for 9.977351826s
+2020-02-29 14:31:06.632   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:37:04.707   MAIN   INF   Starting Zapsi Service on darwin-launchd
+2020-02-29 14:37:04.707   MAIN   INF   Zapsi Service version 2020.1.2.29 started
+2020-02-29 14:37:04.722   MAIN   INF   Program running
+2020-02-29 14:37:04.732   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:37:04.732   MAIN   INF   Sleeping for 9.989420309s
+2020-02-29 14:37:08.436   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:37:09.439   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:37:10.440   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:37:11.441   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:37:12.445   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:37:13.450   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:37:14.455   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:37:14.725   MAIN   INF   Program running
+2020-02-29 14:37:14.746   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:37:14.746   MAIN   INF   Sleeping for 9.978871448s
+2020-02-29 14:37:15.458   MAIN   INF   Stopped on platform darwin-launchd
+2020-02-29 14:38:41.922   MAIN   INF   Starting Zapsi Service on darwin-launchd
+2020-02-29 14:38:41.922   MAIN   INF   Zapsi Service version 2020.1.2.29 started
+2020-02-29 14:38:41.937   MAIN   INF   Program running
+2020-02-29 14:38:41.947   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:38:41.947   MAIN   INF   Sleeping for 9.990005973s
+2020-02-29 14:38:51.938   MAIN   INF   Program running
+2020-02-29 14:38:51.957   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:38:51.957   MAIN   INF   Sleeping for 9.980225158s
+2020-02-29 14:39:01.938   MAIN   INF   Program running
+2020-02-29 14:39:01.956   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:39:01.956   MAIN   INF   Sleeping for 9.982304593s
+2020-02-29 14:39:11.943   MAIN   INF   Program running
+2020-02-29 14:39:11.958   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:39:11.959   MAIN   INF   Sleeping for 9.984585864s
+2020-02-29 14:39:21.948   MAIN   INF   Program running
+2020-02-29 14:39:21.968   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:39:21.968   MAIN   INF   Sleeping for 9.980554367s
+2020-02-29 14:39:31.950   MAIN   INF   Program running
+2020-02-29 14:39:31.979   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:39:31.979   MAIN   INF   Sleeping for 9.970485412s
+2020-02-29 14:39:35.186   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:39:36.190   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:39:37.196   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:39:38.199   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:39:39.203   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:39:40.205   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:39:41.206   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:39:41.954   MAIN   INF   Program running
+2020-02-29 14:39:41.970   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:39:41.970   MAIN   INF   Sleeping for 9.983943643s
+2020-02-29 14:39:42.210   MAIN   INF   Stopped on platform darwin-launchd
+2020-02-29 14:39:44.472   MAIN   INF   Starting Zapsi Service on darwin-launchd
+2020-02-29 14:39:44.472   MAIN   INF   Zapsi Service version 2020.1.2.29 started
+2020-02-29 14:39:44.489   MAIN   INF   Program running
+2020-02-29 14:39:44.499   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:39:44.499   MAIN   INF   Sleeping for 9.98970735s
+2020-02-29 14:39:54.492   MAIN   INF   Program running
+2020-02-29 14:39:54.508   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:39:54.508   MAIN   INF   Sleeping for 9.98362133s
+2020-02-29 14:39:58.892   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:39:59.893   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:40:00.894   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:40:01.896   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:40:02.897   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:40:03.901   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:40:04.493   MAIN   INF   Program running
+2020-02-29 14:40:04.509   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:40:04.509   MAIN   INF   Sleeping for 9.983798851s
+2020-02-29 14:40:04.905   MAIN   INF   Stopped on platform darwin-launchd
+2020-02-29 14:40:06.723   MAIN   INF   Starting Zapsi Service on darwin-launchd
+2020-02-29 14:40:06.724   MAIN   INF   Zapsi Service version 2020.1.2.29 started
+2020-02-29 14:40:06.741   MAIN   INF   Program running
+2020-02-29 14:40:06.752   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:40:06.752   MAIN   INF   Sleeping for 9.988960241s
+2020-02-29 14:40:16.742   MAIN   INF   Program running
+2020-02-29 14:40:16.762   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:40:16.762   MAIN   INF   Sleeping for 9.980174181s
+2020-02-29 14:40:26.744   MAIN   INF   Program running
+2020-02-29 14:40:26.762   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:40:26.762   MAIN   INF   Sleeping for 9.982309006s
+2020-02-29 14:40:36.750   MAIN   INF   Program running
+2020-02-29 14:40:36.770   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:40:36.770   MAIN   INF   Sleeping for 9.979185285s
+2020-02-29 14:40:46.754   MAIN   INF   Program running
+2020-02-29 14:40:46.776   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:40:46.776   MAIN   INF   Sleeping for 9.977656432s
+2020-02-29 14:40:56.755   MAIN   INF   Program running
+2020-02-29 14:40:56.777   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:40:56.777   MAIN   INF   Sleeping for 9.977845904s
+2020-02-29 14:41:06.756   MAIN   INF   Program running
+2020-02-29 14:41:06.775   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:41:06.775   MAIN   INF   Sleeping for 9.981593237s
+2020-02-29 14:41:16.758   MAIN   INF   Program running
+2020-02-29 14:41:16.784   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:41:16.785   MAIN   INF   Sleeping for 9.973654041s
+2020-02-29 14:41:26.761   MAIN   INF   Program running
+2020-02-29 14:41:26.783   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:41:26.783   MAIN   INF   Sleeping for 9.977841925s
+2020-02-29 14:41:36.763   MAIN   INF   Program running
+2020-02-29 14:41:36.788   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:41:36.788   MAIN   INF   Sleeping for 9.974452902s
+2020-02-29 14:41:46.764   MAIN   INF   Program running
+2020-02-29 14:41:46.817   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:41:46.817   MAIN   INF   Sleeping for 9.946454778s
+2020-02-29 14:41:56.765   MAIN   INF   Program running
+2020-02-29 14:41:56.787   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:41:56.787   MAIN   INF   Sleeping for 9.977837153s
+2020-02-29 14:42:06.769   MAIN   INF   Program running
+2020-02-29 14:42:06.797   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:42:06.797   MAIN   INF   Sleeping for 9.972511272s
+2020-02-29 14:42:16.772   MAIN   INF   Program running
+2020-02-29 14:42:16.795   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:42:16.795   MAIN   INF   Sleeping for 9.977195734s
+2020-02-29 14:42:26.777   MAIN   INF   Program running
+2020-02-29 14:42:26.797   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:42:26.797   MAIN   INF   Sleeping for 9.97929396s
+2020-02-29 14:42:36.781   MAIN   INF   Program running
+2020-02-29 14:42:36.816   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:42:36.816   MAIN   INF   Sleeping for 9.964049998s
+2020-02-29 14:42:46.784   MAIN   INF   Program running
+2020-02-29 14:42:46.849   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:42:46.849   MAIN   INF   Sleeping for 9.934864119s
+2020-02-29 14:42:56.788   MAIN   INF   Program running
+2020-02-29 14:42:56.809   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:42:56.810   MAIN   INF   Sleeping for 9.978469151s
+2020-02-29 14:43:06.788   MAIN   INF   Program running
+2020-02-29 14:43:06.809   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:43:06.809   MAIN   INF   Sleeping for 9.979072257s
+2020-02-29 14:43:16.792   MAIN   INF   Program running
+2020-02-29 14:43:16.817   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:43:16.817   MAIN   INF   Sleeping for 9.974364202s
+2020-02-29 14:43:26.792   MAIN   INF   Program running
+2020-02-29 14:43:26.819   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:43:26.819   MAIN   INF   Sleeping for 9.972740421s
+2020-02-29 14:43:36.798   MAIN   INF   Program running
+2020-02-29 14:43:36.817   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:43:36.817   MAIN   INF   Sleeping for 9.980837025s
+2020-02-29 14:43:46.798   MAIN   INF   Program running
+2020-02-29 14:43:46.818   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:43:46.819   MAIN   INF   Sleeping for 9.979316657s
+2020-02-29 14:43:56.801   MAIN   INF   Program running
+2020-02-29 14:43:56.825   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:43:56.825   MAIN   INF   Sleeping for 9.975699818s
+2020-02-29 14:44:06.803   MAIN   INF   Program running
+2020-02-29 14:44:06.827   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:44:06.827   MAIN   INF   Sleeping for 9.976111525s
+2020-02-29 14:44:16.803   MAIN   INF   Program running
+2020-02-29 14:44:16.824   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:44:16.824   MAIN   INF   Sleeping for 9.979135225s
+2020-02-29 14:44:26.805   MAIN   INF   Program running
+2020-02-29 14:44:26.818   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:44:26.818   MAIN   INF   Sleeping for 9.986849436s
+2020-02-29 14:44:36.806   MAIN   INF   Program running
+2020-02-29 14:44:36.824   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:44:36.824   MAIN   INF   Sleeping for 9.981873663s
+2020-02-29 14:44:46.807   MAIN   INF   Program running
+2020-02-29 14:44:46.830   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:44:46.830   MAIN   INF   Sleeping for 9.976012533s
+2020-02-29 14:44:56.808   MAIN   INF   Program running
+2020-02-29 14:44:56.834   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:44:56.834   MAIN   INF   Sleeping for 9.974102877s
+2020-02-29 14:45:06.812   MAIN   INF   Program running
+2020-02-29 14:45:06.830   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:45:06.830   MAIN   INF   Sleeping for 9.982299414s
+2020-02-29 14:45:16.817   MAIN   INF   Program running
+2020-02-29 14:45:16.835   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:45:16.836   MAIN   INF   Sleeping for 9.981505578s
+2020-02-29 14:45:26.820   MAIN   INF   Program running
+2020-02-29 14:45:26.840   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:45:26.840   MAIN   INF   Sleeping for 9.980195921s
+2020-02-29 14:45:36.822   MAIN   INF   Program running
+2020-02-29 14:45:36.849   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:45:36.849   MAIN   INF   Sleeping for 9.972821512s
+2020-02-29 14:45:46.823   MAIN   INF   Program running
+2020-02-29 14:45:46.842   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:45:46.842   MAIN   INF   Sleeping for 9.980665919s
+2020-02-29 14:45:56.825   MAIN   INF   Program running
+2020-02-29 14:45:56.855   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:45:56.856   MAIN   INF   Sleeping for 9.969413313s
+2020-02-29 14:46:06.830   MAIN   INF   Program running
+2020-02-29 14:46:06.853   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:46:06.853   MAIN   INF   Sleeping for 9.976928786s
+2020-02-29 14:46:16.837   MAIN   INF   Program running
+2020-02-29 14:46:16.866   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:46:16.866   MAIN   INF   Sleeping for 9.971770385s
+2020-02-29 14:46:26.845   MAIN   INF   Program running
+2020-02-29 14:46:26.867   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:46:26.868   MAIN   INF   Sleeping for 9.977250347s
+2020-02-29 14:46:36.848   MAIN   INF   Program running
+2020-02-29 14:46:36.874   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:46:36.874   MAIN   INF   Sleeping for 9.974424479s
+2020-02-29 14:46:46.854   MAIN   INF   Program running
+2020-02-29 14:46:46.876   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:46:46.876   MAIN   INF   Sleeping for 9.978166853s
+2020-02-29 14:46:56.859   MAIN   INF   Program running
+2020-02-29 14:46:56.877   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:46:56.877   MAIN   INF   Sleeping for 9.981572757s
+2020-02-29 14:47:06.859   MAIN   INF   Program running
+2020-02-29 14:47:06.874   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:47:06.874   MAIN   INF   Sleeping for 9.985562881s
+2020-02-29 14:47:16.860   MAIN   INF   Program running
+2020-02-29 14:47:16.888   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:47:16.888   MAIN   INF   Sleeping for 9.972277218s
+2020-02-29 14:47:26.862   MAIN   INF   Program running
+2020-02-29 14:47:26.881   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:47:26.881   MAIN   INF   Sleeping for 9.980842469s
+2020-02-29 14:47:36.865   MAIN   INF   Program running
+2020-02-29 14:47:36.887   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:47:36.888   MAIN   INF   Sleeping for 9.976940401s
+2020-02-29 14:47:46.867   MAIN   INF   Program running
+2020-02-29 14:47:46.885   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:47:46.885   MAIN   INF   Sleeping for 9.982038138s
+2020-02-29 14:47:56.868   MAIN   INF   Program running
+2020-02-29 14:47:56.895   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:47:56.896   MAIN   INF   Sleeping for 9.971974731s
+2020-02-29 14:48:06.871   MAIN   INF   Program running
+2020-02-29 14:48:06.892   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:48:06.893   MAIN   INF   Sleeping for 9.977933196s
+2020-02-29 14:48:16.871   MAIN   INF   Program running
+2020-02-29 14:48:16.896   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:48:16.897   MAIN   INF   Sleeping for 9.974440415s
+2020-02-29 14:48:26.874   MAIN   INF   Program running
+2020-02-29 14:48:26.892   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:48:26.892   MAIN   INF   Sleeping for 9.981573544s
+2020-02-29 14:48:36.875   MAIN   INF   Program running
+2020-02-29 14:48:36.904   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:48:36.904   MAIN   INF   Sleeping for 9.970969937s
+2020-02-29 14:48:46.878   MAIN   INF   Program running
+2020-02-29 14:48:46.915   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:48:46.915   MAIN   INF   Sleeping for 9.962803234s
+2020-02-29 14:48:56.883   MAIN   INF   Program running
+2020-02-29 14:48:56.909   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:48:56.909   MAIN   INF   Sleeping for 9.973631821s
+2020-02-29 14:49:06.886   MAIN   INF   Program running
+2020-02-29 14:49:06.908   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:49:06.908   MAIN   INF   Sleeping for 9.977883646s
+2020-02-29 14:49:16.887   MAIN   INF   Program running
+2020-02-29 14:49:16.904   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:49:16.904   MAIN   INF   Sleeping for 9.98292679s
+2020-02-29 14:49:26.888   MAIN   INF   Program running
+2020-02-29 14:49:26.905   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:49:26.905   MAIN   INF   Sleeping for 9.982330825s
+2020-02-29 14:49:36.891   MAIN   INF   Program running
+2020-02-29 14:49:36.915   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:49:36.915   MAIN   INF   Sleeping for 9.975335964s
+2020-02-29 14:49:46.893   MAIN   INF   Program running
+2020-02-29 14:49:46.916   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:49:46.916   MAIN   INF   Sleeping for 9.977363575s
+2020-02-29 14:49:56.894   MAIN   INF   Program running
+2020-02-29 14:49:56.918   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:49:56.918   MAIN   INF   Sleeping for 9.974989198s
+2020-02-29 14:50:06.897   MAIN   INF   Program running
+2020-02-29 14:50:06.917   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:50:06.918   MAIN   INF   Sleeping for 9.979025672s
+2020-02-29 14:50:16.899   MAIN   INF   Program running
+2020-02-29 14:50:16.938   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:50:16.938   MAIN   INF   Sleeping for 9.960970453s
+2020-02-29 14:50:26.901   MAIN   INF   Program running
+2020-02-29 14:50:26.918   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:50:26.919   MAIN   INF   Sleeping for 9.982140106s
+2020-02-29 14:50:36.904   MAIN   INF   Program running
+2020-02-29 14:50:36.931   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:50:36.931   MAIN   INF   Sleeping for 9.972815616s
+2020-02-29 14:50:46.905   MAIN   INF   Program running
+2020-02-29 14:50:46.926   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:50:46.926   MAIN   INF   Sleeping for 9.978263409s
+2020-02-29 14:50:56.908   MAIN   INF   Program running
+2020-02-29 14:50:56.925   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:50:56.925   MAIN   INF   Sleeping for 9.982310307s
+2020-02-29 14:51:06.912   MAIN   INF   Program running
+2020-02-29 14:51:06.939   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:51:06.939   MAIN   INF   Sleeping for 9.972868737s
+2020-02-29 14:51:16.918   MAIN   INF   Program running
+2020-02-29 14:51:16.970   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:51:16.970   MAIN   INF   Sleeping for 9.947238438s
+2020-02-29 14:51:26.919   MAIN   INF   Program running
+2020-02-29 14:51:26.938   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:51:26.938   MAIN   INF   Sleeping for 9.980808643s
+2020-02-29 14:51:36.919   MAIN   INF   Program running
+2020-02-29 14:51:36.940   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:51:36.940   MAIN   INF   Sleeping for 9.979467955s
+2020-02-29 14:51:46.923   MAIN   INF   Program running
+2020-02-29 14:51:46.942   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:51:46.942   MAIN   INF   Sleeping for 9.98085177s
+2020-02-29 14:51:56.925   MAIN   INF   Program running
+2020-02-29 14:51:56.956   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:51:56.956   MAIN   INF   Sleeping for 9.968818649s
+2020-02-29 14:52:06.926   MAIN   INF   Program running
+2020-02-29 14:52:06.950   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:52:06.950   MAIN   INF   Sleeping for 9.975601703s
+2020-02-29 14:52:16.928   MAIN   INF   Program running
+2020-02-29 14:52:16.974   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:52:16.974   MAIN   INF   Sleeping for 9.953195541s
+2020-02-29 14:52:26.928   MAIN   INF   Program running
+2020-02-29 14:52:26.957   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:52:26.957   MAIN   INF   Sleeping for 9.97056123s
+2020-02-29 14:52:36.930   MAIN   INF   Program running
+2020-02-29 14:52:36.967   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:52:36.967   MAIN   INF   Sleeping for 9.962576912s
+2020-02-29 14:52:46.931   MAIN   INF   Program running
+2020-02-29 14:52:46.981   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:52:46.981   MAIN   INF   Sleeping for 9.949865044s
+2020-02-29 14:52:55.143   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:52:56.144   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:52:56.933   MAIN   INF   Program running
+2020-02-29 14:52:56.954   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:52:56.954   MAIN   INF   Sleeping for 9.979208516s
+2020-02-29 14:52:57.148   MAIN   INF   Stopped on platform darwin-launchd
+2020-02-29 14:52:59.450   MAIN   INF   Starting Zapsi Service on darwin-launchd
+2020-02-29 14:52:59.450   MAIN   INF   Zapsi Service version 2020.1.2.29 started
+2020-02-29 14:52:59.450   MAIN   INF   Updating program version in database
+2020-02-29 14:52:59.466   MAIN   INF   Program version updated, elapsed: 16.029671ms
+2020-02-29 14:52:59.467   MAIN   INF   Program running
+2020-02-29 14:52:59.467   MAIN   INF   Updating active devices
+2020-02-29 14:52:59.478   MAIN   INF   Active devices updated, elapsed: 11.122414ms
+2020-02-29 14:52:59.478   MAIN   INF   Deleting old log files
+2020-02-29 14:52:59.478   MAIN   INF   Old log files deleted, elapsed: 178.914µs
+2020-02-29 14:52:59.478   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:52:59.478   MAIN   INF   Sleeping for 9.988080671s
+2020-02-29 14:53:09.470   MAIN   INF   Program running
+2020-02-29 14:53:09.470   MAIN   INF   Updating active devices
+2020-02-29 14:53:09.494   MAIN   INF   Active devices updated, elapsed: 22.840141ms
+2020-02-29 14:53:09.494   MAIN   INF   Deleting old log files
+2020-02-29 14:53:09.494   MAIN   INF   Old log files deleted, elapsed: 226.106µs
+2020-02-29 14:53:09.494   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:53:09.494   MAIN   INF   Sleeping for 9.975603343s
+2020-02-29 14:53:19.472   MAIN   INF   Program running
+2020-02-29 14:53:19.472   MAIN   INF   Updating active devices
+2020-02-29 14:53:19.491   MAIN   INF   Active devices updated, elapsed: 18.390124ms
+2020-02-29 14:53:19.491   MAIN   INF   Deleting old log files
+2020-02-29 14:53:19.492   MAIN   INF   Old log files deleted, elapsed: 433.197µs
+2020-02-29 14:53:19.492   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:53:19.492   MAIN   INF   Sleeping for 9.979588286s
+2020-02-29 14:53:29.476   MAIN   INF   Program running
+2020-02-29 14:53:29.476   MAIN   INF   Updating active devices
+2020-02-29 14:53:29.493   MAIN   INF   Active devices updated, elapsed: 15.962643ms
+2020-02-29 14:53:29.493   MAIN   INF   Deleting old log files
+2020-02-29 14:53:29.494   MAIN   INF   Old log files deleted, elapsed: 398.197µs
+2020-02-29 14:53:29.494   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:53:29.494   MAIN   INF   Sleeping for 9.98190976s
+2020-02-29 14:53:39.478   MAIN   INF   Program running
+2020-02-29 14:53:39.479   MAIN   INF   Updating active devices
+2020-02-29 14:53:39.503   MAIN   INF   Active devices updated, elapsed: 23.773665ms
+2020-02-29 14:53:39.503   MAIN   INF   Deleting old log files
+2020-02-29 14:53:39.503   MAIN   INF   Old log files deleted, elapsed: 194.43µs
+2020-02-29 14:53:39.504   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:53:39.504   MAIN   INF   Sleeping for 9.974609783s
+2020-02-29 14:53:49.480   MAIN   INF   Program running
+2020-02-29 14:53:49.481   MAIN   INF   Updating active devices
+2020-02-29 14:53:49.504   MAIN   INF   Active devices updated, elapsed: 22.899845ms
+2020-02-29 14:53:49.504   MAIN   INF   Deleting old log files
+2020-02-29 14:53:49.504   MAIN   INF   Old log files deleted, elapsed: 208.083µs
+2020-02-29 14:53:49.505   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:53:49.505   MAIN   INF   Sleeping for 9.975689267s
+2020-02-29 14:53:59.485   MAIN   INF   Program running
+2020-02-29 14:53:59.485   MAIN   INF   Updating active devices
+2020-02-29 14:53:59.515   MAIN   INF   Active devices updated, elapsed: 29.943773ms
+2020-02-29 14:53:59.516   MAIN   INF   Deleting old log files
+2020-02-29 14:53:59.516   MAIN   INF   Old log files deleted, elapsed: 230.841µs
+2020-02-29 14:53:59.516   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:53:59.516   MAIN   INF   Sleeping for 9.968653703s
+2020-02-29 14:54:09.488   MAIN   INF   Program running
+2020-02-29 14:54:09.488   MAIN   INF   Updating active devices
+2020-02-29 14:54:09.514   MAIN   INF   Active devices updated, elapsed: 25.468579ms
+2020-02-29 14:54:09.514   MAIN   INF   Deleting old log files
+2020-02-29 14:54:09.515   MAIN   INF   Old log files deleted, elapsed: 221.752µs
+2020-02-29 14:54:09.515   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:54:09.515   MAIN   INF   Sleeping for 9.973078423s
+2020-02-29 14:54:09.550   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:10.553   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:11.554   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:12.555   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:13.556   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:14.557   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:15.561   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:16.563   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:17.564   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:18.568   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:19.489   MAIN   INF   Program running
+2020-02-29 14:54:19.489   MAIN   INF   Updating active devices
+2020-02-29 14:54:19.508   MAIN   INF   Active devices updated, elapsed: 18.044429ms
+2020-02-29 14:54:19.508   MAIN   INF   Deleting old log files
+2020-02-29 14:54:19.508   MAIN   INF   Old log files deleted, elapsed: 190.04µs
+2020-02-29 14:54:19.508   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:54:19.508   MAIN   INF   Sleeping for 9.98041596s
+2020-02-29 14:54:19.570   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:20.570   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:21.572   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:22.573   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:23.578   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:24.580   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:25.584   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:26.585   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:27.589   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:28.592   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:29.489   MAIN   INF   Program running
+2020-02-29 14:54:29.490   MAIN   INF   Updating active devices
+2020-02-29 14:54:29.508   MAIN   INF   Active devices updated, elapsed: 18.142219ms
+2020-02-29 14:54:29.509   MAIN   INF   Deleting old log files
+2020-02-29 14:54:29.509   MAIN   INF   Old log files deleted, elapsed: 259.246µs
+2020-02-29 14:54:29.509   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:54:29.509   MAIN   INF   Sleeping for 9.980087664s
+2020-02-29 14:54:29.597   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:30.602   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:31.605   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:32.605   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:33.609   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:34.611   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:35.614   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:36.617   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:37.621   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:38.622   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:39.494   MAIN   INF   Program running
+2020-02-29 14:54:39.494   MAIN   INF   Updating active devices
+2020-02-29 14:54:39.518   MAIN   INF   Active devices updated, elapsed: 23.416116ms
+2020-02-29 14:54:39.518   MAIN   INF   Deleting old log files
+2020-02-29 14:54:39.518   MAIN   INF   Old log files deleted, elapsed: 196.076µs
+2020-02-29 14:54:39.518   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:54:39.519   MAIN   INF   Sleeping for 9.975062534s
+2020-02-29 14:54:39.624   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:40.626   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:41.628   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:42.632   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:43.637   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:44.640   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:45.643   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:46.647   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:47.649   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:48.654   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:49.496   MAIN   INF   Program running
+2020-02-29 14:54:49.496   MAIN   INF   Updating active devices
+2020-02-29 14:54:49.521   MAIN   INF   Active devices updated, elapsed: 24.805195ms
+2020-02-29 14:54:49.521   MAIN   INF   Deleting old log files
+2020-02-29 14:54:49.521   MAIN   INF   Old log files deleted, elapsed: 221.114µs
+2020-02-29 14:54:49.521   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:54:49.521   MAIN   INF   Sleeping for 9.974119132s
+2020-02-29 14:54:49.654   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:50.659   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:51.660   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:52.663   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:53.667   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:54.671   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:55.676   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:56.681   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:57.684   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:58.686   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:54:59.497   MAIN   INF   Program running
+2020-02-29 14:54:59.498   MAIN   INF   Updating active devices
+2020-02-29 14:54:59.524   MAIN   INF   Active devices updated, elapsed: 25.537458ms
+2020-02-29 14:54:59.524   MAIN   INF   Deleting old log files
+2020-02-29 14:54:59.524   MAIN   INF   Old log files deleted, elapsed: 197.81µs
+2020-02-29 14:54:59.524   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:54:59.525   MAIN   INF   Sleeping for 9.971971482s
+2020-02-29 14:54:59.689   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:00.694   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:01.699   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:02.700   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:03.701   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:04.704   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:05.705   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:06.709   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:07.710   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:08.713   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:09.500   MAIN   INF   Program running
+2020-02-29 14:55:09.500   MAIN   INF   Updating active devices
+2020-02-29 14:55:09.517   MAIN   INF   Active devices updated, elapsed: 15.849524ms
+2020-02-29 14:55:09.517   MAIN   INF   Deleting old log files
+2020-02-29 14:55:09.517   MAIN   INF   Old log files deleted, elapsed: 191.861µs
+2020-02-29 14:55:09.517   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:55:09.517   MAIN   INF   Sleeping for 9.982640298s
+2020-02-29 14:55:09.714   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:10.719   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:11.722   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:12.723   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:13.726   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:14.730   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:15.733   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:16.734   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:17.737   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:18.738   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:19.502   MAIN   INF   Program running
+2020-02-29 14:55:19.502   MAIN   INF   Updating active devices
+2020-02-29 14:55:19.518   MAIN   INF   Active devices updated, elapsed: 16.062475ms
+2020-02-29 14:55:19.519   MAIN   INF   Deleting old log files
+2020-02-29 14:55:19.519   MAIN   INF   Old log files deleted, elapsed: 158.19µs
+2020-02-29 14:55:19.519   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:55:19.519   MAIN   INF   Sleeping for 9.982831546s
+2020-02-29 14:55:19.739   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:20.741   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:21.745   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:22.749   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:23.754   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:24.754   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:25.756   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:26.757   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:27.757   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:28.762   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:29.506   MAIN   INF   Program running
+2020-02-29 14:55:29.506   MAIN   INF   Updating active devices
+2020-02-29 14:55:29.525   MAIN   INF   Active devices updated, elapsed: 19.094178ms
+2020-02-29 14:55:29.526   MAIN   INF   Deleting old log files
+2020-02-29 14:55:29.526   MAIN   INF   Old log files deleted, elapsed: 185.982µs
+2020-02-29 14:55:29.526   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:55:29.526   MAIN   INF   Sleeping for 9.979375974s
+2020-02-29 14:55:29.767   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:30.768   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:31.769   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:32.771   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:33.776   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:34.780   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:35.782   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:36.783   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:37.787   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:38.788   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:39.507   MAIN   INF   Program running
+2020-02-29 14:55:39.508   MAIN   INF   Updating active devices
+2020-02-29 14:55:39.521   MAIN   INF   Active devices updated, elapsed: 13.129263ms
+2020-02-29 14:55:39.521   MAIN   INF   Deleting old log files
+2020-02-29 14:55:39.521   MAIN   INF   Old log files deleted, elapsed: 251.614µs
+2020-02-29 14:55:39.522   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:55:39.522   MAIN   INF   Sleeping for 9.985702089s
+2020-02-29 14:55:39.792   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:40.796   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:41.800   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:42.805   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:43.808   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:44.810   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:45.813   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:46.813   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:47.818   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:48.821   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:49.512   MAIN   INF   Program running
+2020-02-29 14:55:49.513   MAIN   INF   Updating active devices
+2020-02-29 14:55:49.529   MAIN   INF   Active devices updated, elapsed: 15.528824ms
+2020-02-29 14:55:49.529   MAIN   INF   Deleting old log files
+2020-02-29 14:55:49.530   MAIN   INF   Old log files deleted, elapsed: 344.253µs
+2020-02-29 14:55:49.530   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:55:49.530   MAIN   INF   Sleeping for 9.982421088s
+2020-02-29 14:55:49.823   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:50.828   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:51.832   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:52.835   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:53.838   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:54.840   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:55.841   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:56.846   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:57.849   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:58.852   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:55:59.513   MAIN   INF   Program running
+2020-02-29 14:55:59.513   MAIN   INF   Updating active devices
+2020-02-29 14:55:59.524   MAIN   INF   Active devices updated, elapsed: 10.411063ms
+2020-02-29 14:55:59.524   MAIN   INF   Deleting old log files
+2020-02-29 14:55:59.524   MAIN   INF   Old log files deleted, elapsed: 160.748µs
+2020-02-29 14:55:59.524   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:55:59.524   MAIN   INF   Sleeping for 9.98870275s
+2020-02-29 14:55:59.854   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:56:00.855   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:56:01.859   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:56:02.862   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:56:03.867   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:56:04.868   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:56:05.868   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:56:08.355   MAIN   INF   Starting Zapsi Service on darwin-launchd
+2020-02-29 14:56:08.355   MAIN   INF   Zapsi Service version 2020.1.2.29 started
+2020-02-29 14:56:08.356   MAIN   INF   Updating program version in database
+2020-02-29 14:56:08.370   MAIN   INF   Program version updated, elapsed: 13.947266ms
+2020-02-29 14:56:08.370   MAIN   INF   Program running
+2020-02-29 14:56:08.370   MAIN   INF   Updating active devices
+2020-02-29 14:56:08.379   MAIN   INF   Active devices updated, elapsed: 9.640644ms
+2020-02-29 14:56:08.380   MAIN   INF   Deleting old log files
+2020-02-29 14:56:08.380   MAIN   INF   Old log files deleted, elapsed: 191.936µs
+2020-02-29 14:56:08.380   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:56:08.380   MAIN   INF   Sleeping for 9.989602124s
+2020-02-29 14:56:18.371   MAIN   INF   Program running
+2020-02-29 14:56:18.371   MAIN   INF   Updating active devices
+2020-02-29 14:56:18.388   MAIN   INF   Active devices updated, elapsed: 16.654206ms
+2020-02-29 14:56:18.389   MAIN   INF   Deleting old log files
+2020-02-29 14:56:18.389   MAIN   INF   Old log files deleted, elapsed: 188.394µs
+2020-02-29 14:56:18.389   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:56:18.389   MAIN   INF   Sleeping for 9.981814773s
+2020-02-29 14:56:28.375   MAIN   INF   Program running
+2020-02-29 14:56:28.375   MAIN   INF   Updating active devices
+2020-02-29 14:56:28.393   MAIN   INF   Active devices updated, elapsed: 17.170301ms
+2020-02-29 14:56:28.393   MAIN   INF   Deleting old log files
+2020-02-29 14:56:28.393   MAIN   INF   Old log files deleted, elapsed: 197.67µs
+2020-02-29 14:56:28.393   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:56:28.393   MAIN   INF   Sleeping for 9.981264987s
+2020-02-29 14:56:38.376   MAIN   INF   Program running
+2020-02-29 14:56:38.376   MAIN   INF   Updating active devices
+2020-02-29 14:56:38.396   MAIN   INF   Active devices updated, elapsed: 18.945207ms
+2020-02-29 14:56:38.396   MAIN   INF   Deleting old log files
+2020-02-29 14:56:38.396   MAIN   INF   Old log files deleted, elapsed: 215.913µs
+2020-02-29 14:56:38.396   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:56:38.396   MAIN   INF   Sleeping for 9.979520328s
+2020-02-29 14:56:38.445   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:56:39.450   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:56:40.453   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:56:41.455   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:56:42.457   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:56:43.462   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:56:44.464   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:56:45.466   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:56:46.466   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:56:47.471   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:56:48.379   MAIN   INF   Program running
+2020-02-29 14:56:48.379   MAIN   INF   Updating active devices
+2020-02-29 14:56:48.397   MAIN   INF   Active devices updated, elapsed: 17.030321ms
+2020-02-29 14:56:48.397   MAIN   INF   Deleting old log files
+2020-02-29 14:56:48.398   MAIN   INF   Old log files deleted, elapsed: 416.411µs
+2020-02-29 14:56:48.398   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:56:48.398   MAIN   INF   Sleeping for 9.980534854s
+2020-02-29 14:56:48.476   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:56:49.481   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:56:50.483   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:56:51.487   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:56:52.493   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:56:53.495   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:56:54.496   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:56:55.499   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:56:56.502   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:56:57.505   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:56:58.380   MAIN   INF   Program running
+2020-02-29 14:56:58.380   MAIN   INF   Updating active devices
+2020-02-29 14:56:58.398   MAIN   INF   Active devices updated, elapsed: 17.883704ms
+2020-02-29 14:56:58.398   MAIN   INF   Deleting old log files
+2020-02-29 14:56:58.399   MAIN   INF   Old log files deleted, elapsed: 181.433µs
+2020-02-29 14:56:58.399   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:56:58.399   MAIN   INF   Sleeping for 9.98063803s
+2020-02-29 14:56:58.506   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:56:59.507   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:57:00.510   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:57:01.514   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:57:02.514   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:57:03.515   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:57:04.517   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:57:05.518   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:57:06.523   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:57:07.523   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:57:08.384   MAIN   INF   Program running
+2020-02-29 14:57:08.384   MAIN   INF   Updating active devices
+2020-02-29 14:57:08.401   MAIN   INF   Active devices updated, elapsed: 15.956257ms
+2020-02-29 14:57:08.401   MAIN   INF   Deleting old log files
+2020-02-29 14:57:08.401   MAIN   INF   Old log files deleted, elapsed: 199.831µs
+2020-02-29 14:57:08.401   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:57:08.401   MAIN   INF   Sleeping for 9.982522367s
+2020-02-29 14:57:08.523   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:57:09.528   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:57:10.530   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:57:11.533   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:57:12.536   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:57:13.539   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:57:14.542   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:57:15.544   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:57:16.547   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:57:17.551   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:57:18.389   MAIN   INF   Program running
+2020-02-29 14:57:18.389   MAIN   INF   Updating active devices
+2020-02-29 14:57:18.405   MAIN   INF   Active devices updated, elapsed: 15.677789ms
+2020-02-29 14:57:18.406   MAIN   INF   Deleting old log files
+2020-02-29 14:57:18.406   MAIN   INF   Old log files deleted, elapsed: 203.592µs
+2020-02-29 14:57:18.406   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:57:18.406   MAIN   INF   Sleeping for 9.982713824s
+2020-02-29 14:57:18.553   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:57:19.556   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:58:56.525   MAIN   INF   Starting Zapsi Service on darwin-launchd
+2020-02-29 14:58:56.525   MAIN   INF   Zapsi Service version 2020.1.2.29 started
+2020-02-29 14:58:56.526   MAIN   INF   Updating program version in database
+2020-02-29 14:58:56.540   MAIN   INF   Program version updated, elapsed: 14.461827ms
+2020-02-29 14:58:56.540   MAIN   INF   Program running
+2020-02-29 14:58:56.540   MAIN   INF   Updating active devices
+2020-02-29 14:58:56.550   MAIN   INF   Active devices updated, elapsed: 9.581199ms
+2020-02-29 14:58:56.550   MAIN   INF   Deleting old log files
+2020-02-29 14:58:56.550   MAIN   INF   Old log files deleted, elapsed: 205.074µs
+2020-02-29 14:58:56.550   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:58:56.551   MAIN   INF   Sleeping for 9.989663775s
+2020-02-29 14:58:58.442   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:58:59.445   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:59:00.450   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:59:01.452   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:59:02.456   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:59:03.460   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:59:04.463   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:59:05.464   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:59:06.468   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:59:06.542   MAIN   INF   Program running
+2020-02-29 14:59:06.542   MAIN   INF   Updating active devices
+2020-02-29 14:59:06.557   MAIN   INF   Active devices updated, elapsed: 15.036669ms
+2020-02-29 14:59:06.557   MAIN   INF   Deleting old log files
+2020-02-29 14:59:06.558   MAIN   INF   Old log files deleted, elapsed: 198.21µs
+2020-02-29 14:59:06.558   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:59:06.558   MAIN   INF   Sleeping for 9.98344774s
+2020-02-29 14:59:07.470   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:59:08.473   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:59:09.473   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:59:10.478   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:59:11.481   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:59:12.482   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:59:13.484   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:59:14.488   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:59:15.492   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:59:16.497   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:59:16.544   MAIN   INF   Program running
+2020-02-29 14:59:16.545   MAIN   INF   Updating active devices
+2020-02-29 14:59:16.563   MAIN   INF   Active devices updated, elapsed: 18.354282ms
+2020-02-29 14:59:16.564   MAIN   INF   Deleting old log files
+2020-02-29 14:59:16.564   MAIN   INF   Old log files deleted, elapsed: 185.188µs
+2020-02-29 14:59:16.564   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:59:16.564   MAIN   INF   Sleeping for 9.980353154s
+2020-02-29 14:59:17.500   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:59:18.503   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:59:46.332   MAIN   INF   Starting Zapsi Service on darwin-launchd
+2020-02-29 14:59:46.333   MAIN   INF   Zapsi Service version 2020.1.2.29 started
+2020-02-29 14:59:46.333   MAIN   INF   Updating program version in database
+2020-02-29 14:59:46.349   MAIN   INF   Program version updated, elapsed: 16.212436ms
+2020-02-29 14:59:46.349   MAIN   INF   Program running
+2020-02-29 14:59:46.350   MAIN   INF   Updating active devices
+2020-02-29 14:59:46.361   MAIN   INF   Active devices updated, elapsed: 10.955349ms
+2020-02-29 14:59:46.361   MAIN   INF   Deleting old log files
+2020-02-29 14:59:46.361   MAIN   INF   Old log files deleted, elapsed: 160.869µs
+2020-02-29 14:59:46.361   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 14:59:46.361   MAIN   INF   Sleeping for 9.988330676s
+2020-02-29 14:59:48.152   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:59:49.156   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:59:50.159   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:59:51.160   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:59:52.165   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:59:53.166   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:59:54.171   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:59:55.174   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:59:56.175   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:59:56.352   MAIN   INF   Program running
+2020-02-29 14:59:56.352   MAIN   INF   Updating active devices
+2020-02-29 14:59:56.365   MAIN   INF   Active devices updated, elapsed: 12.434338ms
+2020-02-29 14:59:56.365   MAIN   INF   Deleting old log files
+2020-02-29 14:59:56.365   MAIN   INF   Old log files deleted, elapsed: 165.007µs
+2020-02-29 14:59:56.365   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 14:59:56.365   MAIN   INF   Sleeping for 9.986505597s
+2020-02-29 14:59:57.176   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:59:58.179   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 14:59:59.183   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:00:00.188   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:00:01.189   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:00:02.192   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:00:03.197   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:00:04.201   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:00:05.203   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:00:06.204   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:00:06.353   MAIN   INF   Program running
+2020-02-29 15:00:06.353   MAIN   INF   Updating active devices
+2020-02-29 15:00:06.369   MAIN   INF   Active devices updated, elapsed: 15.906806ms
+2020-02-29 15:00:06.369   MAIN   INF   Deleting old log files
+2020-02-29 15:00:06.370   MAIN   INF   Old log files deleted, elapsed: 215.474µs
+2020-02-29 15:00:06.370   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 15:00:06.370   MAIN   INF   Sleeping for 9.982579744s
+2020-02-29 15:00:07.208   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:00:08.211   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:00:09.214   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:00:57.634   MAIN   INF   Starting Zapsi Service on darwin-launchd
+2020-02-29 15:00:57.635   MAIN   INF   Zapsi Service version 2020.1.2.29 started
+2020-02-29 15:00:57.635   MAIN   INF   Updating program version in database
+2020-02-29 15:00:57.650   MAIN   INF   Program version updated, elapsed: 15.202308ms
+2020-02-29 15:00:57.650   MAIN   INF   Program running
+2020-02-29 15:00:57.650   MAIN   INF   Updating active devices
+2020-02-29 15:00:57.662   MAIN   INF   Active devices updated, elapsed: 11.117983ms
+2020-02-29 15:00:57.662   MAIN   INF   Deleting old log files
+2020-02-29 15:00:57.662   MAIN   INF   Old log files deleted, elapsed: 182.768µs
+2020-02-29 15:00:57.662   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 15:00:57.662   MAIN   INF   Sleeping for 9.988115434s
+2020-02-29 15:00:59.554   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:00.559   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:01.560   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:02.561   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:03.564   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:04.568   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:05.569   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:06.569   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:07.572   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:07.651   MAIN   INF   Program running
+2020-02-29 15:01:07.651   MAIN   INF   Updating active devices
+2020-02-29 15:01:07.665   MAIN   INF   Active devices updated, elapsed: 13.330796ms
+2020-02-29 15:01:07.665   MAIN   INF   Deleting old log files
+2020-02-29 15:01:07.665   MAIN   INF   Old log files deleted, elapsed: 200.927µs
+2020-02-29 15:01:07.665   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 15:01:07.666   MAIN   INF   Sleeping for 9.985235379s
+2020-02-29 15:01:08.573   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:09.574   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:10.575   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:11.580   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:12.581   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:13.582   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:14.582   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:15.583   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:16.585   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:17.586   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:17.654   MAIN   INF   Program running
+2020-02-29 15:01:17.655   MAIN   INF   Updating active devices
+2020-02-29 15:01:17.671   MAIN   INF   Active devices updated, elapsed: 16.395986ms
+2020-02-29 15:01:17.672   MAIN   INF   Deleting old log files
+2020-02-29 15:01:17.672   MAIN   INF   Old log files deleted, elapsed: 209.592µs
+2020-02-29 15:01:17.672   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 15:01:17.672   MAIN   INF   Sleeping for 9.981999118s
+2020-02-29 15:01:18.590   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:35.793   MAIN   INF   Starting Zapsi Service on darwin-launchd
+2020-02-29 15:01:35.794   MAIN   INF   Zapsi Service version 2020.1.2.29 started
+2020-02-29 15:01:35.794   MAIN   INF   Updating program version in database
+2020-02-29 15:01:35.811   MAIN   INF   Program version updated, elapsed: 17.012544ms
+2020-02-29 15:01:35.811   MAIN   INF   Program running
+2020-02-29 15:01:35.811   MAIN   INF   Updating active devices
+2020-02-29 15:01:35.822   MAIN   INF   Active devices updated, elapsed: 10.54646ms
+2020-02-29 15:01:35.822   MAIN   INF   Deleting old log files
+2020-02-29 15:01:35.822   MAIN   INF   Old log files deleted, elapsed: 188.489µs
+2020-02-29 15:01:35.822   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 15:01:35.822   MAIN   INF   Sleeping for 9.98861044s
+2020-02-29 15:01:40.479   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:41.481   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:42.484   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:43.485   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:44.486   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:45.487   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:45.813   MAIN   INF   Program running
+2020-02-29 15:01:45.813   MAIN   INF   Updating active devices
+2020-02-29 15:01:45.828   MAIN   INF   Active devices updated, elapsed: 14.344584ms
+2020-02-29 15:01:45.828   MAIN   INF   Deleting old log files
+2020-02-29 15:01:45.828   MAIN   INF   Old log files deleted, elapsed: 194.345µs
+2020-02-29 15:01:45.828   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 15:01:45.829   MAIN   INF   Sleeping for 9.984234007s
+2020-02-29 15:01:46.488   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:47.491   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:48.494   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:49.495   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:50.496   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:51.500   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:52.502   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:53.507   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:54.512   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:55.514   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:55.815   MAIN   INF   Program running
+2020-02-29 15:01:55.815   MAIN   INF   Updating active devices
+2020-02-29 15:01:55.842   MAIN   INF   Active devices updated, elapsed: 26.215284ms
+2020-02-29 15:01:55.842   MAIN   INF   Deleting old log files
+2020-02-29 15:01:55.842   MAIN   INF   Old log files deleted, elapsed: 209.762µs
+2020-02-29 15:01:55.843   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 15:01:55.843   MAIN   INF   Sleeping for 9.972401226s
+2020-02-29 15:01:56.516   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:57.517   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:58.519   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:01:59.520   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:00.522   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:01.526   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:02.530   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:03.530   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:04.532   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:05.534   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:05.816   MAIN   INF   Program running
+2020-02-29 15:02:05.816   MAIN   INF   Updating active devices
+2020-02-29 15:02:05.835   MAIN   INF   Active devices updated, elapsed: 19.179434ms
+2020-02-29 15:02:05.836   MAIN   INF   Deleting old log files
+2020-02-29 15:02:05.836   MAIN   INF   Old log files deleted, elapsed: 190.375µs
+2020-02-29 15:02:05.836   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 15:02:05.836   MAIN   INF   Sleeping for 9.979312654s
+2020-02-29 15:02:06.538   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:07.540   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:08.543   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:09.544   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:10.545   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:11.546   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:12.546   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:13.552   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:14.554   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:15.559   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:15.821   MAIN   INF   Program running
+2020-02-29 15:02:15.821   MAIN   INF   Updating active devices
+2020-02-29 15:02:15.840   MAIN   INF   Active devices updated, elapsed: 18.849932ms
+2020-02-29 15:02:15.840   MAIN   INF   Deleting old log files
+2020-02-29 15:02:15.841   MAIN   INF   Old log files deleted, elapsed: 196.955µs
+2020-02-29 15:02:15.841   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 15:02:15.841   MAIN   INF   Sleeping for 9.979796781s
+2020-02-29 15:02:16.562   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:17.567   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:18.571   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:19.572   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:20.573   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:21.575   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:22.578   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:23.583   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:24.584   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:25.587   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:25.825   MAIN   INF   Program running
+2020-02-29 15:02:25.826   MAIN   INF   Updating active devices
+2020-02-29 15:02:25.842   MAIN   INF   Active devices updated, elapsed: 15.781918ms
+2020-02-29 15:02:25.842   MAIN   INF   Deleting old log files
+2020-02-29 15:02:25.842   MAIN   INF   Old log files deleted, elapsed: 214.153µs
+2020-02-29 15:02:25.842   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 15:02:25.843   MAIN   INF   Sleeping for 9.982740588s
+2020-02-29 15:02:26.591   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:27.596   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:28.601   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:29.603   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:30.606   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:31.608   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:32.610   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:35.497   MAIN   INF   Starting Zapsi Service on darwin-launchd
+2020-02-29 15:02:35.497   MAIN   INF   Zapsi Service version 2020.1.2.29 started
+2020-02-29 15:02:35.497   MAIN   INF   Updating program version in database
+2020-02-29 15:02:35.512   MAIN   INF   Program version updated, elapsed: 14.423593ms
+2020-02-29 15:02:35.512   MAIN   INF   Program running
+2020-02-29 15:02:35.512   MAIN   INF   Updating active devices
+2020-02-29 15:02:35.522   MAIN   INF   Active devices updated, elapsed: 10.186087ms
+2020-02-29 15:02:35.522   MAIN   INF   Deleting old log files
+2020-02-29 15:02:35.523   MAIN   INF   Old log files deleted, elapsed: 159.21µs
+2020-02-29 15:02:35.523   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 15:02:35.523   MAIN   INF   Sleeping for 9.989149405s
+2020-02-29 15:02:37.120   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:38.123   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:39.123   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:40.124   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:41.127   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:42.128   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:43.131   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:44.133   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:45.137   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:02:45.513   MAIN   INF   Program running
+2020-02-29 15:02:45.513   MAIN   INF   Updating active devices
+2020-02-29 15:02:45.528   MAIN   INF   Active devices updated, elapsed: 15.075963ms
+2020-02-29 15:02:45.529   MAIN   INF   Deleting old log files
+2020-02-29 15:02:45.529   MAIN   INF   Old log files deleted, elapsed: 203.075µs
+2020-02-29 15:02:45.529   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 15:02:45.529   MAIN   INF   Sleeping for 9.983497394s
+2020-02-29 15:02:46.138   MAIN   INF   Stopped on platform darwin-launchd
+2020-02-29 15:03:15.024   MAIN   INF   Starting Zapsi Service on darwin-launchd
+2020-02-29 15:03:15.025   MAIN   INF   Zapsi Service version 2020.1.2.29 started
+2020-02-29 15:03:15.025   MAIN   INF   Updating program version in database
+2020-02-29 15:03:15.042   MAIN   INF   Program version updated, elapsed: 17.198152ms
+2020-02-29 15:03:15.042   MAIN   INF   Program running
+2020-02-29 15:03:15.042   MAIN   INF   Updating active devices
+2020-02-29 15:03:15.052   MAIN   INF   Active devices updated, elapsed: 9.532693ms
+2020-02-29 15:03:15.052   MAIN   INF   Deleting old log files
+2020-02-29 15:03:15.052   MAIN   INF   Old log files deleted, elapsed: 190.467µs
+2020-02-29 15:03:15.052   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 15:03:15.053   MAIN   INF   Sleeping for 9.989679769s
+2020-02-29 15:03:17.190   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:03:18.196   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:03:19.198   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:03:20.201   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:03:21.205   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:03:22.207   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:03:23.210   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:03:24.215   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:03:25.046   MAIN   INF   Program running
+2020-02-29 15:03:25.046   MAIN   INF   Updating active devices
+2020-02-29 15:03:25.062   MAIN   INF   Active devices updated, elapsed: 15.188425ms
+2020-02-29 15:03:25.062   MAIN   INF   Deleting old log files
+2020-02-29 15:03:25.063   MAIN   INF   Old log files deleted, elapsed: 198.498µs
+2020-02-29 15:03:25.063   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 15:03:25.063   MAIN   INF   Sleeping for 9.982751971s
+2020-02-29 15:03:25.219   MAIN   INF   Stopped on platform darwin-launchd
+2020-02-29 15:03:28.492   MAIN   INF   Starting Zapsi Service on darwin-launchd
+2020-02-29 15:03:28.493   MAIN   INF   Zapsi Service version 2020.1.2.29 started
+2020-02-29 15:03:28.493   MAIN   INF   Updating program version in database
+2020-02-29 15:03:28.508   MAIN   INF   Program version updated, elapsed: 14.818116ms
+2020-02-29 15:03:28.508   MAIN   INF   Program running
+2020-02-29 15:03:28.508   MAIN   INF   Updating active devices
+2020-02-29 15:03:28.523   MAIN   INF   Active devices updated, elapsed: 15.106629ms
+2020-02-29 15:03:28.524   MAIN   INF   Deleting old log files
+2020-02-29 15:03:28.524   MAIN   INF   Old log files deleted, elapsed: 193.333µs
+2020-02-29 15:03:28.524   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 15:03:28.524   MAIN   INF   Sleeping for 9.984033855s
+2020-02-29 15:03:38.511   MAIN   INF   Program running
+2020-02-29 15:03:38.511   MAIN   INF   Updating active devices
+2020-02-29 15:03:38.525   MAIN   INF   Active devices updated, elapsed: 14.061084ms
+2020-02-29 15:03:38.526   MAIN   INF   Deleting old log files
+2020-02-29 15:03:38.526   MAIN   INF   Old log files deleted, elapsed: 218.251µs
+2020-02-29 15:03:38.526   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 15:03:38.526   MAIN   INF   Sleeping for 9.984464307s
+2020-02-29 15:03:48.516   MAIN   INF   Program running
+2020-02-29 15:03:48.516   MAIN   INF   Updating active devices
+2020-02-29 15:03:48.537   MAIN   INF   Active devices updated, elapsed: 20.865838ms
+2020-02-29 15:03:48.537   MAIN   INF   Deleting old log files
+2020-02-29 15:03:48.538   MAIN   INF   Old log files deleted, elapsed: 196.04µs
+2020-02-29 15:03:48.538   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 15:03:48.538   MAIN   INF   Sleeping for 9.977552664s
+2020-02-29 15:03:58.519   MAIN   INF   Program running
+2020-02-29 15:03:58.519   MAIN   INF   Updating active devices
+2020-02-29 15:03:58.540   MAIN   INF   Active devices updated, elapsed: 20.239515ms
+2020-02-29 15:03:58.540   MAIN   INF   Deleting old log files
+2020-02-29 15:03:58.540   MAIN   INF   Old log files deleted, elapsed: 237.733µs
+2020-02-29 15:03:58.541   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 15:03:58.541   MAIN   INF   Sleeping for 9.977798955s
+2020-02-29 15:04:08.521   MAIN   INF   Program running
+2020-02-29 15:04:08.521   MAIN   INF   Updating active devices
+2020-02-29 15:04:08.544   MAIN   INF   Active devices updated, elapsed: 22.022708ms
+2020-02-29 15:04:08.544   MAIN   INF   Deleting old log files
+2020-02-29 15:04:08.544   MAIN   INF   Old log files deleted, elapsed: 234.435µs
+2020-02-29 15:04:08.544   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 15:04:08.545   MAIN   INF   Sleeping for 9.976307185s
+2020-02-29 15:04:18.524   MAIN   INF   Program running
+2020-02-29 15:04:18.524   MAIN   INF   Updating active devices
+2020-02-29 15:04:18.546   MAIN   INF   Active devices updated, elapsed: 20.776328ms
+2020-02-29 15:04:18.546   MAIN   INF   Deleting old log files
+2020-02-29 15:04:18.546   MAIN   INF   Old log files deleted, elapsed: 247.857µs
+2020-02-29 15:04:18.546   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 15:04:18.546   MAIN   INF   Sleeping for 9.977490602s
+2020-02-29 15:04:28.524   MAIN   INF   Program running
+2020-02-29 15:04:28.525   MAIN   INF   Updating active devices
+2020-02-29 15:04:28.540   MAIN   INF   Active devices updated, elapsed: 15.511439ms
+2020-02-29 15:04:28.541   MAIN   INF   Deleting old log files
+2020-02-29 15:04:28.541   MAIN   INF   Old log files deleted, elapsed: 180.382µs
+2020-02-29 15:04:28.541   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 15:04:28.541   MAIN   INF   Sleeping for 9.983309422s
+2020-02-29 15:04:38.526   MAIN   INF   Program running
+2020-02-29 15:04:38.526   MAIN   INF   Updating active devices
+2020-02-29 15:04:38.554   MAIN   INF   Active devices updated, elapsed: 27.937938ms
+2020-02-29 15:04:38.554   MAIN   INF   Deleting old log files
+2020-02-29 15:04:38.555   MAIN   INF   Old log files deleted, elapsed: 219.639µs
+2020-02-29 15:04:38.555   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 15:04:38.555   MAIN   INF   Sleeping for 9.970658931s
+2020-02-29 15:04:48.530   MAIN   INF   Program running
+2020-02-29 15:04:48.530   MAIN   INF   Updating active devices
+2020-02-29 15:04:48.553   MAIN   INF   Active devices updated, elapsed: 22.435545ms
+2020-02-29 15:04:48.553   MAIN   INF   Deleting old log files
+2020-02-29 15:04:48.553   MAIN   INF   Old log files deleted, elapsed: 203.208µs
+2020-02-29 15:04:48.553   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 15:04:48.553   MAIN   INF   Sleeping for 9.976107052s
+2020-02-29 15:04:58.530   MAIN   INF   Program running
+2020-02-29 15:04:58.530   MAIN   INF   Updating active devices
+2020-02-29 15:04:58.549   MAIN   INF   Active devices updated, elapsed: 18.162328ms
+2020-02-29 15:04:58.549   MAIN   INF   Deleting old log files
+2020-02-29 15:04:58.549   MAIN   INF   Old log files deleted, elapsed: 156.872µs
+2020-02-29 15:04:58.549   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 15:04:58.549   MAIN   INF   Sleeping for 9.980766189s
+2020-02-29 15:05:08.534   MAIN   INF   Program running
+2020-02-29 15:05:08.534   MAIN   INF   Updating active devices
+2020-02-29 15:05:08.562   MAIN   INF   Active devices updated, elapsed: 27.262133ms
+2020-02-29 15:05:08.562   MAIN   INF   Deleting old log files
+2020-02-29 15:05:08.562   MAIN   INF   Old log files deleted, elapsed: 192.777µs
+2020-02-29 15:05:08.562   MAIN   INF   Active devices: 1, running devices: 1
+2020-02-29 15:05:08.562   MAIN   INF   Sleeping for 9.971167685s
+2020-02-29 15:05:16.880   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:05:17.882   MAIN   INF   Stopping, still running devices: 1
+2020-02-29 15:05:18.535   MAIN   INF   Program running
+2020-02-29 15:05:18.535   MAIN   INF   Updating active devices
+2020-02-29 15:05:18.552   MAIN   INF   Active devices updated, elapsed: 16.653493ms
+2020-02-29 15:05:18.552   MAIN   INF   Deleting old log files
+2020-02-29 15:05:18.553   MAIN   INF   Old log files deleted, elapsed: 193.182µs
+2020-02-29 15:05:18.553   MAIN   INF   Active devices: 1, running devices: 0
+2020-02-29 15:05:18.553   MAIN   INF   Sleeping for 9.981904248s
+2020-02-29 15:05:18.885   MAIN   INF   Stopped on platform darwin-launchd

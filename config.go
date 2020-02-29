@@ -41,7 +41,7 @@ func CreateConfigIfNotExists() {
 			data := Config{
 				DatabaseType: "postgres",
 				IpAddress:    "zapsi_database",
-				DatabaseName: "zapsi4",
+				DatabaseName: "zapsi3",
 				Port:         "5432",
 				Login:        "postgres",
 				Password:     "Zps05.....",

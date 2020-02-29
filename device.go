@@ -33,6 +33,8 @@ type BadDataError struct {
 }
 
 func DownloadData(device zapsi_database.Device) (downloaded bool, error error) {
+	LogInfo(device.Name, "Downloading data")
+	timer := time.Now()
 	deviceNameForDownload = device.Name
 	connectionString, dialect := zapsi_database.CheckDatabaseType(DatabaseType, DatabaseIpAddress, DatabasePort, DatabaseLogin, DatabaseName, DatabasePassword)
 	db, err := gorm.Open(dialect, connectionString)
@@ -52,7 +54,7 @@ func DownloadData(device zapsi_database.Device) (downloaded bool, error error) {
 	if len(digitalPorts) > 0 {
 		LogInfo(device.Name, "Device has digital ports")
 		fileUrl := "http://" + device.IpAddress + "/log/digital.txt"
-		deviceDirectory := filepath.Join(".", strconv.Itoa(int(device.ID))+"-"+device.Name)
+		deviceDirectory := filepath.Join(".", strconv.Itoa(device.ID)+"-"+device.Name)
 		deviceFileName := "digital.txt"
 		deviceFullPath := strings.Join([]string{deviceDirectory, deviceFileName}, "/")
 		deviceFileDownloading = fileUrl
@@ -66,12 +68,13 @@ func DownloadData(device zapsi_database.Device) (downloaded bool, error error) {
 	if len(analogPorts) > 0 {
 		LogInfo(device.Name, "Device has analog ports")
 		fileUrl := "http://" + device.IpAddress + "/log/analog.txt"
-		deviceDirectory := filepath.Join(".", strconv.Itoa(int(device.ID))+"-"+device.Name)
+		deviceDirectory := filepath.Join(".", strconv.Itoa(device.ID)+"-"+device.Name)
 		deviceFileName := "analog.txt"
 		deviceFullPath := strings.Join([]string{deviceDirectory, deviceFileName}, "/")
 		deviceFileDownloading = fileUrl
 		if err := DownloadFile(device.Name, deviceFullPath, fileUrl); err != nil {
 			LogWarning(device.Name, fileUrl+" problem downloading "+err.Error())
+			KillPort(device)
 		} else {
 			DeleteFile(device.Name, fileUrl)
 		}
@@ -80,7 +83,7 @@ func DownloadData(device zapsi_database.Device) (downloaded bool, error error) {
 	if len(serialPorts) > 0 {
 		LogInfo(device.Name, "Device has serial ports")
 		fileUrl := "http://" + device.IpAddress + "/log/serial.txt"
-		deviceDirectory := filepath.Join(".", strconv.Itoa(int(device.ID))+"-"+device.Name)
+		deviceDirectory := filepath.Join(".", strconv.Itoa(device.ID)+"-"+device.Name)
 		deviceFileName := "serial.txt"
 		deviceFullPath := strings.Join([]string{deviceDirectory, deviceFileName}, "/")
 		deviceFileDownloading = fileUrl
@@ -94,7 +97,7 @@ func DownloadData(device zapsi_database.Device) (downloaded bool, error error) {
 	if len(energyPorts) > 0 {
 		LogInfo(device.Name, "Device has energy ports")
 		fileUrl := "http://" + device.IpAddress + "/log/ui_value.txt"
-		deviceDirectory := filepath.Join(".", strconv.Itoa(int(device.ID))+"-"+device.Name)
+		deviceDirectory := filepath.Join(".", strconv.Itoa(device.ID)+"-"+device.Name)
 		deviceFileName := "ui_value.txt"
 		deviceFullPath := strings.Join([]string{deviceDirectory, deviceFileName}, "/")
 		deviceFileDownloading = fileUrl
@@ -107,6 +110,7 @@ func DownloadData(device zapsi_database.Device) (downloaded bool, error error) {
 	}
 	deviceFileDownloading = ""
 	defer db.Close()
+	LogInfo(device.Name, "Data downloaded, elapsed: "+time.Since(timer).String())
 	return true, nil
 }
 
@@ -174,7 +178,8 @@ func (wc WriteCounter) PrintProgress() {
 }
 
 func ProcessData(device zapsi_database.Device, intermediateData []IntermediateData) error {
-	start := time.Now()
+	LogInfo(device.Name, "Adding data to database")
+	timer := time.Now()
 	connectionString, dialect := zapsi_database.CheckDatabaseType(DatabaseType, DatabaseIpAddress, DatabasePort, DatabaseLogin, DatabaseName, DatabasePassword)
 	db, err := gorm.Open(dialect, connectionString)
 	if err != nil {
@@ -221,7 +226,7 @@ func ProcessData(device zapsi_database.Device, intermediateData []IntermediateDa
 			actualProgress := progress * 100 / totalNumberOfRecords
 			if actualProgress != 0 && actualProgress%5 == 0 && displayProgress {
 				displayProgress = false
-				elapsedTime := time.Since(start)
+				elapsedTime := time.Since(timer)
 				var remainingProgress = (100.00 - float64(actualProgress)) / (float64(actualProgress))
 				var remainingTime = time.Duration(elapsedTime.Seconds() * remainingProgress * 1000000000)
 				LogInfo(device.Name, strconv.Itoa(actualProgress)+"% done, remaining "+remainingTime.String())
@@ -230,7 +235,7 @@ func ProcessData(device zapsi_database.Device, intermediateData []IntermediateDa
 			}
 		}
 	}
-	LogInfo(device.Name, "Processing takes "+time.Since(start).String())
+	LogInfo(device.Name, "Data added to database, elapsed: "+time.Since(timer).String())
 	return nil
 }
 
@@ -418,11 +423,11 @@ func ProcessDataAsAddZeroPort(data IntermediateData, virtualPort zapsi_database.
 			LogError(device.Name, "Problem parsing settings from port "+virtualPort.Name+" ["+virtualPort.Settings+"]: "+err.Error())
 			return
 		}
-		originalPortIdUint := uint(originalPortId)
+
 		var digitalPorts []zapsi_database.DevicePort
 		db.Where("device_id = ?", device.ID).Where("device_port_type_id = ?", 1).Where("virtual = ?", false).Find(&digitalPorts)
 		for _, port := range digitalPorts {
-			if port.ID == originalPortIdUint {
+			if port.ID == int(originalPortId) {
 				db.LogMode(false)
 				positionInFile := port.PortNumber - 1
 				parsedData := strings.Split(data.RawData, ";")
@@ -532,6 +537,8 @@ func ReplacePortWithItsValue(portType string, settings string, port zapsi_databa
 }
 
 func PrepareData(device zapsi_database.Device) []IntermediateData {
+	LogInfo(device.Name, "Preparing downloaded data")
+	timer := time.Now()
 	var intermediateData []IntermediateData
 	if FileExists("digital.txt", device) {
 		AddDataForProcessing("digital.txt", &intermediateData, device)
@@ -549,6 +556,8 @@ func PrepareData(device zapsi_database.Device) []IntermediateData {
 		return intermediateData[i].DateTime.Before(intermediateData[j].DateTime)
 	})
 	LogInfo(device.Name, "Data sorted, number of records: "+strconv.Itoa(len(intermediateData)))
+	LogInfo(device.Name, "Data prepared, elapsed: "+time.Since(timer).String())
+
 	return intermediateData
 }
 
@@ -667,7 +676,7 @@ func AddAnalogDataToDatabase(data *IntermediateData, db *gorm.DB, device zapsi_d
 }
 
 func FileExists(filename string, device zapsi_database.Device) bool {
-	deviceDirectory := filepath.Join(".", strconv.Itoa(int(device.ID))+"-"+device.Name)
+	deviceDirectory := filepath.Join(".", strconv.Itoa(device.ID)+"-"+device.Name)
 	deviceFullPath := strings.Join([]string{deviceDirectory, filename}, "/")
 	if _, err := os.Stat(deviceFullPath); err == nil {
 		return true
@@ -679,7 +688,9 @@ func FileExists(filename string, device zapsi_database.Device) bool {
 }
 
 func AddDataForProcessing(filename string, data *[]IntermediateData, device zapsi_database.Device) {
-	deviceDirectory := filepath.Join(".", strconv.Itoa(int(device.ID))+"-"+device.Name)
+	LogInfo(device.Name, "Adding data: "+filename)
+	timer := time.Now()
+	deviceDirectory := filepath.Join(".", strconv.Itoa(device.ID)+"-"+device.Name)
 	deviceFullPath := strings.Join([]string{deviceDirectory, filename}, "/")
 	f, _ := os.Open(deviceFullPath)
 	scanner := bufio.NewScanner(f)
@@ -697,6 +708,8 @@ func AddDataForProcessing(filename string, data *[]IntermediateData, device zaps
 		}
 		AddIntermediateData(finalDateTime, rawData, filename, data)
 	}
+	LogInfo(device.Name, "Data added, elapsed: "+time.Since(timer).String())
+
 }
 
 func AddIntermediateData(finalDateTime time.Time, rawData string, filename string, data *[]IntermediateData) {
@@ -743,16 +756,14 @@ func GetDateTimeFromData(data []string) (time.Time, error) {
 				dataMilliSecond = "0"
 			}
 		}
-		input := dataYear + "-" + dataMonth + "-" + dataDay + " " + dataHour + ":" + dataMinute + ":" + dataSecond + "." + dataMilliSecond
-		var layout string
 		switch len(dataMilliSecond) {
 		case 1:
-			layout = "2006-1-2 15:4:5.0"
+			dataMilliSecond = "00" + dataMilliSecond
 		case 2:
-			layout = "2006-1-2 15:4:5.00"
-		default:
-			layout = "2006-1-2 15:4:5.000"
+			dataMilliSecond = "0" + dataMilliSecond
 		}
+		input := dataYear + "-" + dataMonth + "-" + dataDay + " " + dataHour + ":" + dataMinute + ":" + dataSecond + "." + dataMilliSecond
+		layout := "2006-1-2 15:4:5.000"
 
 		finalDateTime, err := time.Parse(layout, input)
 		return finalDateTime, err
@@ -766,7 +777,6 @@ func (e BadDataError) Error() string {
 
 func SendUDP(device zapsi_database.Device, dstIP string, dstPort int, localIP string, localPort uint, data []byte) {
 	RemoteEP := net.UDPAddr{IP: net.ParseIP(dstIP), Port: dstPort}
-
 	localAddrString := fmt.Sprintf("%s:%d", localIP, localPort)
 	LocalAddr, err := net.ResolveUDPAddr("udp", localAddrString)
 	if err != nil {
@@ -794,8 +804,18 @@ func SendUDP(device zapsi_database.Device, dstIP string, dstPort int, localIP st
 	LogInfo(device.Name, "UDP connection closed")
 }
 func SendTime(device zapsi_database.Device) (timeUpdated bool) {
+	LogInfo(device.Name, "Sending time to device")
+	timer := time.Now()
 	dateTimeForZapsi := time.Now().UTC().Format("02.01.2006 15:04:05")
 	dateTimeForZapsi = "set_datetime=" + dateTimeForZapsi + " 0" + strconv.Itoa(int(time.Now().UTC().Weekday())) + "&"
+	SendUDP(device, device.IpAddress, 9999, "", 0, []byte(dateTimeForZapsi))
+	LogInfo(device.Name, "Time to device sent, elapsed: "+time.Since(timer).String())
+	return true
+}
+
+func KillPort(device zapsi_database.Device) (timeUpdated bool) {
+	dateTimeForZapsi := time.Now().UTC().Format("02.01.2006 15:04:05")
+	dateTimeForZapsi = "Kill80"
 	SendUDP(device, device.IpAddress, 9999, "", 0, []byte(dateTimeForZapsi))
 	return true
 }

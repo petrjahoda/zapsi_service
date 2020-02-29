@@ -1,0 +1,14 @@
+2020-02-29 13:48:12.582   CNC 4   INF   Device started running
+2020-02-29 13:48:12.584   CNC 4   INF   Device directory exists
+2020-02-29 13:48:12.584   CNC 4   INF   UDP connection opened
+2020-02-29 13:48:12.584   CNC 4   INF   UDP data written to Zapsi: set_datetime=29.02.2020 12:48:12 06&, with result of 36
+2020-02-29 13:48:12.585   CNC 4   INF   UDP connection closed
+2020-02-29 13:48:12.585   CNC 4   INF   Data sorted, number of records: 0
+2020-02-29 13:48:12.733   CNC 4   INF   Device has digital ports
+2020-02-29 13:48:42.734   CNC 4   WRN   http://192.168.0.4/log/digital.txt problem downloading Get "http://192.168.0.4/log/digital.txt": dial tcp 192.168.0.4:80: i/o timeout
+2020-02-29 13:48:42.734   CNC 4   INF   Device has analog ports
+2020-02-29 13:49:12.735   CNC 4   WRN   http://192.168.0.4/log/analog.txt problem downloading Get "http://192.168.0.4/log/analog.txt": dial tcp 192.168.0.4:80: i/o timeout
+2020-02-29 13:49:12.735   CNC 4   INF   Data sorted, number of records: 0
+2020-02-29 13:49:12.735   CNC 4   INF   Processing takes 1m0.149363616s
+2020-02-29 13:49:12.735   CNC 4   INF   Device still active
+2020-02-29 13:49:12.735   CNC 4   INF   Device not active, stopped running

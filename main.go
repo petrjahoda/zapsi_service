@@ -12,7 +12,7 @@ import (
 	"time"
 )
 
-const version = "2020.1.2.8"
+const version = "2020.1.2.29"
 const programName = "Zapsi Service"
 const programDesription = "Downloads data from Zapsi devices"
 const deleteLogsAfter = 240 * time.Hour
@@ -36,7 +36,6 @@ func (p *program) Start(s service.Service) error {
 }
 
 func (p *program) run() {
-	time.Sleep(time.Second * 5)
 	LogDirectoryFileCheck("MAIN")
 	LogInfo("MAIN", programName+" version "+version+" started")
 	CreateConfigIfNotExists()
@@ -92,6 +91,8 @@ func main() {
 }
 
 func WriteProgramVersionIntoSettings() {
+	LogInfo("MAIN", "Updating program version in database")
+	timer := time.Now()
 	connectionString, dialect := zapsi_database.CheckDatabaseType(DatabaseType, DatabaseIpAddress, DatabasePort, DatabaseLogin, DatabaseName, DatabasePassword)
 	db, err := gorm.Open(dialect, connectionString)
 	if err != nil {
@@ -105,7 +106,7 @@ func WriteProgramVersionIntoSettings() {
 	settings.Name = programName
 	settings.Value = version
 	db.Save(&settings)
-	LogDebug("MAIN", "Updated version in database for "+programName)
+	LogInfo("MAIN", "Program version updated, elapsed: "+time.Since(timer).String())
 }
 
 func CheckDevice(device zapsi_database.Device) bool {
@@ -127,8 +128,8 @@ func RunDevice(device zapsi_database.Device) {
 	SendTime(device)
 	timeUpdatedInLoop := false
 	for deviceIsActive && serviceRunning {
-		println(serviceRunning)
-		start := time.Now()
+		LogInfo(device.Name, "Starting device loop")
+		timer := time.Now()
 		ProcessDownloadedFiles(device)
 		success, err := DownloadData(device)
 		if err != nil {
@@ -137,10 +138,9 @@ func RunDevice(device zapsi_database.Device) {
 		if success {
 			ProcessDownloadedFiles(device)
 		}
-		LogInfo(device.Name, "Processing takes "+time.Since(start).String())
 		timeUpdatedInLoop = SendTimeToZapsi(device, timeUpdatedInLoop)
-		Sleep(device, start)
-
+		LogInfo(device.Name, "Loop ended, elapsed: "+time.Since(timer).String())
+		Sleep(device, timer)
 		deviceIsActive = CheckActive(device)
 	}
 	RemoveDeviceFromRunningDevices(device)
@@ -149,7 +149,7 @@ func RunDevice(device zapsi_database.Device) {
 }
 
 func CreateDirectoryIfNotExists(device zapsi_database.Device) {
-	deviceDirectory := filepath.Join(".", strconv.Itoa(int(device.ID))+"-"+device.Name)
+	deviceDirectory := filepath.Join(".", strconv.Itoa(device.ID)+"-"+device.Name)
 
 	if _, checkPathError := os.Stat(deviceDirectory); checkPathError == nil {
 		LogInfo(device.Name, "Device directory exists")
@@ -175,6 +175,8 @@ func Sleep(device zapsi_database.Device, start time.Time) {
 }
 
 func ProcessDownloadedFiles(device zapsi_database.Device) {
+	LogInfo(device.Name, "Processing downloaded data")
+	timer := time.Now()
 	intermediateData := PrepareData(device)
 	if len(intermediateData) > 0 {
 		err := ProcessData(device, intermediateData)
@@ -182,14 +184,23 @@ func ProcessDownloadedFiles(device zapsi_database.Device) {
 			LogError(device.Name, "Error processing data: "+err.Error())
 		}
 	}
+	DeleteDownloadedData(device)
+	LogInfo(device.Name, "Data processed, elapsed: "+time.Since(timer).String())
+}
+
+func DeleteDownloadedData(device zapsi_database.Device) {
+	LogInfo(device.Name, "Deleting downloaded data")
+	timer := time.Now()
 	DeleteDownloadedFile("digital.txt", device)
 	DeleteDownloadedFile("analog.txt", device)
 	DeleteDownloadedFile("serial.txt", device)
 	DeleteDownloadedFile("ui_value.txt", device)
+	LogInfo(device.Name, "Data deleted, elapsed: "+time.Since(timer).String())
+
 }
 
 func DeleteDownloadedFile(deviceFileName string, device zapsi_database.Device) {
-	deviceDirectory := filepath.Join(".", strconv.Itoa(int(device.ID))+"-"+device.Name)
+	deviceDirectory := filepath.Join(".", strconv.Itoa(device.ID)+"-"+device.Name)
 	deviceFullPath := strings.Join([]string{deviceDirectory, deviceFileName}, "/")
 	info, err := os.Stat(deviceFullPath)
 	if err != nil {
@@ -226,6 +237,8 @@ func RemoveDeviceFromRunningDevices(device zapsi_database.Device) {
 }
 
 func UpdateActiveDevices(reference string) {
+	LogInfo("MAIN", "Updating active devices")
+	timer := time.Now()
 	connectionString, dialect := zapsi_database.CheckDatabaseType(DatabaseType, DatabaseIpAddress, DatabasePort, DatabaseLogin, DatabaseName, DatabasePassword)
 	db, err := gorm.Open(dialect, connectionString)
 	if err != nil {
@@ -237,5 +250,5 @@ func UpdateActiveDevices(reference string) {
 	var deviceType zapsi_database.DeviceType
 	db.Where("name=?", "Zapsi").Find(&deviceType)
 	db.Where("device_type_id=?", deviceType.ID).Where("activated = true").Find(&activeDevices)
-	LogDebug("MAIN", "Zapsi device type id is "+strconv.Itoa(int(deviceType.ID)))
+	LogInfo("MAIN", "Active devices updated, elapsed: "+time.Since(timer).String())
 }

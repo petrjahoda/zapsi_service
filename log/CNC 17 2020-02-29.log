@@ -1,0 +1,14 @@
+2020-02-29 13:48:12.585   CNC 17   INF   Device started running
+2020-02-29 13:48:12.586   CNC 17   INF   Device directory exists
+2020-02-29 13:48:12.586   CNC 17   INF   UDP connection opened
+2020-02-29 13:48:12.586   CNC 17   INF   UDP data written to Zapsi: set_datetime=29.02.2020 12:48:12 06&, with result of 36
+2020-02-29 13:48:12.587   CNC 17   INF   UDP connection closed
+2020-02-29 13:48:12.591   CNC 17   INF   Data sorted, number of records: 0
+2020-02-29 13:48:12.803   CNC 17   INF   Device has digital ports
+2020-02-29 13:48:42.804   CNC 17   WRN   http://192.168.0.17/log/digital.txt problem downloading Get "http://192.168.0.17/log/digital.txt": dial tcp 192.168.0.17:80: i/o timeout
+2020-02-29 13:48:42.805   CNC 17   INF   Device has analog ports
+2020-02-29 13:49:12.806   CNC 17   WRN   http://192.168.0.17/log/analog.txt problem downloading Get "http://192.168.0.17/log/analog.txt": dial tcp 192.168.0.17:80: i/o timeout
+2020-02-29 13:49:12.806   CNC 17   INF   Data sorted, number of records: 0
+2020-02-29 13:49:12.807   CNC 17   INF   Processing takes 1m0.217972388s
+2020-02-29 13:49:12.807   CNC 17   INF   Device still active
+2020-02-29 13:49:12.807   CNC 17   INF   Device not active, stopped running

@@ -12,7 +12,7 @@ import (
 	"time"
 )
 
-const version = "2020.1.2.29"
+const version = "2020.1.3.31"
 const programName = "Zapsi Service"
 const programDesription = "Downloads data from Zapsi devices"
 const deleteLogsAfter = 240 * time.Hour

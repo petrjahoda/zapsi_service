@@ -8,6 +8,10 @@ cd ..
 cd windows
 upx zapsi_service_windows.exe
 cd ..
-docker rmi -f petrjahoda/zapsi_service:"$1"
-docker build -t petrjahoda/zapsi_service:"$1" .
-docker push petrjahoda/zapsi_service:"$1"
+docker rmi -f petrjahoda/zapsi_service:latest
+docker build -t petrjahoda/zapsi_service:latest .
+docker push petrjahoda/zapsi_service:latest
+
+docker rmi -f petrjahoda/zapsi_service:2020.1.3
+docker build -t petrjahoda/zapsi_service:2020.1.3 .
+docker push petrjahoda/zapsi_service:2020.1.3

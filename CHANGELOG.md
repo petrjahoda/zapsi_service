@@ -15,7 +15,7 @@ adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 * ```Security``` in case of vulnerabilities.
 
 
-## [2020.1.2.29] - 2020-03-31
+## [2020.1.3.31] - 2020-03-31
 
 ### Added
 - updated create.sh for uploading proper docker version automatically

@@ -15,6 +15,12 @@ adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 * ```Security``` in case of vulnerabilities.
 
 
+## [2020.2.2.18] - 2020-05-18
+
+### Added
+- init for actual service directory
+- db.logmode(false)
+
 ## [2020.1.3.31] - 2020-03-31
 
 ### Added

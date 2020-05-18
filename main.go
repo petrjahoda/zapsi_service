@@ -12,14 +12,14 @@ import (
 	"time"
 )
 
-const version = "2020.1.3.31"
+const version = "2020.2.2.18"
 const programName = "Zapsi Service"
-const programDesription = "Downloads data from Zapsi devices"
+const programDescription = "Downloads data from Zapsi devices"
 const deleteLogsAfter = 240 * time.Hour
 const downloadInSeconds = 10
 
 var serviceRunning = false
-
+var serviceDirectory string
 var (
 	activeDevices  []zapsi_database.Device
 	runningDevices []zapsi_database.Device
@@ -71,12 +71,15 @@ func (p *program) Stop(s service.Service) error {
 	return nil
 }
 
-func main() {
+func init() {
+	serviceDirectory = GetDirectory()
+}
 
+func main() {
 	serviceConfig := &service.Config{
 		Name:        programName,
 		DisplayName: programName,
-		Description: programDesription,
+		Description: programDescription,
 	}
 	prg := &program{}
 	s, err := service.New(prg, serviceConfig)
@@ -100,6 +103,7 @@ func WriteProgramVersionIntoSettings() {
 		activeDevices = nil
 		return
 	}
+	db.LogMode(false)
 	defer db.Close()
 	var settings zapsi_database.Setting
 	db.Where("name=?", programName).Find(&settings)
@@ -149,7 +153,7 @@ func RunDevice(device zapsi_database.Device) {
 }
 
 func CreateDirectoryIfNotExists(device zapsi_database.Device) {
-	deviceDirectory := filepath.Join(".", strconv.Itoa(device.ID)+"-"+device.Name)
+	deviceDirectory := filepath.Join(serviceDirectory, strconv.Itoa(device.ID)+"-"+device.Name)
 
 	if _, checkPathError := os.Stat(deviceDirectory); checkPathError == nil {
 		LogInfo(device.Name, "Device directory exists")
@@ -200,7 +204,7 @@ func DeleteDownloadedData(device zapsi_database.Device) {
 }
 
 func DeleteDownloadedFile(deviceFileName string, device zapsi_database.Device) {
-	deviceDirectory := filepath.Join(".", strconv.Itoa(device.ID)+"-"+device.Name)
+	deviceDirectory := filepath.Join(serviceDirectory, strconv.Itoa(device.ID)+"-"+device.Name)
 	deviceFullPath := strings.Join([]string{deviceDirectory, deviceFileName}, "/")
 	info, err := os.Stat(deviceFullPath)
 	if err != nil {
@@ -246,6 +250,7 @@ func UpdateActiveDevices(reference string) {
 		activeDevices = nil
 		return
 	}
+	db.LogMode(false)
 	defer db.Close()
 	var deviceType zapsi_database.DeviceType
 	db.Where("name=?", "Zapsi").Find(&deviceType)

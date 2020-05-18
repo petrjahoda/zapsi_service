@@ -42,6 +42,8 @@ func DownloadData(device zapsi_database.Device) (downloaded bool, error error) {
 		LogError(device.Name, "Problem opening "+DatabaseName+" database: "+err.Error())
 		return false, err
 	}
+	db.LogMode(false)
+	defer db.Close()
 	var digitalPorts []zapsi_database.DevicePort
 	var analogPorts []zapsi_database.DevicePort
 	var serialPorts []zapsi_database.DevicePort
@@ -54,7 +56,7 @@ func DownloadData(device zapsi_database.Device) (downloaded bool, error error) {
 	if len(digitalPorts) > 0 {
 		LogInfo(device.Name, "Device has digital ports")
 		fileUrl := "http://" + device.IpAddress + "/log/digital.txt"
-		deviceDirectory := filepath.Join(".", strconv.Itoa(device.ID)+"-"+device.Name)
+		deviceDirectory := filepath.Join(serviceDirectory, strconv.Itoa(device.ID)+"-"+device.Name)
 		deviceFileName := "digital.txt"
 		deviceFullPath := strings.Join([]string{deviceDirectory, deviceFileName}, "/")
 		deviceFileDownloading = fileUrl
@@ -68,7 +70,7 @@ func DownloadData(device zapsi_database.Device) (downloaded bool, error error) {
 	if len(analogPorts) > 0 {
 		LogInfo(device.Name, "Device has analog ports")
 		fileUrl := "http://" + device.IpAddress + "/log/analog.txt"
-		deviceDirectory := filepath.Join(".", strconv.Itoa(device.ID)+"-"+device.Name)
+		deviceDirectory := filepath.Join(serviceDirectory, strconv.Itoa(device.ID)+"-"+device.Name)
 		deviceFileName := "analog.txt"
 		deviceFullPath := strings.Join([]string{deviceDirectory, deviceFileName}, "/")
 		deviceFileDownloading = fileUrl
@@ -83,7 +85,7 @@ func DownloadData(device zapsi_database.Device) (downloaded bool, error error) {
 	if len(serialPorts) > 0 {
 		LogInfo(device.Name, "Device has serial ports")
 		fileUrl := "http://" + device.IpAddress + "/log/serial.txt"
-		deviceDirectory := filepath.Join(".", strconv.Itoa(device.ID)+"-"+device.Name)
+		deviceDirectory := filepath.Join(serviceDirectory, strconv.Itoa(device.ID)+"-"+device.Name)
 		deviceFileName := "serial.txt"
 		deviceFullPath := strings.Join([]string{deviceDirectory, deviceFileName}, "/")
 		deviceFileDownloading = fileUrl
@@ -97,7 +99,7 @@ func DownloadData(device zapsi_database.Device) (downloaded bool, error error) {
 	if len(energyPorts) > 0 {
 		LogInfo(device.Name, "Device has energy ports")
 		fileUrl := "http://" + device.IpAddress + "/log/ui_value.txt"
-		deviceDirectory := filepath.Join(".", strconv.Itoa(device.ID)+"-"+device.Name)
+		deviceDirectory := filepath.Join(serviceDirectory, strconv.Itoa(device.ID)+"-"+device.Name)
 		deviceFileName := "ui_value.txt"
 		deviceFullPath := strings.Join([]string{deviceDirectory, deviceFileName}, "/")
 		deviceFileDownloading = fileUrl
@@ -109,7 +111,6 @@ func DownloadData(device zapsi_database.Device) (downloaded bool, error error) {
 
 	}
 	deviceFileDownloading = ""
-	defer db.Close()
 	LogInfo(device.Name, "Data downloaded, elapsed: "+time.Since(timer).String())
 	return true, nil
 }
@@ -186,6 +187,7 @@ func ProcessData(device zapsi_database.Device, intermediateData []IntermediateDa
 		LogError(device.Name, "Problem opening "+DatabaseName+" database: "+err.Error())
 		return err
 	}
+	db.LogMode(false)
 	defer db.Close()
 	totalNumberOfRecords := len(intermediateData)
 	displayProgress := true
@@ -676,7 +678,7 @@ func AddAnalogDataToDatabase(data *IntermediateData, db *gorm.DB, device zapsi_d
 }
 
 func FileExists(filename string, device zapsi_database.Device) bool {
-	deviceDirectory := filepath.Join(".", strconv.Itoa(device.ID)+"-"+device.Name)
+	deviceDirectory := filepath.Join(serviceDirectory, strconv.Itoa(device.ID)+"-"+device.Name)
 	deviceFullPath := strings.Join([]string{deviceDirectory, filename}, "/")
 	if _, err := os.Stat(deviceFullPath); err == nil {
 		return true
@@ -690,7 +692,7 @@ func FileExists(filename string, device zapsi_database.Device) bool {
 func AddDataForProcessing(filename string, data *[]IntermediateData, device zapsi_database.Device) {
 	LogInfo(device.Name, "Adding data: "+filename)
 	timer := time.Now()
-	deviceDirectory := filepath.Join(".", strconv.Itoa(device.ID)+"-"+device.Name)
+	deviceDirectory := filepath.Join(serviceDirectory, strconv.Itoa(device.ID)+"-"+device.Name)
 	deviceFullPath := strings.Join([]string{deviceDirectory, filename}, "/")
 	f, _ := os.Open(deviceFullPath)
 	scanner := bufio.NewScanner(f)

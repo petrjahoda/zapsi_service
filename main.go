@@ -20,6 +20,7 @@ const downloadInSeconds = 10
 
 var serviceRunning = false
 var serviceDirectory string
+
 var (
 	activeDevices  []zapsi_database.Device
 	runningDevices []zapsi_database.Device

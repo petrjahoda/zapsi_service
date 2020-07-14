@@ -12,7 +12,7 @@ import (
 	"time"
 )
 
-const version = "2020.2.2.18"
+const version = "2020.3.1.14"
 const programName = "Zapsi Service"
 const programDescription = "Downloads data from Zapsi devices"
 const deleteLogsAfter = 240 * time.Hour
@@ -41,7 +41,6 @@ func (p *program) run() {
 	LogInfo("MAIN", programName+" version "+version+" started")
 	CreateConfigIfNotExists()
 	LoadSettingsFromConfigFile()
-	LogDebug("MAIN", "Using ["+DatabaseType+"] on "+DatabaseIpAddress+":"+DatabasePort+" with database "+DatabaseName)
 	WriteProgramVersionIntoSettings()
 	for {
 		start := time.Now()

@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	. "github.com/logrusorgru/aurora"
+	"github.com/TwinProduction/go-color"
 	"io/ioutil"
 	"os"
 	"path/filepath"
@@ -12,23 +12,23 @@ import (
 )
 
 func LogInfo(reference, data string) {
-	fmt.Println(Green(time.Now().Format("2006-01-02 15:04:05.000") + " [" + reference + "] --INF-- " + data))
+	fmt.Println(color.Ize(color.Green, time.Now().Format("2006-01-02 15:04:05.000")+" ["+reference+"] --INF-- "+data))
 	AppendDataToLog("INF", reference, data)
 }
 
 func LogError(reference, data string) {
-	fmt.Println(Red(time.Now().Format("2006-01-02 15:04:05.000") + " [" + reference + "] --INF-- " + data))
+	fmt.Println(color.Ize(color.Red, time.Now().Format("2006-01-02 15:04:05.000")+" ["+reference+"] --INF-- "+data))
 	AppendDataToLog("ERR", reference, data)
 	AppendDataToErrLog("ERR", reference, data)
 }
 
 func LogWarning(reference, data string) {
-	fmt.Println(Yellow(time.Now().Format("2006-01-02 15:04:05.000") + " [" + reference + "] --INF-- " + data))
+	fmt.Println(color.Ize(color.Yellow, time.Now().Format("2006-01-02 15:04:05.000")+" ["+reference+"] --INF-- "+data))
 	AppendDataToLog("WRN", reference, data)
 }
 
 func LogDebug(reference, data string) {
-	fmt.Println(Blue(time.Now().Format("2006-01-02 15:04:05.000") + " [" + reference + "] --INF-- " + data))
+	fmt.Println(color.Ize(color.Blue, time.Now().Format("2006-01-02 15:04:05.000")+" ["+reference+"] --INF-- "+data))
 }
 
 func LogDirectoryFileCheck(reference string) {
@@ -37,13 +37,13 @@ func LogDirectoryFileCheck(reference string) {
 	_, checkPathError := os.Stat(logDirectory)
 	logDirectoryExists := checkPathError == nil
 	if logDirectoryExists {
-		fmt.Println(Blue(time.Now().Format(dateTimeFormat) + " [" + reference + "] --DEB-- " + "Log directory already exists "))
+		fmt.Println(color.Ize(color.Blue, time.Now().Format(dateTimeFormat)+" ["+reference+"] --DEB-- "+"Log directory already exists "))
 		return
 	}
-	fmt.Println(Yellow(time.Now().Format(dateTimeFormat) + " [" + reference + "] --WRN-- " + "Log directory does not exist, creating"))
+	fmt.Println(color.Ize(color.Yellow, time.Now().Format(dateTimeFormat)+" ["+reference+"] --WRN-- "+"Log directory does not exist, creating"))
 	mkdirError := os.MkdirAll(logDirectory, 0777)
 	if mkdirError != nil {
-		fmt.Println(Red(time.Now().Format(dateTimeFormat) + " [" + reference + "] --ERR--" + "Unable to create directory for log file: " + mkdirError.Error()))
+		fmt.Println(color.Ize(color.Red, time.Now().Format(dateTimeFormat)+" ["+reference+"] --ERR--"+"Unable to create directory for log file: "+mkdirError.Error()))
 		return
 	}
 }
@@ -56,13 +56,13 @@ func AppendDataToLog(logLevel string, reference string, data string) {
 	logFullPath := strings.Join([]string{logDirectory, logFileName}, "/")
 	f, err := os.OpenFile(logFullPath, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
-		fmt.Println(Red(time.Now().Format(dateTimeFormat) + " [" + reference + "] --WAR-- " + "Log file not present: " + err.Error()))
+		fmt.Println(color.Ize(color.Red, time.Now().Format(dateTimeFormat)+" ["+reference+"] --WAR-- "+"Log file not present: "+err.Error()))
 		return
 	}
 	defer f.Close()
 	logData := time.Now().Format("2006-01-02 15:04:05.000   ") + reference + "   " + logLevel + "   " + data
 	if _, err := f.WriteString(logData + "\r\n"); err != nil {
-		fmt.Println(Red(time.Now().Format(dateTimeFormat) + " [" + reference + "] --ERR-- " + "Cannot write to file: " + err.Error()))
+		fmt.Println(color.Ize(color.Red, time.Now().Format(dateTimeFormat)+" ["+reference+"] --ERR-- "+"Cannot write to file: "+err.Error()))
 	}
 }
 
@@ -74,13 +74,13 @@ func AppendDataToErrLog(logLevel string, reference string, data string) {
 	logFullPath := strings.Join([]string{logDirectory, logFileName}, "/")
 	f, err := os.OpenFile(logFullPath, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
-		fmt.Println(Red(time.Now().Format(dateTimeFormat) + " [" + reference + "] --WAR-- " + "Log file not present: " + err.Error()))
+		fmt.Println(color.Ize(color.Red, time.Now().Format(dateTimeFormat)+" ["+reference+"] --WAR-- "+"Log file not present: "+err.Error()))
 		return
 	}
 	defer f.Close()
 	logData := time.Now().Format("2006-01-02 15:04:05.000   ") + reference + "   " + logLevel + "   " + data
 	if _, err := f.WriteString(logData + "\r\n"); err != nil {
-		fmt.Println(Red(time.Now().Format(dateTimeFormat) + " [" + reference + "] --ERR-- " + "Cannot write to file: " + err.Error()))
+		fmt.Println(color.Ize(color.Red, time.Now().Format(dateTimeFormat)+" ["+reference+"] --ERR-- "+"Cannot write to file: "+err.Error()))
 	}
 }
 

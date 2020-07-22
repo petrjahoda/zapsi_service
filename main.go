@@ -17,7 +17,7 @@ const version = "2020.3.1.22"
 const programName = "Zapsi Service"
 const programDescription = "Downloads data from Zapsi devices"
 const downloadInSeconds = 10
-const config = "user=postgres password=Zps05..... dbname=zapsi3 host=zapsidatabase port=5432 sslmode=disable"
+const config = "user=postgres password=Zps05..... dbname=zapsi3 host=localhost port=5432 sslmode=disable"
 
 var serviceRunning = false
 var serviceDirectory string
@@ -144,7 +144,6 @@ func RunDevice(device zapsi_database.Device) {
 
 func CreateDirectoryIfNotExists(device zapsi_database.Device) {
 	deviceDirectory := filepath.Join(serviceDirectory, strconv.FormatUint(uint64(device.ID), 10)+"-"+device.Name)
-
 	if _, checkPathError := os.Stat(deviceDirectory); checkPathError == nil {
 		LogInfo(device.Name, "Device directory exists")
 	} else if os.IsNotExist(checkPathError) {

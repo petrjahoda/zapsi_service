@@ -5,8 +5,9 @@ import (
 	"fmt"
 	"github.com/PaesslerAG/gval"
 	"github.com/dustin/go-humanize"
-	"github.com/jinzhu/gorm"
 	"github.com/petrjahoda/zapsi_database"
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
 	"io"
 	"math"
 	"net"
@@ -36,14 +37,11 @@ func DownloadData(device zapsi_database.Device) (downloaded bool, error error) {
 	LogInfo(device.Name, "Downloading data")
 	timer := time.Now()
 	deviceNameForDownload = device.Name
-	connectionString, dialect := zapsi_database.CheckDatabaseType(DatabaseType, DatabaseIpAddress, DatabasePort, DatabaseLogin, DatabaseName, DatabasePassword)
-	db, err := gorm.Open(dialect, connectionString)
+	db, err := gorm.Open(postgres.Open(config), &gorm.Config{})
 	if err != nil {
-		LogError(device.Name, "Problem opening "+DatabaseName+" database: "+err.Error())
+		LogError(device.Name, "Problem opening database: "+err.Error())
 		return false, err
 	}
-	db.LogMode(false)
-	defer db.Close()
 	var digitalPorts []zapsi_database.DevicePort
 	var analogPorts []zapsi_database.DevicePort
 	var serialPorts []zapsi_database.DevicePort
@@ -52,86 +50,59 @@ func DownloadData(device zapsi_database.Device) (downloaded bool, error error) {
 	db.Where("device_id = ?", device.ID).Where("device_port_type_id = ?", 2).Find(&analogPorts)
 	db.Where("device_id = ?", device.ID).Where("device_port_type_id = ?", 3).Find(&serialPorts)
 	db.Where("device_id = ?", device.ID).Where("device_port_type_id = ?", 4).Find(&energyPorts)
-	LogDebug(device.Name, "Analog ports: "+strconv.Itoa(len(analogPorts))+", digital ports: "+strconv.Itoa(len(digitalPorts)))
+	LogInfo(device.Name, "Analog ports: "+strconv.Itoa(len(analogPorts))+", digital ports: "+strconv.Itoa(len(digitalPorts)))
 	if len(digitalPorts) > 0 {
 		LogInfo(device.Name, "Device has digital ports")
 		fileUrl := "http://" + device.IpAddress + "/log/digital.txt"
-		deviceDirectory := filepath.Join(serviceDirectory, strconv.Itoa(device.ID)+"-"+device.Name)
+		deviceDirectory := filepath.Join(serviceDirectory, strconv.FormatUint(uint64(device.ID), 10)+"-"+device.Name)
 		deviceFileName := "digital.txt"
 		deviceFullPath := strings.Join([]string{deviceDirectory, deviceFileName}, "/")
 		deviceFileDownloading = fileUrl
 		if err := DownloadFile(device.Name, deviceFullPath, fileUrl); err != nil {
-			LogWarning(device.Name, fileUrl+" problem downloading "+err.Error())
-		} else {
-			DeleteFile(device.Name, fileUrl)
+			LogError(device.Name, fileUrl+" problem downloading "+err.Error())
 		}
 
 	}
 	if len(analogPorts) > 0 {
 		LogInfo(device.Name, "Device has analog ports")
 		fileUrl := "http://" + device.IpAddress + "/log/analog.txt"
-		deviceDirectory := filepath.Join(serviceDirectory, strconv.Itoa(device.ID)+"-"+device.Name)
+		deviceDirectory := filepath.Join(serviceDirectory, strconv.FormatUint(uint64(device.ID), 10)+"-"+device.Name)
 		deviceFileName := "analog.txt"
 		deviceFullPath := strings.Join([]string{deviceDirectory, deviceFileName}, "/")
 		deviceFileDownloading = fileUrl
 		if err := DownloadFile(device.Name, deviceFullPath, fileUrl); err != nil {
-			LogWarning(device.Name, fileUrl+" problem downloading "+err.Error())
+			LogError(device.Name, fileUrl+" problem downloading "+err.Error())
 			KillPort(device)
-		} else {
-			DeleteFile(device.Name, fileUrl)
 		}
 
 	}
 	if len(serialPorts) > 0 {
 		LogInfo(device.Name, "Device has serial ports")
 		fileUrl := "http://" + device.IpAddress + "/log/serial.txt"
-		deviceDirectory := filepath.Join(serviceDirectory, strconv.Itoa(device.ID)+"-"+device.Name)
+		deviceDirectory := filepath.Join(serviceDirectory, strconv.FormatUint(uint64(device.ID), 10)+"-"+device.Name)
 		deviceFileName := "serial.txt"
 		deviceFullPath := strings.Join([]string{deviceDirectory, deviceFileName}, "/")
 		deviceFileDownloading = fileUrl
 		if err := DownloadFile(device.Name, deviceFullPath, fileUrl); err != nil {
-			LogWarning(device.Name, fileUrl+" problem downloading "+err.Error())
-		} else {
-			DeleteFile(device.Name, fileUrl)
+			LogError(device.Name, fileUrl+" problem downloading "+err.Error())
 		}
 
 	}
 	if len(energyPorts) > 0 {
 		LogInfo(device.Name, "Device has energy ports")
 		fileUrl := "http://" + device.IpAddress + "/log/ui_value.txt"
-		deviceDirectory := filepath.Join(serviceDirectory, strconv.Itoa(device.ID)+"-"+device.Name)
+		deviceDirectory := filepath.Join(serviceDirectory, strconv.FormatUint(uint64(device.ID), 10)+"-"+device.Name)
 		deviceFileName := "ui_value.txt"
 		deviceFullPath := strings.Join([]string{deviceDirectory, deviceFileName}, "/")
 		deviceFileDownloading = fileUrl
 		if err := DownloadFile(device.Name, deviceFullPath, fileUrl); err != nil {
-			LogWarning(device.Name, fileUrl+" problem downloading "+err.Error())
-		} else {
-			DeleteFile(device.Name, fileUrl)
+			LogError(device.Name, fileUrl+" problem downloading "+err.Error())
 		}
 
 	}
 	deviceFileDownloading = ""
 	LogInfo(device.Name, "Data downloaded, elapsed: "+time.Since(timer).String())
 	return true, nil
-}
-
-func DeleteFile(deviceName string, url string) {
-	client := &http.Client{Timeout: 5 * time.Second}
-	req, err := http.NewRequest("DELETE", url, nil)
-	if err != nil {
-		LogError(deviceName, url+" cannot delete file : "+err.Error())
-		return
-	} else {
-		resp, err := client.Do(req)
-		if err != nil {
-			LogError(deviceName, url+" cannot delete file: "+err.Error())
-			return
-		} else {
-			LogInfo(deviceName, url+" file deleted")
-
-		}
-		defer resp.Body.Close()
-	}
 }
 
 func DownloadFile(deviceName string, filepath string, url string) error {
@@ -156,6 +127,22 @@ func DownloadFile(deviceName string, filepath string, url string) error {
 	}
 	processDownload = 0
 	LogInfo(deviceName, url+" file downloaded "+humanize.Bytes(uint64(int(resp.ContentLength))))
+	req, err := http.NewRequest("DELETE", url, nil)
+	if err != nil {
+		LogError(deviceName, url+" cannot delete file : "+err.Error())
+		return err
+	} else {
+		resp, err := client.Do(req)
+		if err != nil {
+			LogError(deviceName, url+" cannot delete file: "+err.Error())
+			return err
+		} else {
+			LogInfo(deviceName, url+" file deleted")
+
+		}
+		defer resp.Body.Close()
+	}
+
 	return nil
 }
 
@@ -181,14 +168,12 @@ func (wc WriteCounter) PrintProgress() {
 func ProcessData(device zapsi_database.Device, intermediateData []IntermediateData) error {
 	LogInfo(device.Name, "Adding data to database")
 	timer := time.Now()
-	connectionString, dialect := zapsi_database.CheckDatabaseType(DatabaseType, DatabaseIpAddress, DatabasePort, DatabaseLogin, DatabaseName, DatabasePassword)
-	db, err := gorm.Open(dialect, connectionString)
+	db, err := gorm.Open(postgres.Open(config), &gorm.Config{})
 	if err != nil {
-		LogError(device.Name, "Problem opening "+DatabaseName+" database: "+err.Error())
+		LogError(device.Name, "Problem opening database: "+err.Error())
 		return err
 	}
-	db.LogMode(false)
-	defer db.Close()
+
 	totalNumberOfRecords := len(intermediateData)
 	displayProgress := true
 	for progress, record := range intermediateData {
@@ -252,12 +237,11 @@ func AddVirtualEnergyDataToDatabase(record IntermediateData, virtualEnergyPorts 
 		dateTimeToInsert := record.DateTime
 		intervalToInsert := dateTimeToInsert.Sub(virtualEnergyPort.ActualDataDateTime)
 		if intervalToInsert < 0 {
-			LogWarning(device.Name, "Data for "+virtualEnergyPort.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+virtualEnergyPort.ActualDataDateTime.String()+"]")
+			LogError(device.Name, "Data for "+virtualEnergyPort.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+virtualEnergyPort.ActualDataDateTime.String()+"]")
 			return
 		}
 
-		recordToInsert := zapsi_database.DevicePortAnalogRecord{DateTime: dateTimeToInsert, Data: float32(value.(float64)), DevicePortId: virtualEnergyPort.ID, Duration: intervalToInsert}
-		db.NewRecord(recordToInsert)
+		recordToInsert := zapsi_database.DevicePortAnalogRecord{DateTime: dateTimeToInsert, Data: float32(value.(float64)), DevicePortID: int(virtualEnergyPort.ID)}
 		db.Create(&recordToInsert)
 		virtualEnergyPort.ActualData = strconv.FormatFloat(value.(float64), 'g', 15, 64)
 		virtualEnergyPort.ActualDataDateTime = dateTimeToInsert
@@ -276,11 +260,10 @@ func AddVirtualSerialDataToDatabase(record IntermediateData, virtualSerialPorts 
 		dateTimeToInsert := record.DateTime
 		intervalToInsert := dateTimeToInsert.Sub(virtualSerialPort.ActualDataDateTime)
 		if intervalToInsert < 0 {
-			LogWarning(device.Name, "Data for "+virtualSerialPort.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+virtualSerialPort.ActualDataDateTime.String()+"]")
+			LogError(device.Name, "Data for "+virtualSerialPort.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+virtualSerialPort.ActualDataDateTime.String()+"]")
 			return
 		}
-		recordToInsert := zapsi_database.DevicePortSerialRecord{DateTime: dateTimeToInsert, Data: float32(value.(float64)), DevicePortId: virtualSerialPort.ID, Duration: intervalToInsert}
-		db.NewRecord(recordToInsert)
+		recordToInsert := zapsi_database.DevicePortSerialRecord{DateTime: dateTimeToInsert, Data: float32(value.(float64)), DevicePortID: int(virtualSerialPort.ID)}
 		db.Create(&recordToInsert)
 		virtualSerialPort.ActualData = strconv.FormatFloat(value.(float64), 'g', 15, 64)
 		virtualSerialPort.ActualDataDateTime = dateTimeToInsert
@@ -330,11 +313,10 @@ func ProcessThermoCouplePortData(record IntermediateData, thermoCoupleMainPortId
 	dateTimeToInsert := record.DateTime
 	intervalToInsert := dateTimeToInsert.Sub(virtualPort.ActualDataDateTime)
 	if intervalToInsert < 0 {
-		LogWarning(device.Name, "Data for "+virtualPort.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+virtualPort.ActualDataDateTime.String()+"]")
+		LogError(device.Name, "Data for "+virtualPort.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+virtualPort.ActualDataDateTime.String()+"]")
 		return
 	}
-	recordToInsert := zapsi_database.DevicePortAnalogRecord{DateTime: dateTimeToInsert, Data: float32(value), DevicePortId: virtualPort.ID, Duration: intervalToInsert}
-	db.NewRecord(recordToInsert)
+	recordToInsert := zapsi_database.DevicePortAnalogRecord{DateTime: dateTimeToInsert, Data: float32(value), DevicePortID: int(virtualPort.ID)}
 	db.Create(&recordToInsert)
 	virtualPort.ActualData = strconv.FormatFloat(value, 'g', 15, 64)
 	virtualPort.ActualDataDateTime = dateTimeToInsert
@@ -350,11 +332,10 @@ func ProcessSpeedPort(record IntermediateData, virtualPort zapsi_database.Device
 	dateTimeToInsert := record.DateTime
 	intervalToInsert := dateTimeToInsert.Sub(virtualPort.ActualDataDateTime)
 	if intervalToInsert < 0 {
-		LogWarning(device.Name, "Data for "+virtualPort.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+virtualPort.ActualDataDateTime.String()+"]")
+		LogError(device.Name, "Data for "+virtualPort.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+virtualPort.ActualDataDateTime.String()+"]")
 		return
 	}
-	recordToInsert := zapsi_database.DevicePortAnalogRecord{DateTime: dateTimeToInsert, Data: float32(speed), DevicePortId: virtualPort.ID, Duration: intervalToInsert}
-	db.NewRecord(recordToInsert)
+	recordToInsert := zapsi_database.DevicePortAnalogRecord{DateTime: dateTimeToInsert, Data: float32(speed), DevicePortID: int(virtualPort.ID)}
 	db.Create(&recordToInsert)
 	virtualPort.ActualData = strconv.FormatFloat(speed, 'g', 15, 64)
 	virtualPort.ActualDataDateTime = dateTimeToInsert
@@ -394,11 +375,10 @@ func ProcessDataAsStandardVirtualAnalogPort(record IntermediateData, virtualPort
 	dateTimeToInsert := record.DateTime
 	intervalToInsert := dateTimeToInsert.Sub(virtualPort.ActualDataDateTime)
 	if intervalToInsert < 0 {
-		LogWarning(device.Name, "Data for "+virtualPort.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+virtualPort.ActualDataDateTime.String()+"]")
+		LogError(device.Name, "Data for "+virtualPort.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+virtualPort.ActualDataDateTime.String()+"]")
 		return
 	}
-	recordToInsert := zapsi_database.DevicePortAnalogRecord{DateTime: dateTimeToInsert, Data: float32(value.(float64)), DevicePortId: virtualPort.ID, Duration: intervalToInsert}
-	db.NewRecord(recordToInsert)
+	recordToInsert := zapsi_database.DevicePortAnalogRecord{DateTime: dateTimeToInsert, Data: float32(value.(float64)), DevicePortID: int(virtualPort.ID)}
 	db.Create(&recordToInsert)
 	virtualPort.ActualData = strconv.FormatFloat(value.(float64), 'g', 15, 64)
 	virtualPort.ActualDataDateTime = dateTimeToInsert
@@ -429,8 +409,7 @@ func ProcessDataAsAddZeroPort(data IntermediateData, virtualPort zapsi_database.
 		var digitalPorts []zapsi_database.DevicePort
 		db.Where("device_id = ?", device.ID).Where("device_port_type_id = ?", 1).Where("virtual = ?", false).Find(&digitalPorts)
 		for _, port := range digitalPorts {
-			if port.ID == int(originalPortId) {
-				db.LogMode(false)
+			if int(port.ID) == int(originalPortId) {
 				positionInFile := port.PortNumber - 1
 				parsedData := strings.Split(data.RawData, ";")
 				dataToInsert, err := strconv.Atoi(parsedData[positionInFile])
@@ -441,9 +420,8 @@ func ProcessDataAsAddZeroPort(data IntermediateData, virtualPort zapsi_database.
 					firstDateTimeToInsert := data.DateTime
 					secondDateTimeToInsert := data.DateTime.Add(1 * time.Second)
 					firstIntervalToInsert := firstDateTimeToInsert.Sub(virtualPort.ActualDataDateTime)
-					secondIntervalToInsert := time.Second * 1
 					if firstIntervalToInsert < 0 {
-						LogWarning(device.Name, "Data for "+port.Name+" not inserting, data are older ["+firstDateTimeToInsert.String()+"] than data in database ["+port.ActualDataDateTime.String()+"]")
+						LogError(device.Name, "Data for "+port.Name+" not inserting, data are older ["+firstDateTimeToInsert.String()+"] than data in database ["+port.ActualDataDateTime.String()+"]")
 						continue
 					}
 					ActualData, err := strconv.Atoi(virtualPort.ActualData)
@@ -451,17 +429,15 @@ func ProcessDataAsAddZeroPort(data IntermediateData, virtualPort zapsi_database.
 						ActualData = 0
 					}
 					if ActualData != dataToInsert {
-						firstRecord := zapsi_database.DevicePortDigitalRecord{DateTime: firstDateTimeToInsert, Data: dataToInsert, DevicePortId: virtualPort.ID, Duration: firstIntervalToInsert}
-						secondRecord := zapsi_database.DevicePortDigitalRecord{DateTime: secondDateTimeToInsert, Data: 0, DevicePortId: virtualPort.ID, Duration: secondIntervalToInsert}
-						db.NewRecord(firstRecord)
-						db.NewRecord(secondRecord)
+						firstRecord := zapsi_database.DevicePortDigitalRecord{DateTime: firstDateTimeToInsert, Data: dataToInsert, DevicePortID: int(virtualPort.ID)}
+						secondRecord := zapsi_database.DevicePortDigitalRecord{DateTime: secondDateTimeToInsert, Data: 0, DevicePortID: int(virtualPort.ID)}
 						db.Create(&firstRecord)
 						db.Create(&secondRecord)
 						virtualPort.ActualData = "0"
 						virtualPort.ActualDataDateTime = secondDateTimeToInsert
 						db.Save(&virtualPort)
 					} else {
-						LogWarning(device.Name, "Data mismatch for "+port.Name+": last data is equal with new data: ["+strconv.Itoa(ActualData)+";"+strconv.Itoa(dataToInsert)+"]")
+						LogError(device.Name, "Data mismatch for "+port.Name+": last data is equal with new data: ["+strconv.Itoa(ActualData)+";"+strconv.Itoa(dataToInsert)+"]")
 					}
 				}
 			}
@@ -483,7 +459,7 @@ func ProcessDataAsStandardVirtualDigitalPort(record IntermediateData, virtualPor
 	dateTimeToInsert := record.DateTime
 	intervalToInsert := dateTimeToInsert.Sub(virtualPort.ActualDataDateTime)
 	if intervalToInsert < 0 {
-		LogWarning(device.Name, "Data for "+virtualPort.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+virtualPort.ActualDataDateTime.String()+"]")
+		LogError(device.Name, "Data for "+virtualPort.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+virtualPort.ActualDataDateTime.String()+"]")
 		return
 	}
 
@@ -492,14 +468,13 @@ func ProcessDataAsStandardVirtualDigitalPort(record IntermediateData, virtualPor
 		ActualData = 0
 	}
 	if ActualData != dataToInsert {
-		recordToInsert := zapsi_database.DevicePortDigitalRecord{DateTime: dateTimeToInsert, Data: dataToInsert, DevicePortId: virtualPort.ID, Duration: intervalToInsert}
-		db.NewRecord(recordToInsert)
+		recordToInsert := zapsi_database.DevicePortDigitalRecord{DateTime: dateTimeToInsert, Data: dataToInsert, DevicePortID: int(virtualPort.ID)}
 		db.Create(&recordToInsert)
 		virtualPort.ActualData = strconv.Itoa(dataToInsert)
 		virtualPort.ActualDataDateTime = dateTimeToInsert
 		db.Save(&virtualPort)
 	} else {
-		LogWarning(device.Name, "Data mismatch for "+virtualPort.Name+": last data is equal with new data: ["+strconv.Itoa(ActualData)+";"+strconv.Itoa(dataToInsert)+"]")
+		LogError(device.Name, "Data mismatch for "+virtualPort.Name+": last data is equal with new data: ["+strconv.Itoa(ActualData)+";"+strconv.Itoa(dataToInsert)+"]")
 	}
 }
 
@@ -567,7 +542,6 @@ func AddEnergyDataToDatabase(data *IntermediateData, db *gorm.DB, device zapsi_d
 	var energyPorts []zapsi_database.DevicePort
 	db.Where("device_id = ?", device.ID).Where("device_port_type_id = ?", 4).Where("virtual = ?", false).Find(&energyPorts)
 	for _, port := range energyPorts {
-		db.LogMode(false)
 		positionInFile := port.PortNumber - 1
 		parsedData := strings.Split(data.RawData, ";")
 		dataToInsert, err := strconv.ParseFloat(parsedData[positionInFile], 32)
@@ -577,11 +551,10 @@ func AddEnergyDataToDatabase(data *IntermediateData, db *gorm.DB, device zapsi_d
 		dateTimeToInsert := data.DateTime
 		intervalToInsert := dateTimeToInsert.Sub(port.ActualDataDateTime)
 		if intervalToInsert < 0 {
-			LogWarning(device.Name, "Data for "+port.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+port.ActualDataDateTime.String()+"]")
+			LogError(device.Name, "Data for "+port.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+port.ActualDataDateTime.String()+"]")
 			continue
 		}
-		recordToInsert := zapsi_database.DevicePortAnalogRecord{DateTime: dateTimeToInsert, Data: float32(dataToInsert), DevicePortId: port.ID, Duration: intervalToInsert}
-		db.NewRecord(recordToInsert)
+		recordToInsert := zapsi_database.DevicePortAnalogRecord{DateTime: dateTimeToInsert, Data: float32(dataToInsert), DevicePortID: int(port.ID)}
 		db.Create(&recordToInsert)
 
 		port.ActualData = parsedData[positionInFile]
@@ -594,7 +567,6 @@ func AddSerialDataToDatabase(data *IntermediateData, db *gorm.DB, device zapsi_d
 	var serialPorts []zapsi_database.DevicePort
 	db.Where("device_id = ?", device.ID).Where("device_port_type_id = ?", 3).Where("virtual = ?", false).Find(&serialPorts)
 	for _, port := range serialPorts {
-		db.LogMode(false)
 		positionInFile := port.PortNumber - 1
 		parsedData := strings.Split(data.RawData, ";")
 		dataToInsert, err := strconv.ParseFloat(parsedData[positionInFile], 32)
@@ -604,11 +576,10 @@ func AddSerialDataToDatabase(data *IntermediateData, db *gorm.DB, device zapsi_d
 		dateTimeToInsert := data.DateTime
 		intervalToInsert := dateTimeToInsert.Sub(port.ActualDataDateTime)
 		if intervalToInsert < 0 {
-			LogWarning(device.Name, "Data for "+port.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+port.ActualDataDateTime.String()+"]")
+			LogError(device.Name, "Data for "+port.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+port.ActualDataDateTime.String()+"]")
 			continue
 		}
-		recordToInsert := zapsi_database.DevicePortSerialRecord{DateTime: dateTimeToInsert, Data: float32(dataToInsert), DevicePortId: port.ID, Duration: intervalToInsert}
-		db.NewRecord(recordToInsert)
+		recordToInsert := zapsi_database.DevicePortSerialRecord{DateTime: dateTimeToInsert, Data: float32(dataToInsert), DevicePortID: int(port.ID)}
 		db.Create(&recordToInsert)
 		port.ActualData = parsedData[positionInFile]
 		port.ActualDataDateTime = dateTimeToInsert
@@ -620,7 +591,6 @@ func AddDigitalDataToDatabase(data *IntermediateData, db *gorm.DB, device zapsi_
 	var digitalPorts []zapsi_database.DevicePort
 	db.Where("device_id = ?", device.ID).Where("device_port_type_id = ?", 1).Where("virtual = ?", false).Find(&digitalPorts)
 	for _, port := range digitalPorts {
-		db.LogMode(false)
 		positionInFile := port.PortNumber - 1
 		parsedData := strings.Split(data.RawData, ";")
 		dataToInsert, err := strconv.Atoi(parsedData[positionInFile])
@@ -630,7 +600,7 @@ func AddDigitalDataToDatabase(data *IntermediateData, db *gorm.DB, device zapsi_
 		dateTimeToInsert := data.DateTime
 		intervalToInsert := dateTimeToInsert.Sub(port.ActualDataDateTime)
 		if intervalToInsert < 0 {
-			LogWarning(device.Name, "Data for "+port.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+port.ActualDataDateTime.String()+"]")
+			LogError(device.Name, "Data for "+port.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+port.ActualDataDateTime.String()+"]")
 			continue
 		}
 		ActualData, err := strconv.Atoi(port.ActualData)
@@ -638,14 +608,13 @@ func AddDigitalDataToDatabase(data *IntermediateData, db *gorm.DB, device zapsi_
 			ActualData = 0
 		}
 		if ActualData != dataToInsert {
-			recordToInsert := zapsi_database.DevicePortDigitalRecord{DateTime: dateTimeToInsert, Data: dataToInsert, DevicePortId: port.ID, Duration: intervalToInsert}
-			db.NewRecord(recordToInsert)
+			recordToInsert := zapsi_database.DevicePortDigitalRecord{DateTime: dateTimeToInsert, Data: dataToInsert, DevicePortID: int(port.ID)}
 			db.Create(&recordToInsert)
 			port.ActualData = parsedData[positionInFile]
 			port.ActualDataDateTime = dateTimeToInsert
 			db.Save(&port)
 		} else {
-			LogWarning(device.Name, "Data mismatch for "+port.Name+": last data is equal with new data: ["+strconv.Itoa(ActualData)+";"+strconv.Itoa(dataToInsert)+"]")
+			LogError(device.Name, "Data mismatch for "+port.Name+": last data is equal with new data: ["+strconv.Itoa(ActualData)+";"+strconv.Itoa(dataToInsert)+"]")
 		}
 	}
 }
@@ -654,7 +623,6 @@ func AddAnalogDataToDatabase(data *IntermediateData, db *gorm.DB, device zapsi_d
 	var analogPorts []zapsi_database.DevicePort
 	db.Where("device_id = ?", device.ID).Where("device_port_type_id = ?", 2).Where("virtual = ?", false).Find(&analogPorts)
 	for _, port := range analogPorts {
-		db.LogMode(false)
 		positionInFile := port.PortNumber - 1
 		parsedData := strings.Split(data.RawData, ";")
 		dataToInsert, err := strconv.ParseFloat(parsedData[positionInFile], 32)
@@ -664,11 +632,10 @@ func AddAnalogDataToDatabase(data *IntermediateData, db *gorm.DB, device zapsi_d
 		dateTimeToInsert := data.DateTime
 		intervalToInsert := dateTimeToInsert.Sub(port.ActualDataDateTime)
 		if intervalToInsert < 0 {
-			LogWarning(device.Name, "Data for "+port.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+port.ActualDataDateTime.String()+"]")
+			LogError(device.Name, "Data for "+port.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+port.ActualDataDateTime.String()+"]")
 			continue
 		}
-		recordToInsert := zapsi_database.DevicePortAnalogRecord{DateTime: dateTimeToInsert, Data: float32(dataToInsert), DevicePortId: port.ID, Duration: intervalToInsert}
-		db.NewRecord(recordToInsert)
+		recordToInsert := zapsi_database.DevicePortAnalogRecord{DateTime: dateTimeToInsert, Data: float32(dataToInsert), DevicePortID: int(port.ID)}
 		db.Create(&recordToInsert)
 
 		port.ActualData = parsedData[positionInFile]
@@ -678,7 +645,7 @@ func AddAnalogDataToDatabase(data *IntermediateData, db *gorm.DB, device zapsi_d
 }
 
 func FileExists(filename string, device zapsi_database.Device) bool {
-	deviceDirectory := filepath.Join(serviceDirectory, strconv.Itoa(device.ID)+"-"+device.Name)
+	deviceDirectory := filepath.Join(serviceDirectory, strconv.FormatUint(uint64(device.ID), 10)+"-"+device.Name)
 	deviceFullPath := strings.Join([]string{deviceDirectory, filename}, "/")
 	if _, err := os.Stat(deviceFullPath); err == nil {
 		return true
@@ -692,7 +659,7 @@ func FileExists(filename string, device zapsi_database.Device) bool {
 func AddDataForProcessing(filename string, data *[]IntermediateData, device zapsi_database.Device) {
 	LogInfo(device.Name, "Adding data: "+filename)
 	timer := time.Now()
-	deviceDirectory := filepath.Join(serviceDirectory, strconv.Itoa(device.ID)+"-"+device.Name)
+	deviceDirectory := filepath.Join(serviceDirectory, strconv.FormatUint(uint64(device.ID), 10)+"-"+device.Name)
 	deviceFullPath := strings.Join([]string{deviceDirectory, filename}, "/")
 	f, _ := os.Open(deviceFullPath)
 	scanner := bufio.NewScanner(f)

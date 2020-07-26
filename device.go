@@ -826,7 +826,6 @@ func SendTimeAtStart(device zapsi_database.Device) (timeUpdated bool) {
 	dateTimeForZapsi = "set_datetime=" + dateTimeForZapsi + " 0" + strconv.Itoa(int(time.Now().UTC().Weekday())) + "&"
 	SendUDP(device, device.IpAddress, 9999, "", 0, []byte(dateTimeForZapsi))
 	LogInfo(device.Name, "Time to device sent, elapsed: "+time.Since(timer).String())
-
 	return true
 }
 
@@ -834,6 +833,7 @@ func KillPort(device zapsi_database.Device) (timeUpdated bool) {
 	dateTimeForZapsi := time.Now().UTC().Format("02.01.2006 15:04:05")
 	dateTimeForZapsi = "Kill80"
 	SendUDP(device, device.IpAddress, 9999, "", 0, []byte(dateTimeForZapsi))
+
 	return true
 }
 

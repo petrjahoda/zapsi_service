@@ -17,7 +17,7 @@ const version = "2020.3.1.26"
 const programName = "Zapsi Service"
 const programDescription = "Downloads data from Zapsi devices"
 const downloadInSeconds = 10
-const config = "user=postgres password=Zps05..... dbname=version host=database port=5432 sslmode=disable"
+const config = "user=postgres password=Zps05..... dbname=version3 host=database port=5432 sslmode=disable"
 
 var serviceRunning = false
 var serviceDirectory string

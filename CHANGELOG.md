@@ -14,7 +14,13 @@ adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 * ```Fixed``` for any bug fixes.
 * ```Security``` in case of vulnerabilities.
 
-## [2020.3.1.2] - 2020-07-22
+
+## [2020.3.1.26] - 2020-07-26
+
+### Changed
+- fastest as possible processing virtual ports
+
+## [2020.3.1.22] - 2020-07-22
 
 ### Changed
 - changed to gorm v2

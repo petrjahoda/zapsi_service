@@ -19,6 +19,7 @@ adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 
 ### Changed
 - fastest as possible processing virtual ports
+- updated processing thermocouple port
 
 ## [2020.3.1.22] - 2020-07-22
 

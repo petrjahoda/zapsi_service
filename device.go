@@ -450,26 +450,25 @@ func ProcessThermoCouplePortData(record IntermediateData, thermoCoupleMainPortId
 	var thermoCoupleColdJunctionPort zapsi_database.DevicePort
 	db.Where("device_id = ?", device.ID).Where("port_number = ?", thermoCoupleMainPortId).Find(&thermoCoupleMainPort)
 	db.Where("device_id = ?", device.ID).Where("port_number = ?", thermoCoupleColdJunctionPortId).Find(&thermoCoupleColdJunctionPort)
-	thermoCoupleMainPortData, err := strconv.ParseFloat(thermoCoupleMainPort.ActualData, 64)
-	if err != nil {
-		LogError(device.Name, "Problem parsing data for thermocouple: "+err.Error())
-		return recordToInsert
+
+	var thermoCoupleMainPortData float32
+	for _, tempPort := range tempPorts {
+		if tempPort.port == "A"+strconv.Itoa(thermoCoupleMainPort.PortNumber) {
+			thermoCoupleMainPortData = tempPort.value
+			break
+		}
 	}
-	dataAsMv := math.Abs(thermoCoupleMainPortData) / 8.0 * 0.015625
-	value := ConvertMvToTemp(dataAsMv, thermoCoupleTypeId)
-	coldJunctionTemperature, err := strconv.ParseFloat(thermoCoupleColdJunctionPort.ActualData, 64)
-	if err != nil {
-		LogError(device.Name, "Problem parsing last data for coldjunction port, using 0: "+err.Error())
-		coldJunctionTemperature = 0
+	dataAsMv := math.Abs(float64(thermoCoupleMainPortData)) / 8.0 * 0.015625
+	value := float32(ConvertMvToTemp(dataAsMv, thermoCoupleTypeId))
+	var coldJunctionTemperature float32
+	for _, tempPort := range tempPorts {
+		if tempPort.port == "A"+strconv.Itoa(thermoCoupleColdJunctionPort.PortNumber) {
+			coldJunctionTemperature = tempPort.value
+			break
+		}
 	}
 	value = value + coldJunctionTemperature
-	dateTimeToInsert := record.DateTime
-	intervalToInsert := dateTimeToInsert.Sub(port.ActualDataDateTime)
-	if intervalToInsert < 0 {
-		LogError(device.Name, "Data for "+port.Name+" not inserting, data are older ["+dateTimeToInsert.String()+"] than data in database ["+port.ActualDataDateTime.String()+"]")
-		return recordToInsert
-	}
-	dataToInsert := float32(value)
+	dataToInsert := value
 	for index, tempPort := range tempPorts {
 		if tempPort.port == "A"+strconv.Itoa(port.PortNumber) {
 			dateTimeToInsert := record.DateTime
@@ -500,7 +499,7 @@ func ProcessSpeedPort(record IntermediateData, port zapsi_database.DevicePort, d
 	return recordToInsert
 }
 
-func CalculateSpeed(device zapsi_database.Device, virtualPort zapsi_database.DevicePort, db *gorm.DB) (float64, error) {
+func CalculateSpeed(device zapsi_database.Device, virtualPort zapsi_database.DevicePort, db *gorm.DB) (float32, error) {
 	parameters := strings.Split(virtualPort.Settings[9:len(virtualPort.Settings)-1], ";")
 	port := parameters[0]
 	minutesBack := parameters[1]
@@ -519,7 +518,7 @@ func CalculateSpeed(device zapsi_database.Device, virtualPort zapsi_database.Dev
 	db.Where("device_id = ?", device.ID).Where("port_number = ?", portNumber).Find(&devicePort)
 	var digitalRecords []zapsi_database.DevicePortDigitalRecord
 	db.Where("device_port_id = ?", devicePort.ID).Where("date_time > ?", timeForData).Where("data = ?", 0).Find(&digitalRecords)
-	speed := float64(len(digitalRecords)) * diameter * math.Pi
+	speed := float32(len(digitalRecords)) * float32(diameter) * math.Pi
 	return speed, nil
 }
 
@@ -665,8 +664,6 @@ func AddDigitalDataToDatabase(port zapsi_database.DevicePort, record Intermediat
 				recordToInsert = zapsi_database.DevicePortDigitalRecord{DateTime: dateTimeToInsert, Data: dataToInsert, DevicePortID: int(port.ID)}
 				tempPorts[index].value = float32(dataToInsert)
 				break
-			} else {
-				LogError(device.Name, "Data mismatch for "+port.Name+": last record is equal with new record: ["+port.ActualData+";"+strconv.Itoa(dataToInsert)+"]")
 			}
 		}
 	}

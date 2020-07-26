@@ -819,13 +819,14 @@ func SendUDP(device zapsi_database.Device, dstIP string, dstPort int, localIP st
 	}
 	LogInfo(device.Name, "UDP connection closed")
 }
-func SendTime(device zapsi_database.Device) (timeUpdated bool) {
+func SendTimeAtStart(device zapsi_database.Device) (timeUpdated bool) {
 	LogInfo(device.Name, "Sending time to device")
 	timer := time.Now()
 	dateTimeForZapsi := time.Now().UTC().Format("02.01.2006 15:04:05")
 	dateTimeForZapsi = "set_datetime=" + dateTimeForZapsi + " 0" + strconv.Itoa(int(time.Now().UTC().Weekday())) + "&"
 	SendUDP(device, device.IpAddress, 9999, "", 0, []byte(dateTimeForZapsi))
 	LogInfo(device.Name, "Time to device sent, elapsed: "+time.Since(timer).String())
+
 	return true
 }
 

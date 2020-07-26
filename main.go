@@ -119,7 +119,7 @@ func RunDevice(device zapsi_database.Device) {
 	deviceSync.Unlock()
 	deviceIsActive := true
 	CreateDirectoryIfNotExists(device)
-	SendTime(device)
+	SendTimeAtStart(device)
 	timeUpdatedInLoop := false
 	for deviceIsActive && serviceRunning {
 		LogInfo(device.Name, "Starting device loop")

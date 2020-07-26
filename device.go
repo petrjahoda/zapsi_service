@@ -295,7 +295,11 @@ func ProcessAddZeroPort(device zapsi_database.Device, record IntermediateData, p
 		}
 		if dataToInsert == 1 {
 			for index, tempPort := range tempPorts {
-				if tempPort.port == "D"+strconv.Itoa(port.PortNumber) {
+				portPrefix := "D"
+				if port.PortNumber < 10 {
+					portPrefix += "0"
+				}
+				if tempPort.port == portPrefix+strconv.Itoa(port.PortNumber) {
 					if int(tempPort.value) != dataToInsert {
 						dateTimeToInsert := record.DateTime
 						recordToInsert = zapsi_database.DevicePortDigitalRecord{DateTime: dateTimeToInsert, Data: dataToInsert, DevicePortID: int(port.ID)}
@@ -318,7 +322,11 @@ func UpdateTempPorts(analogPorts []zapsi_database.DevicePort, db *gorm.DB, digit
 		var data zapsi_database.DevicePortAnalogRecord
 		db.Where("device_port_id = ?", port.ID).Last(&data)
 		var tempPort tempPort
-		tempPort.port = "A" + strconv.Itoa(port.PortNumber)
+		if port.PortNumber < 10 {
+			tempPort.port = "A0" + strconv.Itoa(port.PortNumber)
+		} else {
+			tempPort.port = "A" + strconv.Itoa(port.PortNumber)
+		}
 		tempPort.value = data.Data
 		tempPorts = append(tempPorts, tempPort)
 	}
@@ -326,7 +334,11 @@ func UpdateTempPorts(analogPorts []zapsi_database.DevicePort, db *gorm.DB, digit
 		var data zapsi_database.DevicePortDigitalRecord
 		db.Where("device_port_id = ?", port.ID).Last(&data)
 		var tempPort tempPort
-		tempPort.port = "D" + strconv.Itoa(port.PortNumber)
+		if port.PortNumber < 10 {
+			tempPort.port = "D0" + strconv.Itoa(port.PortNumber)
+		} else {
+			tempPort.port = "D" + strconv.Itoa(port.PortNumber)
+		}
 		tempPort.value = float32(data.Data)
 		tempPorts = append(tempPorts, tempPort)
 	}
@@ -334,7 +346,11 @@ func UpdateTempPorts(analogPorts []zapsi_database.DevicePort, db *gorm.DB, digit
 		var data zapsi_database.DevicePortSerialRecord
 		db.Where("device_port_id = ?", port.ID).Last(&data)
 		var tempPort tempPort
-		tempPort.port = "S" + strconv.Itoa(port.PortNumber)
+		if port.PortNumber < 10 {
+			tempPort.port = "S0" + strconv.Itoa(port.PortNumber)
+		} else {
+			tempPort.port = "S" + strconv.Itoa(port.PortNumber)
+		}
 		tempPort.value = data.Data
 		tempPorts = append(tempPorts, tempPort)
 	}
@@ -342,7 +358,11 @@ func UpdateTempPorts(analogPorts []zapsi_database.DevicePort, db *gorm.DB, digit
 		var data zapsi_database.DevicePortAnalogRecord
 		db.Where("device_port_id = ?", port.ID).Last(&data)
 		var tempPort tempPort
-		tempPort.port = "E" + strconv.Itoa(port.PortNumber)
+		if port.PortNumber < 10 {
+			tempPort.port = "E0" + strconv.Itoa(port.PortNumber)
+		} else {
+			tempPort.port = "E" + strconv.Itoa(port.PortNumber)
+		}
 		tempPort.value = data.Data
 		tempPorts = append(tempPorts, tempPort)
 	}
@@ -351,7 +371,11 @@ func UpdateTempPorts(analogPorts []zapsi_database.DevicePort, db *gorm.DB, digit
 		var data zapsi_database.DevicePortAnalogRecord
 		db.Where("device_port_id = ?", port.ID).Last(&data)
 		var tempPort tempPort
-		tempPort.port = "A" + strconv.Itoa(port.PortNumber)
+		if port.PortNumber < 10 {
+			tempPort.port = "A0" + strconv.Itoa(port.PortNumber)
+		} else {
+			tempPort.port = "A" + strconv.Itoa(port.PortNumber)
+		}
 		tempPort.value = data.Data
 		tempPorts = append(tempPorts, tempPort)
 	}
@@ -359,7 +383,11 @@ func UpdateTempPorts(analogPorts []zapsi_database.DevicePort, db *gorm.DB, digit
 		var data zapsi_database.DevicePortDigitalRecord
 		db.Where("device_port_id = ?", port.ID).Last(&data)
 		var tempPort tempPort
-		tempPort.port = "D" + strconv.Itoa(port.PortNumber)
+		if port.PortNumber < 10 {
+			tempPort.port = "D0" + strconv.Itoa(port.PortNumber)
+		} else {
+			tempPort.port = "D" + strconv.Itoa(port.PortNumber)
+		}
 		tempPort.value = float32(data.Data)
 		tempPorts = append(tempPorts, tempPort)
 	}
@@ -367,7 +395,11 @@ func UpdateTempPorts(analogPorts []zapsi_database.DevicePort, db *gorm.DB, digit
 		var data zapsi_database.DevicePortSerialRecord
 		db.Where("device_port_id = ?", port.ID).Last(&data)
 		var tempPort tempPort
-		tempPort.port = "S" + strconv.Itoa(port.PortNumber)
+		if port.PortNumber < 10 {
+			tempPort.port = "S0" + strconv.Itoa(port.PortNumber)
+		} else {
+			tempPort.port = "S" + strconv.Itoa(port.PortNumber)
+		}
 		tempPort.value = data.Data
 		tempPorts = append(tempPorts, tempPort)
 	}
@@ -375,7 +407,11 @@ func UpdateTempPorts(analogPorts []zapsi_database.DevicePort, db *gorm.DB, digit
 		var data zapsi_database.DevicePortAnalogRecord
 		db.Where("device_port_id = ?", port.ID).Last(&data)
 		var tempPort tempPort
-		tempPort.port = "E" + strconv.Itoa(port.PortNumber)
+		if port.PortNumber < 10 {
+			tempPort.port = "E0" + strconv.Itoa(port.PortNumber)
+		} else {
+			tempPort.port = "E" + strconv.Itoa(port.PortNumber)
+		}
 		tempPort.value = data.Data
 		tempPorts = append(tempPorts, tempPort)
 	}
@@ -391,7 +427,11 @@ func AddVirtualEnergyDataToDatabase(port zapsi_database.DevicePort, record Inter
 	}
 	dataToInsert := float32(value.(float64))
 	for index, tempPort := range tempPorts {
-		if tempPort.port == "E"+strconv.Itoa(port.PortNumber) {
+		portPrefix := "E"
+		if port.PortNumber < 10 {
+			portPrefix += "0"
+		}
+		if tempPort.port == portPrefix+strconv.Itoa(port.PortNumber) {
 			dateTimeToInsert := record.DateTime
 			recordToInsert = zapsi_database.DevicePortAnalogRecord{DateTime: dateTimeToInsert, Data: dataToInsert, DevicePortID: int(port.ID)}
 			tempPorts[index].value = dataToInsert
@@ -411,7 +451,11 @@ func AddVirtualSerialDataToDatabase(port zapsi_database.DevicePort, record Inter
 	}
 	dataToInsert := float32(value.(float64))
 	for index, tempPort := range tempPorts {
-		if tempPort.port == "S"+strconv.Itoa(port.PortNumber) {
+		portPrefix := "S"
+		if port.PortNumber < 10 {
+			portPrefix += "0"
+		}
+		if tempPort.port == portPrefix+strconv.Itoa(port.PortNumber) {
 			dateTimeToInsert := record.DateTime
 			recordToInsert = zapsi_database.DevicePortSerialRecord{DateTime: dateTimeToInsert, Data: dataToInsert, DevicePortID: int(port.ID)}
 			tempPorts[index].value = dataToInsert
@@ -453,7 +497,11 @@ func ProcessThermoCouplePortData(record IntermediateData, thermoCoupleMainPortId
 
 	var thermoCoupleMainPortData float32
 	for _, tempPort := range tempPorts {
-		if tempPort.port == "A"+strconv.Itoa(thermoCoupleMainPort.PortNumber) {
+		portPrefix := "A"
+		if port.PortNumber < 10 {
+			portPrefix += "0"
+		}
+		if tempPort.port == portPrefix+strconv.Itoa(thermoCoupleMainPort.PortNumber) {
 			thermoCoupleMainPortData = tempPort.value
 			break
 		}
@@ -489,7 +537,11 @@ func ProcessSpeedPort(record IntermediateData, port zapsi_database.DevicePort, d
 	}
 	dataToInsert := float32(speed)
 	for index, tempPort := range tempPorts {
-		if tempPort.port == "A"+strconv.Itoa(port.PortNumber) {
+		portPrefix := "A"
+		if port.PortNumber < 10 {
+			portPrefix += "0"
+		}
+		if tempPort.port == portPrefix+strconv.Itoa(port.PortNumber) {
 			dateTimeToInsert := record.DateTime
 			recordToInsert = zapsi_database.DevicePortAnalogRecord{DateTime: dateTimeToInsert, Data: dataToInsert, DevicePortID: int(port.ID)}
 			tempPorts[index].value = dataToInsert
@@ -532,7 +584,11 @@ func ProcessDataAsStandardVirtualAnalogPort(record IntermediateData, port zapsi_
 	}
 	dataToInsert := float32(value.(float64))
 	for index, tempPort := range tempPorts {
-		if tempPort.port == "A"+strconv.Itoa(port.PortNumber) {
+		portPrefix := "A"
+		if port.PortNumber < 10 {
+			portPrefix += "0"
+		}
+		if tempPort.port == portPrefix+strconv.Itoa(port.PortNumber) {
 			dateTimeToInsert := record.DateTime
 			recordToInsert = zapsi_database.DevicePortAnalogRecord{DateTime: dateTimeToInsert, Data: dataToInsert, DevicePortID: int(port.ID)}
 			tempPorts[index].value = dataToInsert
@@ -551,7 +607,11 @@ func ProcessDataAsStandardVirtualDigitalPort(port zapsi_database.DevicePort, rec
 		return recordToInsert
 	}
 	for index, tempPort := range tempPorts {
-		if tempPort.port == "D"+strconv.Itoa(port.PortNumber) {
+		portPrefix := "D"
+		if port.PortNumber < 10 {
+			portPrefix += "0"
+		}
+		if tempPort.port == portPrefix+strconv.Itoa(port.PortNumber) {
 			dataToInsert := 0
 			if value.(bool) == true {
 				dataToInsert = 1
@@ -618,7 +678,11 @@ func AddEnergyDataToDatabase(port zapsi_database.DevicePort, record Intermediate
 		return recordToInsert
 	}
 	for index, tempPort := range tempPorts {
-		if tempPort.port == "E"+strconv.Itoa(port.PortNumber) {
+		portPrefix := "E"
+		if port.PortNumber < 10 {
+			portPrefix += "0"
+		}
+		if tempPort.port == portPrefix+strconv.Itoa(port.PortNumber) {
 			dateTimeToInsert := record.DateTime
 			recordToInsert = zapsi_database.DevicePortAnalogRecord{DateTime: dateTimeToInsert, Data: float32(dataToInsert), DevicePortID: int(port.ID)}
 			tempPorts[index].value = float32(dataToInsert)
@@ -638,7 +702,11 @@ func AddSerialDataToDatabase(port zapsi_database.DevicePort, record Intermediate
 		return recordToInsert
 	}
 	for index, tempPort := range tempPorts {
-		if tempPort.port == "S"+strconv.Itoa(port.PortNumber) {
+		portPrefix := "S"
+		if port.PortNumber < 10 {
+			portPrefix += "0"
+		}
+		if tempPort.port == portPrefix+strconv.Itoa(port.PortNumber) {
 			dateTimeToInsert := record.DateTime
 			recordToInsert = zapsi_database.DevicePortSerialRecord{DateTime: dateTimeToInsert, Data: float32(dataToInsert), DevicePortID: int(port.ID)}
 			tempPorts[index].value = float32(dataToInsert)
@@ -658,7 +726,11 @@ func AddDigitalDataToDatabase(port zapsi_database.DevicePort, record Intermediat
 		return recordToInsert
 	}
 	for index, tempPort := range tempPorts {
-		if tempPort.port == "D"+strconv.Itoa(port.PortNumber) {
+		portPrefix := "D"
+		if port.PortNumber < 10 {
+			portPrefix += "0"
+		}
+		if tempPort.port == portPrefix+strconv.Itoa(port.PortNumber) {
 			if int(tempPort.value) != dataToInsert {
 				dateTimeToInsert := record.DateTime
 				recordToInsert = zapsi_database.DevicePortDigitalRecord{DateTime: dateTimeToInsert, Data: dataToInsert, DevicePortID: int(port.ID)}
@@ -680,7 +752,11 @@ func AddAnalogDataToDatabase(port zapsi_database.DevicePort, record Intermediate
 		return recordToInsert
 	}
 	for index, tempPort := range tempPorts {
-		if tempPort.port == "A"+strconv.Itoa(port.PortNumber) {
+		portPrefix := "A"
+		if port.PortNumber < 10 {
+			portPrefix += "0"
+		}
+		if tempPort.port == portPrefix+strconv.Itoa(port.PortNumber) {
 			dateTimeToInsert := record.DateTime
 			recordToInsert = zapsi_database.DevicePortAnalogRecord{DateTime: dateTimeToInsert, Data: float32(dataToInsert), DevicePortID: int(port.ID)}
 			tempPorts[index].value = float32(dataToInsert)
@@ -833,7 +909,6 @@ func KillPort(device zapsi_database.Device) (timeUpdated bool) {
 	dateTimeForZapsi := time.Now().UTC().Format("02.01.2006 15:04:05")
 	dateTimeForZapsi = "Kill80"
 	SendUDP(device, device.IpAddress, 9999, "", 0, []byte(dateTimeForZapsi))
-
 	return true
 }
 

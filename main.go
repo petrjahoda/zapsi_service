@@ -95,6 +95,8 @@ func WriteProgramVersionIntoSettings() {
 		activeDevices = nil
 		return
 	}
+	sqlDB, err := db.DB()
+	defer sqlDB.Close()
 	var settings database.Setting
 	db.Where("name=?", programName).Find(&settings)
 	settings.Name = programName
@@ -238,6 +240,8 @@ func UpdateActiveDevices(reference string) {
 		activeDevices = nil
 		return
 	}
+	sqlDB, err := db.DB()
+	defer sqlDB.Close()
 	var deviceType database.DeviceType
 	db.Where("name=?", "Zapsi").Find(&deviceType)
 	db.Where("device_type_id=?", deviceType.ID).Where("activated = true").Find(&activeDevices)

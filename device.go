@@ -50,6 +50,8 @@ func DownloadData(device database.Device) (downloaded bool, error error) {
 		LogError(device.Name, "Problem opening database: "+err.Error())
 		return false, err
 	}
+	sqlDB, err := db.DB()
+	defer sqlDB.Close()
 	var digitalPorts []database.DevicePort
 	var analogPorts []database.DevicePort
 	var serialPorts []database.DevicePort
@@ -181,6 +183,8 @@ func ProcessData(device database.Device, intermediateData []IntermediateData) er
 		LogError(device.Name, "Problem opening database: "+err.Error())
 		return err
 	}
+	sqlDB, err := db.DB()
+	defer sqlDB.Close()
 	var digitalPorts []database.DevicePort
 	db.Where("device_id = ?", device.ID).Where("device_port_type_id = ?", 1).Where("virtual = ?", false).Find(&digitalPorts)
 	var analogPorts []database.DevicePort

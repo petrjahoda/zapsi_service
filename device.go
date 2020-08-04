@@ -8,6 +8,7 @@ import (
 	"github.com/petrjahoda/database"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
+	"gorm.io/gorm/clause"
 	"gorm.io/gorm/logger"
 	"io"
 	"math"
@@ -207,7 +208,6 @@ func ProcessData(device database.Device, intermediateData []IntermediateData) er
 	var analogRecordsToInsert []database.DevicePortAnalogRecord
 	var digitalRecordsToInsert []database.DevicePortDigitalRecord
 	var serialRecordsToInsert []database.DevicePortSerialRecord
-
 	for _, record := range intermediateData {
 		switch record.Type {
 		case digital:
@@ -249,24 +249,24 @@ func ProcessData(device database.Device, intermediateData []IntermediateData) er
 			}
 		}
 		if len(analogRecordsToInsert) > 10000 {
-			db.Create(&analogRecordsToInsert)
+			db.Clauses(clause.OnConflict{DoNothing: true}).Create(&analogRecordsToInsert)
 			analogRecordsToInsert = nil
 		}
 		if len(digitalRecordsToInsert) > 10000 {
-			db.Create(&digitalRecordsToInsert)
+			db.Clauses(clause.OnConflict{DoNothing: true}).Create(&digitalRecordsToInsert)
 			digitalRecordsToInsert = nil
 		}
 		if len(serialRecordsToInsert) > 10000 {
-			db.Create(&serialRecordsToInsert)
+			db.Clauses(clause.OnConflict{DoNothing: true}).Create(&serialRecordsToInsert)
 			serialRecordsToInsert = nil
 		}
 
 	}
-	db.Create(&analogRecordsToInsert)
+	db.Clauses(clause.OnConflict{DoNothing: true}).Create(&analogRecordsToInsert)
 	analogRecordsToInsert = nil
-	db.Create(&digitalRecordsToInsert)
+	db.Clauses(clause.OnConflict{DoNothing: true}).Create(&digitalRecordsToInsert)
 	digitalRecordsToInsert = nil
-	db.Create(&serialRecordsToInsert)
+	db.Clauses(clause.OnConflict{DoNothing: true}).Create(&serialRecordsToInsert)
 	serialRecordsToInsert = nil
 	LogInfo(device.Name, "Data added to database, elapsed: "+time.Since(timer).String())
 	return nil
@@ -539,7 +539,7 @@ func ProcessSpeedPort(record IntermediateData, port database.DevicePort, db *gor
 		LogError(device.Name, "Problem evaluating data for speed port: "+err.Error())
 		return recordToInsert
 	}
-	dataToInsert := float32(speed)
+	dataToInsert := speed
 	for index, tempPort := range tempPorts {
 		portPrefix := "A"
 		if port.PortNumber < 10 {

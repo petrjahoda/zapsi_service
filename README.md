@@ -41,4 +41,4 @@ Go service that download data from Zapsi devices and insert them to database.
     * Value 0 is saved after 0.1 seconds
 
     
-Petr Jahoda © 2020
+tGMS © 2020 Petr Jahoda

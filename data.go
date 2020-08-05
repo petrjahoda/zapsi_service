@@ -4,7 +4,7 @@ import (
 	"time"
 )
 
-type IntermediateData struct {
+type SortedData struct {
 	Type     IntermediateDataType
 	DateTime time.Time
 	RawData  string

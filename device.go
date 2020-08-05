@@ -42,7 +42,7 @@ type tempPort struct {
 	value float32
 }
 
-func DownloadData(device database.Device) (downloaded bool, error error) {
+func DownloadDataFromDevice(device database.Device) (downloaded bool, error error) {
 	LogInfo(device.Name, "Downloading data")
 	timer := time.Now()
 	deviceNameForDownload = device.Name
@@ -61,9 +61,8 @@ func DownloadData(device database.Device) (downloaded bool, error error) {
 	db.Where("device_id = ?", device.ID).Where("device_port_type_id = ?", 2).Find(&analogPorts)
 	db.Where("device_id = ?", device.ID).Where("device_port_type_id = ?", 3).Find(&serialPorts)
 	db.Where("device_id = ?", device.ID).Where("device_port_type_id = ?", 4).Find(&energyPorts)
-	LogInfo(device.Name, "Analog ports: "+strconv.Itoa(len(analogPorts))+", digital ports: "+strconv.Itoa(len(digitalPorts)))
 	if len(digitalPorts) > 0 {
-		LogInfo(device.Name, "Device has digital ports")
+		LogInfo(device.Name, "Device has digital ports, downloading data...")
 		fileUrl := "http://" + device.IpAddress + "/log/digital.txt"
 		deviceDirectory := filepath.Join(serviceDirectory, strconv.FormatUint(uint64(device.ID), 10)+"-"+device.Name)
 		deviceFileName := "digital.txt"
@@ -75,7 +74,7 @@ func DownloadData(device database.Device) (downloaded bool, error error) {
 
 	}
 	if len(analogPorts) > 0 {
-		LogInfo(device.Name, "Device has analog ports")
+		LogInfo(device.Name, "Device has analog ports, downloading data...")
 		fileUrl := "http://" + device.IpAddress + "/log/analog.txt"
 		deviceDirectory := filepath.Join(serviceDirectory, strconv.FormatUint(uint64(device.ID), 10)+"-"+device.Name)
 		deviceFileName := "analog.txt"
@@ -88,7 +87,7 @@ func DownloadData(device database.Device) (downloaded bool, error error) {
 
 	}
 	if len(serialPorts) > 0 {
-		LogInfo(device.Name, "Device has serial ports")
+		LogInfo(device.Name, "Device has serial ports, downloading data...")
 		fileUrl := "http://" + device.IpAddress + "/log/serial.txt"
 		deviceDirectory := filepath.Join(serviceDirectory, strconv.FormatUint(uint64(device.ID), 10)+"-"+device.Name)
 		deviceFileName := "serial.txt"
@@ -100,7 +99,7 @@ func DownloadData(device database.Device) (downloaded bool, error error) {
 
 	}
 	if len(energyPorts) > 0 {
-		LogInfo(device.Name, "Device has energy ports")
+		LogInfo(device.Name, "Device has energy ports, downloading data...")
 		fileUrl := "http://" + device.IpAddress + "/log/ui_value.txt"
 		deviceDirectory := filepath.Join(serviceDirectory, strconv.FormatUint(uint64(device.ID), 10)+"-"+device.Name)
 		deviceFileName := "ui_value.txt"
@@ -112,11 +111,13 @@ func DownloadData(device database.Device) (downloaded bool, error error) {
 
 	}
 	deviceFileDownloading = ""
-	LogInfo(device.Name, "Data downloaded, elapsed: "+time.Since(timer).String())
+	LogInfo(device.Name, "Data downloaded in "+time.Since(timer).String())
 	return true, nil
 }
 
 func DownloadFile(deviceName string, filepath string, url string) error {
+	LogInfo(deviceName, "Downloading file, process started: "+url)
+	timer := time.Now()
 	client := http.Client{
 		Timeout: downloadTimeoutInSeconds * time.Second,
 	}
@@ -153,7 +154,7 @@ func DownloadFile(deviceName string, filepath string, url string) error {
 		}
 		defer resp.Body.Close()
 	}
-
+	LogInfo(deviceName, "Downloading file, process ended in "+time.Since(timer).String())
 	return nil
 }
 
@@ -176,8 +177,8 @@ func (wc WriteCounter) PrintProgress() {
 	}
 }
 
-func ProcessData(device database.Device, intermediateData []IntermediateData) error {
-	LogInfo(device.Name, "Adding data to database")
+func ProcessSortedData(device database.Device, intermediateData []SortedData) error {
+	LogInfo(device.Name, "Processing data")
 	timer := time.Now()
 	db, err := gorm.Open(postgres.Open(config), &gorm.Config{Logger: logger.Default.LogMode(logger.Silent)})
 	if err != nil {
@@ -203,7 +204,7 @@ func ProcessData(device database.Device, intermediateData []IntermediateData) er
 	var virtualEnergyPorts []database.DevicePort
 	db.Where("device_id = ?", device.ID).Where("device_port_type_id = ?", 4).Where("virtual = ?", true).Find(&virtualEnergyPorts)
 
-	UpdateTempPorts(analogPorts, db, digitalPorts, serialPorts, energyPorts, virtualAnalogPorts, virtualDigitalPorts, virtualSerialPorts, virtualEnergyPorts)
+	ReadTempPorts(analogPorts, db, digitalPorts, serialPorts, energyPorts, virtualAnalogPorts, virtualDigitalPorts, virtualSerialPorts, virtualEnergyPorts, device)
 
 	var analogRecordsToInsert []database.DevicePortAnalogRecord
 	var digitalRecordsToInsert []database.DevicePortDigitalRecord
@@ -212,40 +213,40 @@ func ProcessData(device database.Device, intermediateData []IntermediateData) er
 		switch record.Type {
 		case digital:
 			for _, port := range digitalPorts {
-				digitalRecordsToInsert = append(digitalRecordsToInsert, AddDigitalDataToDatabase(port, record, device))
+				digitalRecordsToInsert = append(digitalRecordsToInsert, SaveDigitalDataToDatabase(port, record, device))
 			}
 		case analog:
 			for _, port := range analogPorts {
-				analogRecordsToInsert = append(analogRecordsToInsert, AddAnalogDataToDatabase(port, record, device))
+				analogRecordsToInsert = append(analogRecordsToInsert, SaveAnalogDataToDatabase(port, record, device))
 			}
 		case serial:
 			for _, port := range serialPorts {
-				serialRecordsToInsert = append(serialRecordsToInsert, AddSerialDataToDatabase(port, record, device))
+				serialRecordsToInsert = append(serialRecordsToInsert, SaveSerialDataToDatabase(port, record, device))
 			}
 		case energy:
 			for _, port := range energyPorts {
-				analogRecordsToInsert = append(analogRecordsToInsert, AddEnergyDataToDatabase(port, record, device))
+				analogRecordsToInsert = append(analogRecordsToInsert, SaveEnergyDataToDatabase(port, record, device))
 			}
 		}
 
 		if len(virtualDigitalPorts) > 0 {
 			for _, port := range virtualDigitalPorts {
-				digitalRecordsToInsert = AddVirtualDigitalDataToDatabase(port, record, device, digitalRecordsToInsert)
+				digitalRecordsToInsert = SaveVirtualDigitalDataToDatabase(port, record, device, digitalRecordsToInsert)
 			}
 		}
 		if len(virtualAnalogPorts) > 0 {
 			for _, port := range virtualAnalogPorts {
-				analogRecordsToInsert = append(analogRecordsToInsert, AddVirtualAnalogDataToDatabase(port, record, device, db))
+				analogRecordsToInsert = append(analogRecordsToInsert, SaveVirtualAnalogDataToDatabase(port, record, device, db))
 			}
 		}
 		if len(virtualSerialPorts) > 0 {
 			for _, port := range virtualSerialPorts {
-				serialRecordsToInsert = append(serialRecordsToInsert, AddVirtualSerialDataToDatabase(port, record, device))
+				serialRecordsToInsert = append(serialRecordsToInsert, SaveVirtualSerialDataToDatabase(port, record, device))
 			}
 		}
 		if len(virtualEnergyPorts) > 0 {
 			for _, port := range virtualEnergyPorts {
-				analogRecordsToInsert = append(analogRecordsToInsert, AddVirtualEnergyDataToDatabase(port, record, device))
+				analogRecordsToInsert = append(analogRecordsToInsert, SaveVirtualEnergyDataToDatabase(port, record, device))
 			}
 		}
 		if len(analogRecordsToInsert) > 10000 {
@@ -268,11 +269,11 @@ func ProcessData(device database.Device, intermediateData []IntermediateData) er
 	digitalRecordsToInsert = nil
 	db.Clauses(clause.OnConflict{DoNothing: true}).Create(&serialRecordsToInsert)
 	serialRecordsToInsert = nil
-	LogInfo(device.Name, "Data added to database, elapsed: "+time.Since(timer).String())
+	LogInfo(device.Name, "Data processed in "+time.Since(timer).String())
 	return nil
 }
 
-func AddVirtualDigitalDataToDatabase(port database.DevicePort, record IntermediateData, device database.Device, digitalRecordsToInsert []database.DevicePortDigitalRecord) []database.DevicePortDigitalRecord {
+func SaveVirtualDigitalDataToDatabase(port database.DevicePort, record SortedData, device database.Device, digitalRecordsToInsert []database.DevicePortDigitalRecord) []database.DevicePortDigitalRecord {
 	if strings.Contains(port.Settings, "SP:ADDZERO") {
 		digitalRecordsToInsert = ProcessAddZeroPort(device, record, port, digitalRecordsToInsert)
 	} else {
@@ -284,7 +285,7 @@ func AddVirtualDigitalDataToDatabase(port database.DevicePort, record Intermedia
 	return digitalRecordsToInsert
 }
 
-func ProcessAddZeroPort(device database.Device, record IntermediateData, port database.DevicePort, digitalRecordsToInsert []database.DevicePortDigitalRecord) []database.DevicePortDigitalRecord {
+func ProcessAddZeroPort(device database.Device, record SortedData, port database.DevicePort, digitalRecordsToInsert []database.DevicePortDigitalRecord) []database.DevicePortDigitalRecord {
 	var recordToInsert database.DevicePortDigitalRecord
 	if record.Type == digital {
 		originalPort := port.Settings[12 : len(port.Settings)-1]
@@ -321,7 +322,9 @@ func ProcessAddZeroPort(device database.Device, record IntermediateData, port da
 	return digitalRecordsToInsert
 }
 
-func UpdateTempPorts(analogPorts []database.DevicePort, db *gorm.DB, digitalPorts []database.DevicePort, serialPorts []database.DevicePort, energyPorts []database.DevicePort, virtualAnalogPorts []database.DevicePort, virtualDigitalPorts []database.DevicePort, virtualSerialPorts []database.DevicePort, virtualEnergyPorts []database.DevicePort) {
+func ReadTempPorts(analogPorts []database.DevicePort, db *gorm.DB, digitalPorts []database.DevicePort, serialPorts []database.DevicePort, energyPorts []database.DevicePort, virtualAnalogPorts []database.DevicePort, virtualDigitalPorts []database.DevicePort, virtualSerialPorts []database.DevicePort, virtualEnergyPorts []database.DevicePort, device database.Device) {
+	LogInfo(device.Name, "Reading temp ports")
+	timer := time.Now()
 	for _, port := range analogPorts {
 		var data database.DevicePortAnalogRecord
 		db.Where("device_port_id = ?", port.ID).Last(&data)
@@ -419,9 +422,10 @@ func UpdateTempPorts(analogPorts []database.DevicePort, db *gorm.DB, digitalPort
 		tempPort.value = data.Data
 		tempPorts = append(tempPorts, tempPort)
 	}
+	LogInfo(device.Name, "Temp ports read in "+time.Since(timer).String())
 }
 
-func AddVirtualEnergyDataToDatabase(port database.DevicePort, record IntermediateData, device database.Device) database.DevicePortAnalogRecord {
+func SaveVirtualEnergyDataToDatabase(port database.DevicePort, record SortedData, device database.Device) database.DevicePortAnalogRecord {
 	var recordToInsert database.DevicePortAnalogRecord
 	result := ReplacePortNameWithItsValue(port.Settings)
 	value, err := gval.Evaluate(result, nil)
@@ -445,7 +449,7 @@ func AddVirtualEnergyDataToDatabase(port database.DevicePort, record Intermediat
 	return recordToInsert
 }
 
-func AddVirtualSerialDataToDatabase(port database.DevicePort, record IntermediateData, device database.Device) database.DevicePortSerialRecord {
+func SaveVirtualSerialDataToDatabase(port database.DevicePort, record SortedData, device database.Device) database.DevicePortSerialRecord {
 	var recordToInsert database.DevicePortSerialRecord
 	result := ReplacePortNameWithItsValue(port.Settings)
 	value, err := gval.Evaluate(result, nil)
@@ -469,7 +473,7 @@ func AddVirtualSerialDataToDatabase(port database.DevicePort, record Intermediat
 	return recordToInsert
 }
 
-func AddVirtualAnalogDataToDatabase(port database.DevicePort, record IntermediateData, device database.Device, db *gorm.DB) database.DevicePortAnalogRecord {
+func SaveVirtualAnalogDataToDatabase(port database.DevicePort, record SortedData, device database.Device, db *gorm.DB) database.DevicePortAnalogRecord {
 	var recordToInsert database.DevicePortAnalogRecord
 	if strings.Contains(port.Settings, "SP:TC") {
 		recordToInsert = ProcessThermoCouplePort(record, port, db, device)
@@ -481,7 +485,7 @@ func AddVirtualAnalogDataToDatabase(port database.DevicePort, record Intermediat
 	return recordToInsert
 }
 
-func ProcessThermoCouplePort(record IntermediateData, port database.DevicePort, db *gorm.DB, device database.Device) database.DevicePortAnalogRecord {
+func ProcessThermoCouplePort(record SortedData, port database.DevicePort, db *gorm.DB, device database.Device) database.DevicePortAnalogRecord {
 	var recordToInsert database.DevicePortAnalogRecord
 	parameters := strings.Split(port.Settings[6:len(port.Settings)-1], ";")
 	thermoCoupleType := parameters[0]
@@ -492,7 +496,7 @@ func ProcessThermoCouplePort(record IntermediateData, port database.DevicePort, 
 	return recordToInsert
 }
 
-func ProcessThermoCouplePortData(record IntermediateData, thermoCoupleMainPortId string, thermoCoupleColdJunctionPortId string, thermoCoupleTypeId int, port database.DevicePort, db *gorm.DB, device database.Device) database.DevicePortAnalogRecord {
+func ProcessThermoCouplePortData(record SortedData, thermoCoupleMainPortId string, thermoCoupleColdJunctionPortId string, thermoCoupleTypeId int, port database.DevicePort, db *gorm.DB, device database.Device) database.DevicePortAnalogRecord {
 	var recordToInsert database.DevicePortAnalogRecord
 	var thermoCoupleMainPort database.DevicePort
 	var thermoCoupleColdJunctionPort database.DevicePort
@@ -532,7 +536,7 @@ func ProcessThermoCouplePortData(record IntermediateData, thermoCoupleMainPortId
 	return recordToInsert
 }
 
-func ProcessSpeedPort(record IntermediateData, port database.DevicePort, db *gorm.DB, device database.Device) database.DevicePortAnalogRecord {
+func ProcessSpeedPort(record SortedData, port database.DevicePort, db *gorm.DB, device database.Device) database.DevicePortAnalogRecord {
 	var recordToInsert database.DevicePortAnalogRecord
 	speed, err := CalculateSpeed(device, port, db)
 	if err != nil {
@@ -578,7 +582,7 @@ func CalculateSpeed(device database.Device, virtualPort database.DevicePort, db 
 	return speed, nil
 }
 
-func ProcessDataAsStandardVirtualAnalogPort(record IntermediateData, port database.DevicePort, device database.Device) database.DevicePortAnalogRecord {
+func ProcessDataAsStandardVirtualAnalogPort(record SortedData, port database.DevicePort, device database.Device) database.DevicePortAnalogRecord {
 	var recordToInsert database.DevicePortAnalogRecord
 	result := ReplacePortNameWithItsValue(port.Settings)
 	value, err := gval.Evaluate(result, nil)
@@ -602,7 +606,7 @@ func ProcessDataAsStandardVirtualAnalogPort(record IntermediateData, port databa
 	return recordToInsert
 }
 
-func ProcessDataAsStandardVirtualDigitalPort(port database.DevicePort, record IntermediateData, device database.Device) database.DevicePortDigitalRecord {
+func ProcessDataAsStandardVirtualDigitalPort(port database.DevicePort, record SortedData, device database.Device) database.DevicePortDigitalRecord {
 	var recordToInsert database.DevicePortDigitalRecord
 	result := ReplacePortNameWithItsValue(port.Settings)
 	value, err := gval.Evaluate(result, nil)
@@ -624,6 +628,9 @@ func ProcessDataAsStandardVirtualDigitalPort(port database.DevicePort, record In
 				dateTimeToInsert := record.DateTime
 				recordToInsert = database.DevicePortDigitalRecord{DateTime: dateTimeToInsert, Data: dataToInsert, DevicePortID: int(port.ID)}
 				tempPorts[index].value = float32(dataToInsert)
+				break
+			} else {
+				LogWarning(device.Name, "Digital data mismatch, trying to save similar data to database: "+strconv.Itoa(dataToInsert))
 				break
 			}
 		}
@@ -647,32 +654,31 @@ func ReplacePortNameWithItsValue(settings string) string {
 	return settings
 }
 
-func PrepareData(device database.Device) []IntermediateData {
+func PrepareDownloadedData(device database.Device) []SortedData {
 	LogInfo(device.Name, "Preparing downloaded data")
 	timer := time.Now()
-	var intermediateData []IntermediateData
+	var sortedData []SortedData
 	if FileExists("digital.txt", device) {
-		AddDataForProcessing("digital.txt", &intermediateData, device)
+		AddDataForProcessing("digital.txt", &sortedData, device)
 	}
 	if FileExists("analog.txt", device) {
-		AddDataForProcessing("analog.txt", &intermediateData, device)
+		AddDataForProcessing("analog.txt", &sortedData, device)
 	}
 	if FileExists("serial.txt", device) {
-		AddDataForProcessing("serial.txt", &intermediateData, device)
+		AddDataForProcessing("serial.txt", &sortedData, device)
 	}
 	if FileExists("ui_value.txt", device) {
-		AddDataForProcessing("ui_value.txt", &intermediateData, device)
+		AddDataForProcessing("ui_value.txt", &sortedData, device)
 	}
-	sort.Slice(intermediateData, func(i, j int) bool {
-		return intermediateData[i].DateTime.Before(intermediateData[j].DateTime)
+	sort.Slice(sortedData, func(i, j int) bool {
+		return sortedData[i].DateTime.Before(sortedData[j].DateTime)
 	})
-	LogInfo(device.Name, "Data sorted, number of records: "+strconv.Itoa(len(intermediateData)))
-	LogInfo(device.Name, "Data prepared, elapsed: "+time.Since(timer).String())
-
-	return intermediateData
+	LogInfo(device.Name, "Data sorted, number of records: "+strconv.Itoa(len(sortedData)))
+	LogInfo(device.Name, "Data prepared in "+time.Since(timer).String())
+	return sortedData
 }
 
-func AddEnergyDataToDatabase(port database.DevicePort, record IntermediateData, device database.Device) database.DevicePortAnalogRecord {
+func SaveEnergyDataToDatabase(port database.DevicePort, record SortedData, device database.Device) database.DevicePortAnalogRecord {
 	var recordToInsert database.DevicePortAnalogRecord
 	positionInFile := port.PortNumber - 1
 	parsedData := strings.Split(record.RawData, ";")
@@ -696,7 +702,7 @@ func AddEnergyDataToDatabase(port database.DevicePort, record IntermediateData, 
 	return recordToInsert
 }
 
-func AddSerialDataToDatabase(port database.DevicePort, record IntermediateData, device database.Device) database.DevicePortSerialRecord {
+func SaveSerialDataToDatabase(port database.DevicePort, record SortedData, device database.Device) database.DevicePortSerialRecord {
 	var recordToInsert database.DevicePortSerialRecord
 	positionInFile := port.PortNumber - 1
 	parsedData := strings.Split(record.RawData, ";")
@@ -720,7 +726,7 @@ func AddSerialDataToDatabase(port database.DevicePort, record IntermediateData, 
 	return recordToInsert
 }
 
-func AddDigitalDataToDatabase(port database.DevicePort, record IntermediateData, device database.Device) database.DevicePortDigitalRecord {
+func SaveDigitalDataToDatabase(port database.DevicePort, record SortedData, device database.Device) database.DevicePortDigitalRecord {
 	var recordToInsert database.DevicePortDigitalRecord
 	positionInFile := port.PortNumber - 1
 	parsedData := strings.Split(record.RawData, ";")
@@ -740,13 +746,16 @@ func AddDigitalDataToDatabase(port database.DevicePort, record IntermediateData,
 				recordToInsert = database.DevicePortDigitalRecord{DateTime: dateTimeToInsert, Data: dataToInsert, DevicePortID: int(port.ID)}
 				tempPorts[index].value = float32(dataToInsert)
 				break
+			} else {
+				LogWarning(device.Name, "Digital data mismatch, trying to save similar data to database: "+strconv.Itoa(dataToInsert))
+				break
 			}
 		}
 	}
 	return recordToInsert
 }
 
-func AddAnalogDataToDatabase(port database.DevicePort, record IntermediateData, device database.Device) database.DevicePortAnalogRecord {
+func SaveAnalogDataToDatabase(port database.DevicePort, record SortedData, device database.Device) database.DevicePortAnalogRecord {
 	var recordToInsert database.DevicePortAnalogRecord
 	positionInFile := port.PortNumber - 1
 	parsedData := strings.Split(record.RawData, ";")
@@ -783,8 +792,8 @@ func FileExists(filename string, device database.Device) bool {
 	}
 }
 
-func AddDataForProcessing(filename string, data *[]IntermediateData, device database.Device) {
-	LogInfo(device.Name, "Adding data: "+filename)
+func AddDataForProcessing(filename string, data *[]SortedData, device database.Device) {
+	LogInfo(device.Name, "Adding data for processing: "+filename)
 	timer := time.Now()
 	deviceDirectory := filepath.Join(serviceDirectory, strconv.FormatUint(uint64(device.ID), 10)+"-"+device.Name)
 	deviceFullPath := strings.Join([]string{deviceDirectory, filename}, "/")
@@ -797,19 +806,19 @@ func AddDataForProcessing(filename string, data *[]IntermediateData, device data
 		for i := 1; i < len(parsedData)-2; i++ {
 			rawData += ";" + parsedData[i]
 		}
-		finalDateTime, err := GetDateTimeFromData(parsedData)
+		finalDateTime, err := ParseDateTimeFromData(parsedData)
 		if err != nil {
-			LogError(device.Name, "Problem parsing datetime from ["+zapsiData+"], "+err.Error())
+			LogError(device.Name, "Problem parsing datetime from ["+zapsiData+"]: "+err.Error())
 			continue
 		}
 		AddIntermediateData(finalDateTime, rawData, filename, data)
 	}
-	LogInfo(device.Name, "Data added, elapsed: "+time.Since(timer).String())
+	LogInfo(device.Name, "Data added in "+time.Since(timer).String())
 
 }
 
-func AddIntermediateData(finalDateTime time.Time, rawData string, filename string, data *[]IntermediateData) {
-	dataForInsert := IntermediateData{DateTime: finalDateTime, RawData: rawData}
+func AddIntermediateData(finalDateTime time.Time, rawData string, filename string, data *[]SortedData) {
+	dataForInsert := SortedData{DateTime: finalDateTime, RawData: rawData}
 	switch filename {
 	case "analog.txt":
 		dataForInsert.Type = analog
@@ -823,7 +832,7 @@ func AddIntermediateData(finalDateTime time.Time, rawData string, filename strin
 	*data = append(*data, dataForInsert)
 }
 
-func GetDateTimeFromData(data []string) (time.Time, error) {
+func ParseDateTimeFromData(data []string) (time.Time, error) {
 	if len(data) > 1 {
 		dataDate := strings.Split(data[len(data)-2], ".")
 		dataDay := dataDate[0]
@@ -899,24 +908,29 @@ func SendUDP(device database.Device, dstIP string, dstPort int, localIP string, 
 	}
 	LogInfo(device.Name, "UDP connection closed")
 }
-func SendTimeAtStart(device database.Device) (timeUpdated bool) {
+func SendTimeToDeviceAtStart(device database.Device) (timeUpdated bool) {
 	LogInfo(device.Name, "Sending time to device")
 	timer := time.Now()
 	dateTimeForZapsi := time.Now().UTC().Format("02.01.2006 15:04:05")
 	dateTimeForZapsi = "set_datetime=" + dateTimeForZapsi + " 0" + strconv.Itoa(int(time.Now().UTC().Weekday())) + "&"
 	SendUDP(device, device.IpAddress, 9999, "", 0, []byte(dateTimeForZapsi))
-	LogInfo(device.Name, "Time to device sent, elapsed: "+time.Since(timer).String())
+	LogInfo(device.Name, "Time to device sent in "+time.Since(timer).String())
 	return true
 }
 
 func KillPort(device database.Device) (timeUpdated bool) {
+	LogInfo(device.Name, "Killing port 80")
+	timer := time.Now()
 	dateTimeForZapsi := time.Now().UTC().Format("02.01.2006 15:04:05")
 	dateTimeForZapsi = "Kill80"
 	SendUDP(device, device.IpAddress, 9999, "", 0, []byte(dateTimeForZapsi))
+	LogInfo(device.Name, "Port 80 killed in "+time.Since(timer).String())
 	return true
 }
 
-func SendTimeToZapsi(device database.Device, timeUpdated bool) bool {
+func SendTimeToDevice(device database.Device, timeUpdated bool) bool {
+	LogInfo(device.Name, "Sending time to device")
+	timer := time.Now()
 	now := time.Now().UTC()
 	dateTimeForZapsi := now.Format("02.01.2006 15:04:05")
 
@@ -925,6 +939,7 @@ func SendTimeToZapsi(device database.Device, timeUpdated bool) bool {
 		SendUDP(device, device.IpAddress, 9999, "", 0, []byte(dateTimeForZapsi))
 		return true
 	}
+	LogInfo(device.Name, "Time to device sent in "+time.Since(timer).String())
 	if now.Hour() == setZapsiTimeAtHour && now.Minute() == setZapsiTimeAtMinute && timeUpdated {
 		return true
 	}

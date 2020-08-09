@@ -14,6 +14,11 @@ adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html) rules.
 * ```Fixed``` for any bug fixes.
 * ```Security``` in case of vulnerabilities.
 
+## [2020.3.2.9] - 2020-08-09
+
+### Fixed
+- when firstly processing data... if not processed, no new are downloaded
+
 ## [2020.3.2.5] - 2020-08-05
 
 ### Added

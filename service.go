@@ -50,13 +50,15 @@ func RunDevice(device database.Device) {
 	for deviceIsActive && serviceRunning {
 		LogInfo(device.Name, "Device main loop started")
 		timer := time.Now()
-		ProcessDownloadedData(device)
-		success, err := DownloadDataFromDevice(device)
-		if err != nil {
-			LogError(device.Name, "Error downloading data: "+err.Error())
-		}
-		if success {
-			ProcessDownloadedData(device)
+		dataSuccessfullyProcessed := ProcessDownloadedData(device)
+		if dataSuccessfullyProcessed {
+			dataSuccessfullyDownloaded, err := DownloadDataFromDevice(device)
+			if err != nil {
+				LogError(device.Name, "Error downloading data: "+err.Error())
+			}
+			if dataSuccessfullyDownloaded {
+				ProcessDownloadedData(device)
+			}
 		}
 		timeUpdatedInLoop = SendTimeToDevice(device, timeUpdatedInLoop)
 		LogInfo(device.Name, "Device main loop ended in "+time.Since(timer).String())
@@ -96,7 +98,7 @@ func Sleep(device database.Device, start time.Time) {
 	}
 }
 
-func ProcessDownloadedData(device database.Device) {
+func ProcessDownloadedData(device database.Device) bool {
 	LogInfo(device.Name, "Processing downloaded data")
 	timer := time.Now()
 	sortedData := PrepareDownloadedData(device)
@@ -104,10 +106,12 @@ func ProcessDownloadedData(device database.Device) {
 		err := ProcessSortedData(device, sortedData)
 		if err != nil {
 			LogError(device.Name, "Error processing data: "+err.Error())
+			return false
 		}
 	}
 	DeleteDownloadedData(device)
 	LogInfo(device.Name, "Data processed in "+time.Since(timer).String())
+	return true
 }
 
 func DeleteDownloadedData(device database.Device) {

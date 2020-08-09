@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-const version = "2020.3.2.5"
+const version = "2020.3.2.9"
 const serviceName = "Zapsi Service"
 const serviceDescription = "Downloads data from Zapsi devices"
 const downloadInSeconds = 10
@@ -62,8 +62,8 @@ func (p *program) Stop(service.Service) error {
 func (p *program) run() {
 	UpdateProgramVersion()
 	for {
-		start := time.Now()
 		LogInfo("MAIN", serviceName+" ["+version+"] running")
+		start := time.Now()
 		ReadActiveDevices("MAIN")
 		LogInfo("MAIN", "Active devices: "+strconv.Itoa(len(activeDevices))+", running devices: "+strconv.Itoa(len(runningDevices)))
 		for _, activeDevice := range activeDevices {

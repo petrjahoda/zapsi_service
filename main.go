@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-const version = "2020.3.2.9"
+const version = "2020.3.2.13"
 const serviceName = "Zapsi Service"
 const serviceDescription = "Downloads data from Zapsi devices"
 const downloadInSeconds = 10

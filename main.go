@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-const version = "2020.3.2.22"
+const version = "2020.3.2.29"
 const serviceName = "Zapsi Service"
 const serviceDescription = "Downloads data from Zapsi devices"
 const downloadInSeconds = 10
@@ -26,7 +26,7 @@ var (
 type program struct{}
 
 func main() {
-	LogInfo("MAIN", serviceName+" ["+version+"] starting...")
+	logInfo("MAIN", serviceName+" ["+version+"] starting...")
 	serviceConfig := &service.Config{
 		Name:        serviceName,
 		DisplayName: serviceName,
@@ -35,15 +35,15 @@ func main() {
 	prg := &program{}
 	s, err := service.New(prg, serviceConfig)
 	if err != nil {
-		LogError("MAIN", "Cannot start: "+err.Error())
+		logError("MAIN", "Cannot start: "+err.Error())
 	}
 	err = s.Run()
 	if err != nil {
-		LogError("MAIN", "Cannot start: "+err.Error())
+		logError("MAIN", "Cannot start: "+err.Error())
 	}
 }
 func (p *program) Start(service.Service) error {
-	LogInfo("MAIN", serviceName+" ["+version+"] started")
+	logInfo("MAIN", serviceName+" ["+version+"] started")
 	go p.run()
 	serviceRunning = true
 	return nil
@@ -52,29 +52,29 @@ func (p *program) Start(service.Service) error {
 func (p *program) Stop(service.Service) error {
 	serviceRunning = false
 	for len(runningDevices) != 0 {
-		LogInfo("MAIN", serviceName+" ["+version+"] stopping...")
+		logInfo("MAIN", serviceName+" ["+version+"] stopping...")
 		time.Sleep(1 * time.Second)
 	}
-	LogInfo("MAIN", serviceName+" ["+version+"] stopped")
+	logInfo("MAIN", serviceName+" ["+version+"] stopped")
 	return nil
 }
 
 func (p *program) run() {
-	UpdateProgramVersion()
+	updateProgramVersion()
 	for {
-		LogInfo("MAIN", serviceName+" ["+version+"] running")
+		logInfo("MAIN", serviceName+" ["+version+"] running")
 		start := time.Now()
-		ReadActiveDevices("MAIN")
-		LogInfo("MAIN", "Active devices: "+strconv.Itoa(len(activeDevices))+", running devices: "+strconv.Itoa(len(runningDevices)))
+		readActiveDevices("MAIN")
+		logInfo("MAIN", "Active devices: "+strconv.Itoa(len(activeDevices))+", running devices: "+strconv.Itoa(len(runningDevices)))
 		for _, activeDevice := range activeDevices {
-			activeDeviceIsRunning := CheckDeviceInRunningDevices(activeDevice)
+			activeDeviceIsRunning := checkDeviceInRunningDevices(activeDevice)
 			if !activeDeviceIsRunning {
-				go RunDevice(activeDevice)
+				go runDevice(activeDevice)
 			}
 		}
 		if time.Since(start) < (downloadInSeconds * time.Second) {
 			sleepTime := downloadInSeconds*time.Second - time.Since(start)
-			LogInfo("MAIN", "Sleeping for "+sleepTime.String())
+			logInfo("MAIN", "Sleeping for "+sleepTime.String())
 			time.Sleep(sleepTime)
 		}
 	}

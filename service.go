@@ -11,12 +11,12 @@ import (
 	"time"
 )
 
-func UpdateProgramVersion() {
-	LogInfo("MAIN", "Writing program version into settings")
+func updateProgramVersion() {
+	logInfo("MAIN", "Writing program version into settings")
 	timer := time.Now()
 	db, err := gorm.Open(postgres.Open(config), &gorm.Config{})
 	if err != nil {
-		LogError("MAIN", "Problem opening database: "+err.Error())
+		logError("MAIN", "Problem opening database: "+err.Error())
 		return
 	}
 	sqlDB, err := db.DB()
@@ -26,10 +26,10 @@ func UpdateProgramVersion() {
 	existingSettings.Name = serviceName
 	existingSettings.Value = version
 	db.Save(&existingSettings)
-	LogInfo("MAIN", "Program version written into settings in "+time.Since(timer).String())
+	logInfo("MAIN", "Program version written into settings in "+time.Since(timer).String())
 }
 
-func CheckDeviceInRunningDevices(device database.Device) bool {
+func checkDeviceInRunningDevices(device database.Device) bool {
 	for _, runningDevice := range runningDevices {
 		if runningDevice.Name == device.Name {
 			return true
@@ -38,121 +38,121 @@ func CheckDeviceInRunningDevices(device database.Device) bool {
 	return false
 }
 
-func RunDevice(device database.Device) {
-	LogInfo(device.Name, "Device active, started running")
+func runDevice(device database.Device) {
+	logInfo(device.Name, "Device active, started running")
 	deviceSync.Lock()
 	runningDevices = append(runningDevices, device)
 	deviceSync.Unlock()
 	deviceIsActive := true
-	CheckDeviceDataDirectory(device)
-	SendTimeToDeviceAtStart(device)
+	checkDeviceDataDirectory(device)
+	sendTimeToDeviceAtStart(device)
 	timeUpdatedInLoop := false
 	for deviceIsActive && serviceRunning {
-		LogInfo(device.Name, "Device main loop started")
+		logInfo(device.Name, "Device main loop started")
 		timer := time.Now()
-		dataSuccessfullyProcessed := ProcessDownloadedData(device)
+		dataSuccessfullyProcessed := processDownloadedData(device)
 		if dataSuccessfullyProcessed {
-			dataSuccessfullyDownloaded, err := DownloadDataFromDevice(device)
+			dataSuccessfullyDownloaded, err := downloadDataFromDevice(device)
 			if err != nil {
-				LogError(device.Name, "Error downloading data: "+err.Error())
+				logError(device.Name, "Error downloading data: "+err.Error())
 			}
 			if dataSuccessfullyDownloaded {
-				ProcessDownloadedData(device)
+				processDownloadedData(device)
 			}
 		}
-		timeUpdatedInLoop = SendTimeToDevice(device, timeUpdatedInLoop)
-		LogInfo(device.Name, "Device main loop ended in "+time.Since(timer).String())
-		Sleep(device, timer)
-		deviceIsActive = CheckActive(device)
+		timeUpdatedInLoop = sendTimeToDevice(device, timeUpdatedInLoop)
+		logInfo(device.Name, "Device main loop ended in "+time.Since(timer).String())
+		sleep(device, timer)
+		deviceIsActive = checkActive(device)
 	}
-	RemoveDeviceFromRunningDevices(device)
-	LogInfo(device.Name, "Device not active, stopped running")
+	removeDeviceFromRunningDevices(device)
+	logInfo(device.Name, "Device not active, stopped running")
 
 }
 
-func CheckDeviceDataDirectory(device database.Device) {
-	LogInfo(device.Name, "Checking device data directory")
+func checkDeviceDataDirectory(device database.Device) {
+	logInfo(device.Name, "Checking device data directory")
 	timer := time.Now()
 	deviceDirectory := filepath.Join(serviceDirectory, strconv.FormatUint(uint64(device.ID), 10)+"-"+device.Name)
 	if _, checkPathError := os.Stat(deviceDirectory); checkPathError == nil {
-		LogInfo(device.Name, "Device directory already exists")
+		logInfo(device.Name, "Device directory already exists")
 	} else if os.IsNotExist(checkPathError) {
-		LogError(device.Name, "Device directory not exist, creating")
+		logError(device.Name, "Device directory not exist, creating")
 		mkdirError := os.MkdirAll(deviceDirectory, 0777)
 		if mkdirError != nil {
-			LogError(device.Name, "Unable to create device directory: "+mkdirError.Error())
+			logError(device.Name, "Unable to create device directory: "+mkdirError.Error())
 		} else {
-			LogInfo(device.Name, "Device directory created")
+			logInfo(device.Name, "Device directory created")
 		}
 	} else {
-		LogError(device.Name, "Device directory does not exist")
+		logError(device.Name, "Device directory does not exist")
 	}
-	LogInfo(device.Name, "Device data directory checked in "+time.Since(timer).String())
+	logInfo(device.Name, "Device data directory checked in "+time.Since(timer).String())
 }
 
-func Sleep(device database.Device, start time.Time) {
+func sleep(device database.Device, start time.Time) {
 	if time.Since(start) < (downloadInSeconds * time.Second) {
 		sleepTime := downloadInSeconds*time.Second - time.Since(start)
-		LogInfo(device.Name, "Sleeping for "+sleepTime.String())
+		logInfo(device.Name, "Sleeping for "+sleepTime.String())
 		time.Sleep(sleepTime)
 	}
 }
 
-func ProcessDownloadedData(device database.Device) bool {
-	LogInfo(device.Name, "Processing downloaded data")
+func processDownloadedData(device database.Device) bool {
+	logInfo(device.Name, "Processing downloaded data")
 	timer := time.Now()
-	sortedData := PrepareDownloadedData(device)
+	sortedData := prepareDownloadedData(device)
 	if len(sortedData) > 0 {
-		err := ProcessSortedData(device, sortedData)
+		err := processSortedData(device, sortedData)
 		if err != nil {
-			LogError(device.Name, "Error processing data: "+err.Error())
+			logError(device.Name, "Error processing data: "+err.Error())
 			return false
 		}
 	}
-	DeleteDownloadedData(device)
-	LogInfo(device.Name, "Data processed in "+time.Since(timer).String())
+	deleteDownloadedData(device)
+	logInfo(device.Name, "Data processed in "+time.Since(timer).String())
 	return true
 }
 
-func DeleteDownloadedData(device database.Device) {
-	LogInfo(device.Name, "Deleting downloaded data")
+func deleteDownloadedData(device database.Device) {
+	logInfo(device.Name, "Deleting downloaded data")
 	timer := time.Now()
-	DeleteDownloadedFile("digital.txt", device)
-	DeleteDownloadedFile("analog.txt", device)
-	DeleteDownloadedFile("serial.txt", device)
-	DeleteDownloadedFile("ui_value.txt", device)
-	LogInfo(device.Name, "Data deleted in "+time.Since(timer).String())
+	deleteDownloadedFile("digital.txt", device)
+	deleteDownloadedFile("analog.txt", device)
+	deleteDownloadedFile("serial.txt", device)
+	deleteDownloadedFile("ui_value.txt", device)
+	logInfo(device.Name, "Data deleted in "+time.Since(timer).String())
 
 }
 
-func DeleteDownloadedFile(deviceFileName string, device database.Device) {
+func deleteDownloadedFile(deviceFileName string, device database.Device) {
 	deviceDirectory := filepath.Join(serviceDirectory, strconv.FormatUint(uint64(device.ID), 10)+"-"+device.Name)
 	deviceFullPath := strings.Join([]string{deviceDirectory, deviceFileName}, "/")
 	info, err := os.Stat(deviceFullPath)
 	if err != nil {
-		LogError(device.Name, "File does not exist: "+err.Error())
+		logError(device.Name, "File does not exist: "+err.Error())
 		return
 	}
 	if !info.IsDir() {
 		err := os.Remove(deviceFullPath)
 		if err != nil {
-			LogError(device.Name, "Problem deleting file, "+err.Error())
+			logError(device.Name, "Problem deleting file, "+err.Error())
 		}
 	}
 }
 
-func CheckActive(device database.Device) bool {
+func checkActive(device database.Device) bool {
 	for _, activeDevice := range activeDevices {
 		if activeDevice.Name == device.Name {
-			LogInfo(device.Name, "Device still active")
+			logInfo(device.Name, "Device still active")
 			return true
 		}
 	}
-	LogInfo(device.Name, "Device not active")
+	logInfo(device.Name, "Device not active")
 	return false
 }
 
-func RemoveDeviceFromRunningDevices(device database.Device) {
+func removeDeviceFromRunningDevices(device database.Device) {
 	deviceSync.Lock()
 	for idx, runningDevice := range runningDevices {
 		if device.Name == runningDevice.Name {
@@ -162,12 +162,12 @@ func RemoveDeviceFromRunningDevices(device database.Device) {
 	deviceSync.Unlock()
 }
 
-func ReadActiveDevices(reference string) {
-	LogInfo("MAIN", "Reading active devices")
+func readActiveDevices(reference string) {
+	logInfo("MAIN", "Reading active devices")
 	timer := time.Now()
 	db, err := gorm.Open(postgres.Open(config), &gorm.Config{})
 	if err != nil {
-		LogError(reference, "Problem opening database: "+err.Error())
+		logError(reference, "Problem opening database: "+err.Error())
 		activeDevices = nil
 		return
 	}
@@ -176,5 +176,5 @@ func ReadActiveDevices(reference string) {
 	var deviceType database.DeviceType
 	db.Where("name=?", "Zapsi").Find(&deviceType)
 	db.Where("device_type_id=?", deviceType.ID).Where("activated = true").Find(&activeDevices)
-	LogInfo("MAIN", "Active devices read in "+time.Since(timer).String())
+	logInfo("MAIN", "Active devices read in "+time.Since(timer).String())
 }

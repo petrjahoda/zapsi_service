@@ -13,7 +13,7 @@ const (
 	typeT
 )
 
-func SelectThermoCouple(thermoCoupleType string) int {
+func selectThermoCouple(thermoCoupleType string) int {
 	switch thermoCoupleType {
 	case "B":
 		return typeB
@@ -34,13 +34,13 @@ func SelectThermoCouple(thermoCoupleType string) int {
 	}
 }
 
-func ConvertMvToTemp(v float64, thermoCoupleTypeId int) float64 {
+func convertMvToTemp(v float64, thermoCoupleTypeId int) float64 {
 
 	kT2VExp := []float64{0.1185976, -1.183432e-4, 126.9686}
 	var result = 0.0
 	var index = -1
 	var i = 0
-	coefficients, breakPoints, eqnOrders := SetTcGroup(thermoCoupleTypeId)
+	coefficients, breakPoints, eqnOrders := setTcGroup(thermoCoupleTypeId)
 	for i < len(breakPoints)-1 {
 		if v >= breakPoints[i] && v <= breakPoints[i+1] {
 			index = i
@@ -56,7 +56,7 @@ func ConvertMvToTemp(v float64, thermoCoupleTypeId int) float64 {
 			coef = append(coef, coefficients[i2][index])
 			i2++
 		}
-		result = PolyCalc(v, coef, order-1)
+		result = polyCalc(v, coef, order-1)
 		if thermoCoupleTypeId == 3 && index == 1 {
 			result += kT2VExp[0] * math.Exp(kT2VExp[1]*(v-kT2VExp[2])*(v-kT2VExp[2]))
 		}
@@ -64,7 +64,7 @@ func ConvertMvToTemp(v float64, thermoCoupleTypeId int) float64 {
 	return result
 }
 
-func PolyCalc(x float64, coef []float64, order int) float64 {
+func polyCalc(x float64, coef []float64, order int) float64 {
 	var y = coef[order]
 	var i = order - 1
 	for i >= 0 {
@@ -74,7 +74,7 @@ func PolyCalc(x float64, coef []float64, order int) float64 {
 	return y
 }
 
-func SetTcGroup(tct int) ([][]float64, []float64, []int) {
+func setTcGroup(tct int) ([][]float64, []float64, []int) {
 	bV2TRanges := []float64{0.291, 2.431, 13.82}
 	bV2TOrders := []int{9, 9}
 	bV2TCoef := [][]float64{{98.423321, 213.15071}, {699.715, 285.10504}, {-847.65304, -52.742887}, {1005.2644, 9.9160804}, {-833.45952, -1.2965303}, {455.08542, 0.1119587}, {-155.23037, -0.0060625199}, {29.88675, 1.8661696e-4}, {-2.474286, -2.4878585e-6}}

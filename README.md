@@ -1,5 +1,7 @@
+![Software](https://img.shields.io/badge/CLI-Zapsi%20Service-blue) 
+![Go version](https://img.shields.io/badge/GO-1.15-brightgreen)
+![License](https://img.shields.io/badge/License-MIT-brightgreen)
 
-[![Only 39 Mb](https://badge-size.herokuapp.com/Naereen/StrapDown.js/master/strapdown.min.js)](https://github.com/Naereen/StrapDown.js/blob/master/strapdown.min.js)
 
 # Zapsi Service
 

@@ -1,5 +1,6 @@
-![Software](https://img.shields.io/badge/CLI-Zapsi%20Service-blue) 
+![Software](https://img.shields.io/badge/Zapsi%20Service-Command%20line-blue) 
 ![Go version](https://img.shields.io/badge/GO-1.15-brightgreen)
+![Docker](https://img.shields.io/badge/Docker-Ready-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-brightgreen)
 
 

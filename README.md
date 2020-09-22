@@ -1,3 +1,6 @@
+
+[![Only 39 Mb](https://badge-size.herokuapp.com/Naereen/StrapDown.js/master/strapdown.min.js)](https://github.com/Naereen/StrapDown.js/blob/master/strapdown.min.js)
+
 # Zapsi Service
 
 

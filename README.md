@@ -41,26 +41,26 @@ Zapsi_service has to be running.
         - insert unit into ```unit``` column
         - set ```virtual``` column to false
     - for digital.txt: insert new data into ```device_ports``` table
-            - insert port name into ```name``` column
-            - insert proper device_id into ```device_id``` column
-            - insert 1 into ```device_port_type_id``` column
-            - insert position from digital.txt into ```port_number``` column (1 means first position in digital.txt, 2 means second position in digital.txt, etc)
-            - insert unit into ```unit``` column
-            - set ```virtual``` column to false 
+        - insert port name into ```name``` column
+        - insert proper device_id into ```device_id``` column
+        - insert 1 into ```device_port_type_id``` column
+        - insert position from digital.txt into ```port_number``` column (1 means first position in digital.txt, 2 means second position in digital.txt, etc)
+        - insert unit into ```unit``` column
+        - set ```virtual``` column to false 
     - for serial.txt: insert new data into ```device_ports``` table
-            - insert port name into ```name``` column
-            - insert proper device_id into ```device_id``` column
-            - insert 3 into ```device_port_type_id``` column
-            - insert position from serial.txt into ```port_number``` column (1 means first position in serial.txt, 2 means second position in serial.txt, etc)
-            - insert unit into ```unit``` column
-            - set ```virtual``` column to false
+        - insert port name into ```name``` column
+        - insert proper device_id into ```device_id``` column
+        - insert 3 into ```device_port_type_id``` column
+        - insert position from serial.txt into ```port_number``` column (1 means first position in serial.txt, 2 means second position in serial.txt, etc)
+        - insert unit into ```unit``` column
+        - set ```virtual``` column to false
     - for ui_value.txt: insert new data into ```device_ports``` table
-            - insert port name into ```name``` column
-            - insert proper device_id into ```device_id``` column
-            - insert 4 into ```device_port_type_id``` column
-            - insert position from ui_value.txt into ```port_number``` column (1 means first position in ui_value.txt, 2 means second position in ui_value.txt, etc)
-            - insert unit into ```unit``` column
-            - set ```virtual``` column to false
+        - insert port name into ```name``` column
+        - insert proper device_id into ```device_id``` column
+        - insert 4 into ```device_port_type_id``` column
+        - insert position from ui_value.txt into ```port_number``` column (1 means first position in ui_value.txt, 2 means second position in ui_value.txt, etc)
+        - insert unit into ```unit``` column
+        - set ```virtual``` column to false
 
 3. Setup virtual ports (additional)
 Virtual ports are calculated from physical data on-the-fly. That means data are inserted into database in exactly the same time as original data from device.

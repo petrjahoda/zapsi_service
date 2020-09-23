@@ -101,9 +101,12 @@ To add virtual port
 Use software only as a [part of a system](https://github.com/petrjahoda/system) using Docker runtime.<br/>
  Do not run under linux, windows or mac on its own.
 
-
-
 © 2020 Petr Jahoda
 
+Devices example
+![Devices](devices.png)
+
+Device ports example
+![Device ports](device_ports.png)
 
 

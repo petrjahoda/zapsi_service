@@ -47,12 +47,12 @@ func downloadDataFromDevice(device database.Device) (downloaded bool, error erro
 	timer := time.Now()
 	deviceNameForDownload = device.Name
 	db, err := gorm.Open(postgres.Open(config), &gorm.Config{})
+	sqlDB, _ := db.DB()
+	defer sqlDB.Close()
 	if err != nil {
 		logError(device.Name, "Problem opening database: "+err.Error())
 		return false, err
 	}
-	sqlDB, err := db.DB()
-	defer sqlDB.Close()
 	var digitalPorts []database.DevicePort
 	var analogPorts []database.DevicePort
 	var serialPorts []database.DevicePort
@@ -181,12 +181,12 @@ func processSortedData(device database.Device, intermediateData []SortedData) er
 	logInfo(device.Name, "Processing data")
 	timer := time.Now()
 	db, err := gorm.Open(postgres.Open(config), &gorm.Config{Logger: logger.Default.LogMode(logger.Silent)})
+	sqlDB, _ := db.DB()
+	defer sqlDB.Close()
 	if err != nil {
 		logError(device.Name, "Problem opening database: "+err.Error())
 		return err
 	}
-	sqlDB, err := db.DB()
-	defer sqlDB.Close()
 	var digitalPorts []database.DevicePort
 	db.Where("device_id = ?", device.ID).Where("device_port_type_id = ?", 1).Where("virtual = ?", false).Find(&digitalPorts)
 	var analogPorts []database.DevicePort

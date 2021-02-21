@@ -8,11 +8,11 @@ import (
 	"time"
 )
 
-const version = "2020.4.3.14"
+const version = "2021.1.2.21"
 const serviceName = "Zapsi Service"
 const serviceDescription = "Downloads data from Zapsi devices"
 const downloadInSeconds = 10
-const config = "user=postgres password=Zps05..... dbname=version3 host=database port=5432 sslmode=disable"
+const config = "user=postgres password=pj79.. dbname=system host=database port=5432 sslmode=disable"
 
 var serviceRunning = false
 var serviceDirectory string
